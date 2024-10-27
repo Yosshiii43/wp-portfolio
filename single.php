@@ -30,7 +30,7 @@
     <header class="l-header p-header" id="header">
         <p class="p-header__title">
             <a href="#">
-                <img src="./img/header__title.png" alt="Yoshino's portfolio site" width="116px" height="57px">
+                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/header__title.png" alt="Yoshino's portfolio site" width="116px" height="57px">
             </a>
         </p>
         <div class="p-header__menu">
@@ -56,9 +56,9 @@
             <h1 class="c-title--circle c-lowerTitle">前進できる四柱推命様　Webサイト</h1>
             <div class="p-slider">
                 <ul class="js-slick01">
-                    <div><img src="./img/single_works01_001.jpg" alt="前進する四柱推命ビジュアル１" width="920px" height="575px"></div>
-                    <div><img src="./img/single_works02_001.jpg" alt="前進する四柱推命ビジュアル２" width="920px" height="575px"></div>
-                    <div><img src="./img/single_works03_001.jpg" alt="前進する四柱推命ビジュアル３" width="920px" height="575px"></div>
+                    <div><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/single_works01_001.jpg" alt="前進する四柱推命ビジュアル１" width="920px" height="575px"></div>
+                    <div><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/single_works02_001.jpg" alt="前進する四柱推命ビジュアル２" width="920px" height="575px"></div>
+                    <div><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/single_works03_001.jpg" alt="前進する四柱推命ビジュアル３" width="920px" height="575px"></div>
                 </ul>
             </div>
             <div class="p-worksDetail">

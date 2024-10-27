@@ -22,7 +22,7 @@
         height: fw.sp-vw( 460 );
         top: fw.sp-vw( 80 );
         left: fw.sp-vw( 25 );
-        background: url(../../../img/mainVisual__img--sp.png) no-repeat center right;
+        background: url(../img/mainVisual__img--sp.png) no-repeat center right;
         background-size: cover;
         display: flex;
         align-items: center;
@@ -34,7 +34,7 @@
             bottom: 0;
             left: 0;
             margin: auto;
-            background: url(../../../img/mainVisual__img--pctab.png) no-repeat center right;
+            background: url(../img/mainVisual__img--pctab.png) no-repeat center right;
             background-size: contain;
             @include fw.mq("pc"){
                 width: fw.pc-vw( 800 );

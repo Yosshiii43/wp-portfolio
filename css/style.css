@@ -316,7 +316,7 @@ body.is-open {
   height: 122.6666666667vw;
   top: 21.3333333333vw;
   left: 6.6666666667vw;
-  background: url(../../../img/mainVisual__img--sp.png) no-repeat center right;
+  background: url(../img/mainVisual__img--sp.png) no-repeat center right;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -330,7 +330,7 @@ body.is-open {
     bottom: 0;
     left: 0;
     margin: auto;
-    background: url(../../../img/mainVisual__img--pctab.png) no-repeat center right;
+    background: url(../img/mainVisual__img--pctab.png) no-repeat center right;
     background-size: contain;
   }
 }
@@ -487,6 +487,7 @@ Serviceのカード
 @media screen and (min-width: 601px) and (min-width: 1024px) {
   .p-serviceCard {
     width: 19.4444444444vw;
+    max-width: 280px;
   }
 }
 .p-serviceCard__icon {

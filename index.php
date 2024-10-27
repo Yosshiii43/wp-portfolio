@@ -1,52 +1,5 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" >
-    <script>
-        (function(d) {
-          var config = {
-            kitId: 'hff0ssr',
-            scriptTimeout: 3000,
-            async: true
-          },
-          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-        })(document);
-      </script><!--Adobe Fontsより筑紫A丸ゴシック-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css"><!--メインビジュアル内アニメーション用-->
-    <link rel="stylesheet" type="text/css" href="./js/slick-1.8.1/slick/slick.css"><!--スライダー(slick)用-->
-    <link rel="stylesheet" type="text/css" href="./js/slick-1.8.1/slick/slick-theme.css"><!--スライダー(slick)用-->
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Yoshino’s Portfolio Site</title>
-</head>
-<body class="home c-body">
-    <div class="p-loadingOverlay">
-        <div class="p-loader"></div>
-    </div>
-    <header class="l-header p-header" id="header">
-        <p class="p-header__title">
-            <a href="#">
-                <img src="./img/header__title.png" alt="Yoshino's portfolio site" width="116px" height="57px">
-            </a>
-        </p>
-        <div class="p-header__menu">
-            <button class="p-hamburger js-hamburger">
-                <span>menuボタン</span>
-            </button>
-            <ul class="p-gmenu c-font--nunito200">
-                <li class="p-gmenu__item"><a href="#service">Service</a></li>
-                <li class="p-gmenu__item"><a href="#works">Works</a></li>
-                <li class="p-gmenu__item"><a href="#about">About</a></li>
-                <li class="p-gmenu__item"><a href="#flow">Flow</a></li>
-                <li class="p-gmenu__item"><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </header>
-    <main class="l-main">
+<?php get_header(); ?>
+<main class="l-main">
         <div class="p-mainVisual c-bg--gray">
             <div>
                 <div class="p-mainVisual__title">
@@ -74,7 +27,7 @@
                         <section class="p-serviceCard">
                             <a href="#">
                                 <p class="p-serviceCard__icon">
-                                    <img src="./img/ico_webdesign.png" alt="Webデザインのイラスト" width="500px" height="500px">
+                                    <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico_webdesign.png" alt="Webデザインのイラスト" width="500px" height="500px">
                                 </p>
                                 <h4>Webサイト・LPデザイン</h4>
                                 <p class="p-serviceCard__caption">ユーザーに響くデザインで、Webサイトやランディングページの効果を最大化します。レスポンシブ対応であらゆるデバイスに最適化します。</p>
@@ -83,7 +36,7 @@
                         <section class="p-serviceCard">
                             <a href="#">
                                 <p class="p-serviceCard__icon">
-                                    <img src="./img/ico_sns.png" alt="SNS関連デザインのイラスト" width="500px" height="500px">
+                                    <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico_sns.png" alt="SNS関連デザインのイラスト" width="500px" height="500px">
                                 </p>
                                 <h4>SNS関連デザイン</h4>
                                 <p class="p-serviceCard__caption">LINEのリッチメニューやリッチ画像のデザイン、SNS広告やInstagram投稿フォーマットのデザインを通じて、企業のメッセージを効果的に伝えます。</p>
@@ -92,7 +45,7 @@
                         <section class="p-serviceCard">
                             <a href="#">
                                 <p class="p-serviceCard__icon">
-                                    <img src="./img/ico_namecard.png" alt="名刺・ショップカードデザインのイラスト" width="500px" height="500px">
+                                    <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico_namecard.png" alt="名刺・ショップカードデザインのイラスト" width="500px" height="500px">
                                 </p>
                                 <h4>名刺・ショップカードデザイン</h4>
                                 <p class="p-serviceCard__caption">印象に残る名刺やショップカードのデザインで、あなたのブランドの魅力をしっかりと伝えます。</p>
@@ -106,7 +59,7 @@
                         <section class="p-serviceCard">
                             <a href="#">
                                 <p class="p-serviceCard__icon">
-                                    <img src="./img/ico_coding.png" alt="フロントエンドコーディングのイラスト" width="500px" height="500px">
+                                    <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico_coding.png" alt="フロントエンドコーディングのイラスト" width="500px" height="500px">
                                 </p>
                                 <h4>フロントエンドコーディング</h4>
                                 <p class="p-serviceCard__caption">HTML、CSS、JavaScriptを使用して、デザインを忠実に再現します。
@@ -116,7 +69,7 @@
                         <section class="p-serviceCard">
                             <a href="#">
                                 <p class="p-serviceCard__icon">
-                                    <img src="./img/Ico_responsive.png" alt="レスポンシブデザイン対応のイラスト" width="500px" height="500px">
+                                    <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/Ico_responsive.png" alt="レスポンシブデザイン対応のイラスト" width="500px" height="500px">
                                 </p>
                                 <h4>レスポンシブデザイン対応</h4>
                                 <p class="p-serviceCard__caption">PC、タブレット、スマートフォンなど、あらゆるデバイスで快適に閲覧できるレスポンシブデザインに対応しています。また、ユーザーが直感的に操作できるウェブサイトを目指します。</p>
@@ -125,7 +78,7 @@
                         <section class="p-serviceCard">
                             <a href="#">
                                 <p class="p-serviceCard__icon">
-                                    <img src="./img/ico_wordpress.png" alt="WordPress構築のイラスト" width="500px" height="500px">
+                                    <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico_wordpress.png" alt="WordPress構築のイラスト" width="500px" height="500px">
                                 </p>
                                 <h4>WordPress構築</h4>
                                 <p class="p-serviceCard__caption">WordPressを用いたウェブサイト構築で、管理のしやすさと柔軟性を両立したサイトを提供します。
@@ -153,58 +106,58 @@
                         <div class="p-worksCard__tags">
                             <p class="c-title--circle">Webサイトデザイン</p>
                         </div>
-                        <p><img src="./img/flont_works_001.jpg" alt="前進する四柱推命Webの写真"></p>
+                        <p><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/flont_works_001.jpg" alt="前進する四柱推命Webの写真"></p>
                     </div>
                     <div class="p-worksCard js-tagWeb js-tagCodin">
                         <div class="p-worksCard__tags">
                             <p class="c-title--circle">Webサイトデザイン</p>
                             <p class="c-title--circle">コーディング</p>
                         </div>
-                        <p><img src="./img/flont_works_002.jpg" alt="ポートフォリオの写真"></p>
+                        <p><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/flont_works_002.jpg" alt="ポートフォリオの写真"></p>
                     </div>
                     <div class="p-worksCard js-tagLp">
                         <div class="p-worksCard__tags">
                             <p class="c-title--circle">LPデザイン</p>
                         </div>
-                        <p><img src="./img/flont_works_003.jpg" alt="前進する四柱推命LPの写真"></p>
+                        <p><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/flont_works_003.jpg" alt="前進する四柱推命LPの写真"></p>
                     </div>
                     <div class="p-worksCard js-tagWeb">
                         <div class="p-worksCard__tags">
                             <p class="c-title--circle">Webサイトデザイン</p>
                         </div>
-                        <p><img src="./img/flont_works_001.jpg" alt="前進する四柱推命Webの写真"></p>
+                        <p><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/flont_works_001.jpg" alt="前進する四柱推命Webの写真"></p>
                     </div>
                     <div class="p-worksCard js-tagWeb js-tagCoding">
                         <div class="p-worksCard__tags">
                             <p class="c-title--circle">Webサイトデザイン</p>
                             <p class="c-title--circle">コーディング</p>
                         </div>
-                        <p><img src="./img/flont_works_002.jpg" alt="ポートフォリオの写真"></p>
+                        <p><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/flont_works_002.jpg" alt="ポートフォリオの写真"></p>
                     </div>
                     <div class="p-worksCard js-tagLp">
                         <div class="p-worksCard__tags">
                             <p class="c-title--circle">LPデザイン</p>
                         </div>
-                        <p><img src="./img/flont_works_003.jpg" alt="前進する四柱推命LPの写真"></p>
+                        <p><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/flont_works_003.jpg" alt="前進する四柱推命LPの写真"></p>
                     </div>
                     <div class="p-worksCard js-tagWeb">
                         <div class="p-worksCard__tags">
                             <p class="c-title--circle">Webサイトデザイン</p>
                         </div>
-                        <p><img src="./img/flont_works_001.jpg" alt="前進する四柱推命Webの写真"></p>
+                        <p><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/flont_works_001.jpg" alt="前進する四柱推命Webの写真"></p>
                     </div>
                     <div class="p-worksCard js-tagWeb js-tagCoding">
                         <div class="p-worksCard__tags">
                             <p class="c-title--circle">Webサイトデザイン</p>
                             <p class="c-title--circle">コーディング</p>
                         </div>
-                        <p><img src="./img/flont_works_002.jpg" alt="ポートフォリオの写真"></p>
+                        <p><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/flont_works_002.jpg" alt="ポートフォリオの写真"></p>
                     </div>
                     <div class="p-worksCard js-tagLp">
                         <div class="p-worksCard__tags">
                             <p class="c-title--circle">LPデザイン</p>
                         </div>
-                        <p><img src="./img/flont_works_003.jpg" alt="前進する四柱推命LPの写真"></p>
+                        <p><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/flont_works_003.jpg" alt="前進する四柱推命LPの写真"></p>
                     </div>
                 </div><!--p-works__gallery-->
                 <button class="p-works__more">もっと見る</button>
@@ -225,7 +178,7 @@
                         <p>　折りたたみの小さな自転車BROMPTONに乗って、甘いものを食べに出かけることが、最近のお気に入りです。</p>
                     </div>
                     <div class="p-about__img">
-                        <img src="./img/portrait_sit.png" alt="Yoshinoイラスト" width="1500px" height="1444px">
+                        <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/portrait_sit.png" alt="Yoshinoイラスト" width="1500px" height="1444px">
                     </div>
                 </div><!--"c-inner-->
             </div><!--c-wrap-->
@@ -234,39 +187,45 @@
             <div class="c-wrap">
                 <h2 class="c-title--frontH2 c-font--nunito200 c-fadeIn js-fadeIn">Flow</h2>
                 <div class="c-inner c-fadeIn js-fadeIn">
-                    <section class="p-flow__item c-bg--gray">
-                        <h3><span class="c-title--circleNumber">1</span>お問い合わせ ・ヒアリング</h3>
+                <section class="p-flow__item c-bg--gray">
+                        <h3><span class="c-title--circleNumber">1</span>お問い合わせ</h3>
                         <div class="p-flow__item__text">
-                            <p>まずはお問い合わせフォームからご連絡ください。3営業日以内にご返信いたします。</p>
-                            <p>その後、メールまたはオンラインミーティングで詳しいご依頼内容をお伺いします。</p>
-                            <p>初回のご相談は無料ですので、どんな小さなご相談でもお気軽にお問い合わせください。</p>
+                            <p>サイトのお問い合わせフォームよりご連絡ください。制作内容、イメージ、スケジュール、予算など、詳しくお知らせいただくとスムーズです。初回相談は無料ですので、お気軽にどうぞ。</p>
                         </div>
                     </section>
-                    <div class="p-flow__arrow"><img src="./img/ico__arrow--gray.png" alt="下向き矢印" width="40px" height="40px"></div>
+                    <div class="p-flow__arrow"><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico__arrow--gray.png" alt="下向き矢印" width="40px" height="40px"></div>
                     <section class="p-flow__item c-bg--gray">
-                        <h3><span class="c-title--circleNumber">2</span>見積もり・契約</h3>
+                        <h3><span class="c-title--circleNumber">2</span>ヒアリング & お見積り</h3>
                         <div class="p-flow__item__text">
-                            <p>ヒアリング内容をもとに、内容や規模に応じた費用を算出し、見積もりをお送りします。</p>
-                            <p>お見積もりにご納得いただけましたら、契約書を締結します。</p>
-                            <p>契約内容やお支払いのスケジュールについても丁寧にご説明しますので、安心してご依頼いただけます。</p>
+                            <p>オンラインミーティングやメールで詳細なヒアリングを行います。プロジェクトの目標や納期について具体的に話し合い、内容や規模に応じたお見積りをお送りいたします。</p>
                         </div>
                     </section>
-                    <div class="p-flow__arrow"><img src="./img/ico__arrow--gray.png" alt="下向き矢印" width="40px" height="40px"></div>
+                    <div class="p-flow__arrow"><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico__arrow--gray.png" alt="下向き矢印" width="40px" height="40px"></div>
                     <section class="p-flow__item c-bg--gray">
-                        <h3><span class="c-title--circleNumber">3</span>制作・確認</h3>
+                        <h3><span class="c-title--circleNumber">3</span>ご契約</h3>
                         <div class="p-flow__item__text">
-                            <p>デザインやコーディングの制作を開始します。</p>
-                            <p>進捗は定期的に共有し、お客様からの修正依頼やフィードバックを反映させながら進めます。</p>
-                            <p>最終確認時に、必要に応じて細かい調整を行い、納得いただける完成形に仕上げます。</p>
+                            <p>お見積りにご納得いただけましたら、契約書を締結いたします。契約内容やお支払いのスケジュールを丁寧にご説明いたしますので、安心してご依頼いただけます。</p>
                         </div>
                     </section>
-                    <div class="p-flow__arrow"><img src="./img/ico__arrow--gray.png" alt="下向き矢印" width="40px" height="40px"></div>
+                    <div class="p-flow__arrow"><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico__arrow--gray.png" alt="下向き矢印" width="40px" height="40px"></div>
                     <section class="p-flow__item c-bg--gray">
-                        <h3><span class="c-title--circleNumber">4</span>納品・お支払い</h3>
+                        <h3><span class="c-title--circleNumber">4</span>制作開始</h3>
                         <div class="p-flow__item__text">
-                            <p>最終的なデザインやWebサイトの確認が完了しましたら、納品を行います。</p>
-                            <p>納品後に請求書を発行し、お支払いをお願いしております。お支払いが確認でき次第、プロジェクトは完了となります。</p>
-                            <p>納品後のサポートも引き続き対応いたしますので、アフターフォローもお任せください。</p>
+                            <p>デザイン・コーディング作業を開始します。進捗は定期的に共有し、確認や修正は随時行います。お客様と密にコミュニケーションを取りながら、制作を進めてまいります。</p>
+                        </div>
+                    </section>
+                    <div class="p-flow__arrow"><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico__arrow--gray.png" alt="下向き矢印" width="40px" height="40px"></div>
+                    <section class="p-flow__item c-bg--gray">
+                        <h3><span class="c-title--circleNumber">5</span>納品 & お支払い</h3>
+                        <div class="p-flow__item__text">
+                            <p>完成したデザインやWebサイトをご確認いただき、ご承認後に納品となります。納品後、指定の銀行口座へお支払いをお願いいたします。領収書の発行も承ります。</p>
+                        </div>
+                    </section>
+                    <div class="p-flow__arrow"><img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico__arrow--gray.png" alt="下向き矢印" width="40px" height="40px"></div>
+                    <section class="p-flow__item c-bg--gray">
+                        <h3><span class="c-title--circleNumber">6</span>アフターサポート</h3>
+                        <div class="p-flow__item__text">
+                            <p>納品後も運用相談や軽微な修正に柔軟に対応いたします。アフターフォローも心配ございませんので、お気軽にご相談ください。長期的なサポートを提供いたします。</p>
                         </div>
                     </section>
                 </div><!--c-inner-->
@@ -314,22 +273,4 @@
             </div><!--c-wrap-->
         </section><!--p-contact-->
     </main>
-    <footer class="p-footer c-bg--yellow">
-        <div>
-            <ul class="p-footer__menu c-font--nunito200">
-                <li class="p-footer__menu__item"><a href="#service">Service</a></li>
-                <li class="p-footer__menu__item"><a href="#works">Works</a></li>
-                <li class="p-footer__menu__item"><a href="#about">About</a></li>
-                <li class="p-footer__menu__item"><a href="#flow">Flow</a></li>
-                <li class="p-footer__menu__item"><a href="#contact">Contact</a></li>
-            </ul>
-            <p class="p-footer__copyright c-textSmall c-font--nunito200">&copy;2024 ️Yoshino Sumi</p>
-        </div>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script><!--メインビジュアル内アニメーション用-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js"></script><!--メインビジュアル内アニメーション用-->
-    <script src="js/jquery.lettering.js"></script><!--メインビジュアル内アニメーション用-->
-    <script src="./js/slick-1.8.1/slick/slick.js"></script><!--スライダー(slick)用-->
-    <script type="text/javascript" src="./js/main.js"></script>
-</body>
-</html>
+<?php get_footer(); ?>
