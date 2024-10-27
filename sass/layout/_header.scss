@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/*=======================
+ヘッダー
+=======================*/
+@use "../foundation/forwords" as fw;
+
+.l-header{
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 83px;
+    @include fw.mq("tab"){
+        height: 85px;
+        @include fw.mq("pc"){
+            height: 91px;
+        }
+    }
+}

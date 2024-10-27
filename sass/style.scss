@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+// foundation
+    // リセットCSS
+    //@use "foundation/reset";
+    //ベースとなるCSS
+    @use "foundation/base";
+
+//layout
+@use "layout/header" as lh;
+@use "layout/main" as lm;
+
+//project
+    @use "object/project/loader";
+    @use "object/project/header" as ph;
+    @use "object/project/hamburger";
+    @use "object/project/header__menu";
+    @use "object/project/mainVisual";
+    @use "object/project/concept";
+    @use "object/project/service";
+    @use "object/project/serviceCard";
+    @use "object/project/works";
+    @use "object/project/worksCard";
+    @use "object/project/about";
+    @use "object/project/flow";
+    @use "object/project/contact";
+    @use "object/project/contactForm";
+    @use "object/project/footer";
+    @use "object/project/lowePageHeading" ;
+    @use "object/project/slider";
+    @use "object/project/worksDetail";
+    @use "object/project/siteLink";
+    @use "object/project/privacy";
+    @use "object/project/404" as nf404;
+
+//compornent
+    //@use "object/compornent/grid";
+    @use "object/compornent/body";
+    @use "object/compornent/bg";
+    @use "object/compornent/font";
+    @use "object/compornent/wrap";
+    @use "object/compornent/randomAnime";
+    @use "object/compornent/title";
+    @use "object/compornent/fadeIn";
+    @use "object/compornent/marginBottom";
+    @use "object/compornent/textSmall";
+    @use "object/compornent/listStyle";
+    @use "object/compornent/lowerTitle";
+
+//utility
