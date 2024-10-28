@@ -1,11 +1,20 @@
 ////ローディングアニメーション////
-document.addEventListener("DOMContentLoaded", function() {
-	// 3秒後にローディング画面を非表示に
-	setTimeout(function() {
+document.addEventListener("DOMContentLoaded", function () {
+	// localStorageに"visited"フラグがあるかを確認
+	const isVisited = localStorage.getItem("visited");
+  
+	if (isVisited) {
+	  // 一度訪問済みの場合はローディングアニメーションを非表示
 	  document.querySelector(".p-loadingOverlay").style.display = "none";
-	}, 3000); // 3000ms（3秒）後に非表示にします
+	} else {
+	  // 初回訪問の場合はローディングアニメーションを表示し、フラグを設定
+	  setTimeout(() => {
+		document.querySelector(".p-loadingOverlay").style.display = "none";
+		localStorage.setItem("visited", "true");
+	  }, 3000); // アニメーションの表示時間を設定（例: 2秒）
+	}
   });
-
+  
 ////ハンバーガーメニュー////
 document.querySelector( '.js-hamburger' ).addEventListener(
 	'click',
@@ -17,7 +26,7 @@ document.querySelector( '.js-hamburger' ).addEventListener(
 );
 
 ////スムーススクロール////
-$(function(){
+jQuery(function($){
 	var headerHeight = $('header').outerHeight(); // ヘッダーの高さ取得
 	var urlHash = location.hash; // ハッシュ値があればページ内スクロール
 	if(urlHash) { // 外部リンクからのクリック時
@@ -48,7 +57,7 @@ $(function(){
 var Obj = {
 	loop: false,
 	minDisplayTime: 2000,// アニメーションの間隔時間
-	initialDelay: 900, // アニメーション開始までの遅延時間
+	initialDelay: 800, // アニメーション開始までの遅延時間
 	autoStart: true,
 	in: {
 		effect: 'fadeInUp',//animate.css の中にある採用したい動きのクラス名
@@ -63,42 +72,42 @@ var Obj = {
 var element
 //初期設定
 function RandomInit() {
-	element= $(".randomAnime");
-	$(element[0]).textillate(Obj);
+	element= jQuery(".randomAnime");
+	jQuery(element[0]).textillate(Obj);
 }
 
 function RandomAnimeControl() {
-		var elemPos = $(element[1]).offset().top - 50;
-		var scroll = $(window).scrollTop();
-		var windowHeight = $(window).height();
+		var elemPos = jQuery(element[1]).offset().top - 50;
+		var scroll = jQuery(window).scrollTop();
+		var windowHeight = jQuery(window).height();
 
 		if (scroll >= elemPos - windowHeight) {
-			$(element[1]).textillate(Obj);
+			jQuery(element[1]).textillate(Obj);
 		}
 }
 
 // 画面が読み込まれたらすぐに動かしたい場合の記述
-$(window).on('load', function () {
+jQuery(window).on('load', function () {
 	RandomInit(); /*初期設定を読み込み*/
 	RandomAnimeControl();/*アニメーション用の関数を呼ぶ*/
 });//ここまで画面が読み込まれたらすぐに動かしたい場合の記述
 
 
 ////要素の下からのフェードイン////
-$(window).on('scroll load', function(){        /* ページロード時、またはスクロールされた時*/
-	var scroll = $(this).scrollTop();            /* 現在のスクロール量を測定 */
-	var windowHeight = $(window).height();       /* ウィンドウの高さを測定 */
-	$('.js-fadeIn').each(function(){                /* 「fadeIn」のクラスがついているものを1つずつ確認し・・・ */
-	  var cntPos = $(this).offset().top;         /* 対象の要素の上からの距離を測定 */
+jQuery(window).on('scroll load', function(){        /* ページロード時、またはスクロールされた時*/
+	var scroll = jQuery(this).scrollTop();            /* 現在のスクロール量を測定 */
+	var windowHeight = jQuery(window).height();       /* ウィンドウの高さを測定 */
+	jQuery('.js-fadeIn').each(function(){                /* 「fadeIn」のクラスがついているものを1つずつ確認し・・・ */
+	  var cntPos = jQuery(this).offset().top;         /* 対象の要素の上からの距離を測定 */
 	  if(scroll > cntPos - windowHeight + windowHeight / 3){  /* 要素がある位置までスクロールされていたら */
-		$(this).addClass('c-fadeIn--active');              /* 「active」のクラスを付与 */
+		jQuery(this).addClass('c-fadeIn--active');              /* 「active」のクラスを付与 */
 	  }
 	});
   });
 
 
 ////Worksページスライダー(slick)////
-$('.js-slick01').slick({
+jQuery('.js-slick01').slick({
 	dots: true,
 	infinite: true,
 	speed: 500,

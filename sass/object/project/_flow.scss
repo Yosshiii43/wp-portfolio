@@ -16,7 +16,7 @@
             padding: fw.rem( 20 ) fw.rem( 40 );
             @include fw.mq("pc"){
                 flex-direction: row;
-                gap: 0 fw.rem( 32 );
+                gap: 0 fw.rem( 24 );
                 max-width: 720px;
                 margin: 0 auto;
             }
@@ -24,7 +24,7 @@
         h3{
             font-size: fw.rem( 19 );
             @include fw.mq("pc"){
-                width: 14em;
+                width: 12em;
             }
         }
         &__text{
