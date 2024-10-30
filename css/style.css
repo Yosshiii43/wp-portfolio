@@ -824,11 +824,11 @@ footer
     margin: 0 auto;
   }
 }
-.p-lowerPageHeading div p {
+.p-lowerPageHeading div > * {
   font-size: 2rem;
 }
 @media screen and (min-width: 601px) {
-  .p-lowerPageHeading div p {
+  .p-lowerPageHeading div > * {
     font-size: 2.375rem;
   }
 }
@@ -929,7 +929,7 @@ Works（下層ページ）詳細
   margin-bottom: 1.25rem;
 }
 .p-privacy__item__secondary {
-  margin-left: 1rem;
+  padding-left: 1rem;
 }
 .p-privacy__item__secondary > * {
   margin-bottom: 0.5rem;

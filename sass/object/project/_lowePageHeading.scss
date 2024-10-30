@@ -16,7 +16,7 @@
                 margin: 0 auto;
             }
         }
-        p{
+        > *{//pタグの時とh1タグの時の2種類に対応するため">*"に変更
             font-size: fw.rem( 32 );
             @include fw.mq("tab"){
                 font-size: fw.rem( 38 );

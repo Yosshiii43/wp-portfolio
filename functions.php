@@ -1,9 +1,10 @@
 <?php
-function portfolio_theme_setup(){
-//テーマサポート
+function portfolio_theme_setup() {
+    // テーマサポート
     add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
 }
-add_action( 'after_setup_theme', 'portfolio_theme_setup' );
+add_action('after_setup_theme', 'portfolio_theme_setup');
 
 
 function portfolio_add_files(){
@@ -48,6 +49,16 @@ function portfolio_add_files(){
         'portfolio-main',
         get_template_directory_uri() . '/js/main.js',
         array('portfolio-jquery-3.7.1', 'portfolio-textillate', 'portfolio-lettering', 'portfolio-slick'),
+        null,
+        true
+    );
+
+
+    // カスタム投稿タイプWorks用JSの読み込み
+    wp_enqueue_script(
+        'portfolio-works',
+        get_template_directory_uri() . '/js/works-custom.js',
+        array('portfolio-jquery-3.7.1'),
         null,
         true
     );
@@ -102,6 +113,7 @@ function portfolio_add_files(){
 }
 add_action( 'wp_enqueue_scripts', 'portfolio_add_files');
 
+
 function enqueue_custom_fonts() {
     // Adobe Fontsの読み込み
     wp_enqueue_script(
@@ -147,7 +159,15 @@ function enqueue_custom_fonts() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_fonts');
 
-//タイトル出力(後で使用)
+
+//制作実績からエディターを取り除く//
+function my_remove_post_support() {
+     remove_post_type_support('works','editor'); 
+}
+add_action( 'init' , 'my_remove_post_support' );
+
+
+///タイトル出力(後で使用)////
 function portfolio_title( $title ){
     if(is_front_page() || is_home()){//トップページなら
         $title = get_bloginfo('name','display');
@@ -163,3 +183,5 @@ function portfolio_title_separator($separator) {
     return $separator;
   }
   add_filter('document_title_separator', 'portfolio_title_separator');
+
+
