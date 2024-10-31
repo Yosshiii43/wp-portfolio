@@ -1,4 +1,4 @@
-<footer class="p-footer c-bg--yellow">
+<footer class="l-footer p-footer c-bg--yellow">
         <div>
             <ul class="p-footer__menu c-font--nunito200">
                 <li class="p-footer__menu__item"><a href="#service">Service</a></li>

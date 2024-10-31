@@ -3,6 +3,7 @@
 メインカラム
 =======================*/
 @use "../foundation/forwords" as fw;
+@use "sass:math";
 
 .l-main{
     background-color: fw.$color--white;
