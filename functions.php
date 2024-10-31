@@ -53,16 +53,6 @@ function portfolio_add_files(){
         true
     );
 
-
-    // カスタム投稿タイプWorks用JSの読み込み
-    wp_enqueue_script(
-        'portfolio-works',
-        get_template_directory_uri() . '/js/works-custom.js',
-        array('portfolio-jquery-3.7.1'),
-        null,
-        true
-    );
-
     // Google FontsからNunito読み込み
     wp_enqueue_style(
         'portfolio-nunito',

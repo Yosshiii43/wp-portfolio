@@ -10,7 +10,7 @@
                 <h1 class=""><?php the_title(); ?></h1>
             </div>
         </div><!--p-lowerPageHeading-->
-        <div <?php post_class('c-wrap'); ?> >
+        <div id="post-<?php the_ID(); ?>" <?php post_class('c-wrap'); ?> >
                 <?php the_content(); ?>
         </div><!--c-wrap-->
     <?php endwhile; else :?>
