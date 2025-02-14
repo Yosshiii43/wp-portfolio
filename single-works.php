@@ -41,8 +41,10 @@
                         if (!empty($detail['detail_label' . $i]) && !empty($detail['detail_content' . $i])) :
                     ?>
                         <tr>
-                            <th class="p-detail__title"><span class="c-title--unorderCircle"><?php echo esc_html($detail['detail_label' . $i]); ?>：</span></th>
-                            <td class="p-detail__text"><p><?php echo nl2br(esc_html($detail['detail_content' . $i])); ?></p></td>
+                            <!--<th class="p-detail__title"><span class="c-title--unorderCircle"><?php echo esc_html($detail['detail_label' . $i]); ?>：</span></th>
+                            <td class="p-detail__text"><p><?php echo nl2br(esc_html($detail['detail_content' . $i])); ?></p></td>-->
+                            <th class="p-detail__title c-title--unorderCircle"><?php echo esc_html($detail['detail_label' . $i]); ?>：</th>
+                            <td class="p-detail__text"><?php echo nl2br(esc_html($detail['detail_content' . $i])); ?></td>
                         </tr>
                     <?php 
                         endif;
@@ -57,7 +59,7 @@
                     // フィールドが空でない場合にのみ出力
                     if (!empty($link_label) && !empty($link_url)) :
                 ?>
-                <p class="p-siteLink"><a href="<?php echo esc_url($link_url); ?>"><?php echo esc_html($link_label); ?></a></p>
+                <p class="p-siteLink"><a href="<?php echo esc_url($link_url); ?>" target=”_blank”><?php echo esc_html($link_label); ?></a></p>
                 <?php 
                     endif;
                     ?>

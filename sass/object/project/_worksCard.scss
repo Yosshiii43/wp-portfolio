@@ -6,31 +6,43 @@ Worksのカード
 @use "sass:math";
 
 .p-worksCard{
-    width: 100%;
-    aspect-ratio: 5 / 4;
-    position: relative;
-    @include fw.mq("tab"){
-        width: calc( math.div(calc(100% - 40px) , 2));//カードの間隔40pxの時
-        @include fw.mq("pc"){
-            width: calc( math.div(calc(100% - 40px * 2) , 3));
+    &__text{
+        &__tag{font-size: fw.rem(14);
+        }
+        h3{
+            font-size: fw.rem(16);
         }
     }
-    &__tags{
-        font-size: fw.rem( 14 );
-        position: absolute;
-        top: fw.rem( 12 );
-        left: fw.rem( 18 );
-        p{
-            font-size: fw.rem( 14 );
-            &::before{
-                width: fw.rem(12);//黄色のサークルの幅
-                height: fw.rem(12);//黄色のサークルの高さ
-                top: 0.1em;
-                left: -0.5em;
-            }
-        }
-    }
-    > p img{
+    img{
         border-radius: 4px;
+    }
+}
+
+//横並びのカードのディレイ設定
+/* スマートフォン（デフォルト）: ディレイなし */
+.p-worksCard.c-fadeIn {
+    transition-delay: 0s;
+}
+
+/* タブレット: 奇数・偶数でディレイ */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .p-works__gallery .p-worksCard.c-fadeIn:nth-child(odd) {
+        transition-delay: .2s;
+    }
+    .p-works__gallery .p-worksCard.c-fadeIn:nth-child(even) {
+        transition-delay: .4s;
+    }
+}
+
+/* PC: 3列ごとにディレイ */
+@media (min-width: 1024px) {
+    .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+1) {
+        transition-delay: .2s;
+    }
+    .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+2) {
+        transition-delay: .4s;
+    }
+    .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+0) {
+        transition-delay: .6s;
     }
 }

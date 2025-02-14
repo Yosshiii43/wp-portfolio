@@ -9,13 +9,12 @@
     &__menu{
         display: flex;
         flex-wrap: wrap;
-        gap: fw.rem( 18 ) fw.rem( 18 );
+        gap: fw.rem( 30 );
         justify-content: center;
         margin-bottom: fw.rem( 40 );
         @include fw.mq(tab){
-            gap: fw.rem( 24 ) fw.rem( 24 );
             @include fw.mq("pc"){
-                gap: fw.rem( 32 ) fw.rem( 32 );
+                gap: fw.rem( 40 ) fw.rem( 40 );
             }
         }
         &__item{
@@ -24,15 +23,29 @@
                 font-size: fw.rem( 20 );
             }
         }
+
+        button.c-title--circle::before{
+            width: 20px;
+            height: 20px;
+            margin-left: -12px;
+        }
+
+        // ホバー時のスタイル（必要なら追加）
+        button:hover {
+            opacity: 0.8; // 透明度を少し変更してホバー時の反応を強調
+        }
     }
     &__gallery{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: fw.rem( 40 );
+        display: grid;
+        gap:3rem;
+        grid-template-columns: repeat(1, 1fr);
         gap: 40px;
+        margin-bottom: fw.rem( 40 );
         @include fw.mq("tab"){
-            justify-content: space-between;
+            grid-template-columns: repeat(2, 1fr);
+            @include fw.mq("pc"){
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
     }
     &__more{

@@ -35,3 +35,32 @@
         margin-bottom: fw.rem( 60 );
     }
 }
+
+//横並びのカードのディレイ設定
+/* スマートフォン（デフォルト）: ディレイなし */
+.p-serviceCard .c-fadeIn {
+    transition-delay: 0s;
+}
+
+/* タブレット: 奇数・偶数でディレイ */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(1) {
+        transition-delay: .2s;
+    }
+    .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(2) {
+        transition-delay: .4s;
+    }
+}
+
+/* PC: 3列ごとにディレイ */
+@media (min-width: 1024px) {
+    .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(3n+1) {
+        transition-delay: .2s;
+    }
+    .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(3n+2) {
+        transition-delay: .4s;
+    }
+    .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(3n+0) {
+        transition-delay: .6s;
+    }
+}

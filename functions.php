@@ -103,7 +103,7 @@ function portfolio_add_files(){
 }
 add_action( 'wp_enqueue_scripts', 'portfolio_add_files');
 
-
+/*
 function enqueue_custom_fonts() {
     // Adobe Fontsの読み込み
     wp_enqueue_script(
@@ -120,6 +120,7 @@ function enqueue_custom_fonts() {
         '(function(d) {
             var config = {
               kitId: "hff0ssr",
+
               scriptTimeout: 3000,
               async: true
             },
@@ -148,13 +149,13 @@ function enqueue_custom_fonts() {
     );
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_fonts');
+*/
 
-
-//制作実績からエディターを取り除く//
-function my_remove_post_support() {
-     remove_post_type_support('works','editor'); 
+// 制作実績投稿タイプのスラッグメタボックスを非表示にする
+function hide_slug_meta_box() {
+    remove_meta_box('slugdiv', 'works', 'normal'); 
 }
-add_action( 'init' , 'my_remove_post_support' );
+add_action('add_meta_boxes', 'hide_slug_meta_box');
 
 
 ///タイトル出力(後で使用)////
@@ -175,3 +176,11 @@ function portfolio_title_separator($separator) {
   add_filter('document_title_separator', 'portfolio_title_separator');
 
 
+//コンタクトフォーム7　承諾確認をチェックするとバリデーションされるのを止める
+function disable_wpcf7_realtime_validation() {
+    wp_dequeue_script('contact-form-7');
+    wp_deregister_script('contact-form-7');
+
+    wp_enqueue_script('custom-wpcf7', get_template_directory_uri() . '/custom-wpcf7.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'disable_wpcf7_realtime_validation', 20);

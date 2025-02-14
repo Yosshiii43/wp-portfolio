@@ -3,7 +3,7 @@
   ベースCSS
   =======================*/
 html {
-  font-size: 17px;
+  font-size: 16px;
 }
 
 body {
@@ -12,8 +12,8 @@ body {
   margin: 0;
   background: #FFFFFF;
   font-size: 1rem;
-  font-family: "fot-tsukuardgothic-std", sans-serif;
-  font-weight: 400;
+  font-family: "Zen Maru Gothic", serif;
+  font-weight: 300;
   font-style: normal;
   color: #333333;
   line-height: 1.5;
@@ -29,7 +29,6 @@ h1, h2, h3, h4, h5, h6, p, figure {
   margin: 0;
   padding: 0;
   font-size: 100%;
-  font-weight: 300;
 }
 
 ul, ol {
@@ -83,42 +82,6 @@ a {
   }
 }
 
-/*=============================
-ローディング画面
-=============================*/
-.p-loadingOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #F7F6F6; /* 不透明な背景色 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999; /* 高い値に設定して最前面に表示 */
-}
-
-/* Loader Animation Styles */
-.p-loader {
-  width: 120px; /* ドッツの幅を160pxに設定 */
-  aspect-ratio: 4; /* アスペクト比を設定（4:1の比率） */
-  background: radial-gradient(circle closest-side, #FAFD87 90%, rgba(0, 0, 0, 0)) 0/33.3333333333% 100% no-repeat;
-  -webkit-animation: l2 1s steps(3) infinite;
-          animation: l2 1s steps(3) infinite; /* アニメーションを設定 */
-}
-
-@-webkit-keyframes l2 {
-  to {
-    background-position: 150%; /* 背景の位置をアニメーションで移動 */
-  }
-}
-
-@keyframes l2 {
-  to {
-    background-position: 150%; /* 背景の位置をアニメーションで移動 */
-  }
-}
 /*=======================
 ヘッダー
 =======================*/
@@ -341,6 +304,7 @@ body.is-open {
   }
 }
 .p-mainVisual > div:first-child .p-mainVisual__title {
+  font-weight: 300;
   width: 45.8666666667vw;
 }
 @media screen and (min-width: 601px) {
@@ -473,6 +437,32 @@ body.is-open {
   margin-bottom: 3.75rem;
 }
 
+/* スマートフォン（デフォルト）: ディレイなし */
+.p-serviceCard .c-fadeIn {
+  transition-delay: 0s;
+}
+
+/* タブレット: 奇数・偶数でディレイ */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .p-service__content__gallery .p-serviceCard.c-fadeIn:nth-child(1) {
+    transition-delay: 0.2s;
+  }
+  .p-service__content__gallery .p-serviceCard.c-fadeIn:nth-child(2) {
+    transition-delay: 0.4s;
+  }
+}
+/* PC: 3列ごとにディレイ */
+@media (min-width: 1024px) {
+  .p-service__content__gallery .p-serviceCard.c-fadeIn:nth-child(3n+1) {
+    transition-delay: 0.2s;
+  }
+  .p-service__content__gallery .p-serviceCard.c-fadeIn:nth-child(3n+2) {
+    transition-delay: 0.4s;
+  }
+  .p-service__content__gallery .p-serviceCard.c-fadeIn:nth-child(3n+0) {
+    transition-delay: 0.6s;
+  }
+}
 /*=======================
 Serviceのカード
 =======================*/
@@ -486,8 +476,7 @@ Serviceのカード
 }
 @media screen and (min-width: 601px) and (min-width: 1024px) {
   .p-serviceCard {
-    width: 19.4444444444vw;
-    max-width: 280px;
+    width: 30%;
   }
 }
 .p-serviceCard__icon {
@@ -518,18 +507,13 @@ Serviceのカード
 .p-works__menu {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.125rem 1.125rem;
+  gap: 1.875rem;
   justify-content: center;
   margin-bottom: 2.5rem;
 }
-@media screen and (min-width: 601px) {
-  .p-works__menu {
-    gap: 1.5rem 1.5rem;
-  }
-}
 @media screen and (min-width: 601px) and (min-width: 1024px) {
   .p-works__menu {
-    gap: 2rem 2rem;
+    gap: 2.5rem 2.5rem;
   }
 }
 .p-works__menu__item {
@@ -540,16 +524,29 @@ Serviceのカード
     font-size: 1.25rem;
   }
 }
+.p-works__menu button.c-title--circle::before {
+  width: 20px;
+  height: 20px;
+  margin-left: -12px;
+}
+.p-works__menu button:hover {
+  opacity: 0.8;
+}
 .p-works__gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 2.5rem;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(1, 1fr);
   gap: 40px;
+  margin-bottom: 2.5rem;
 }
 @media screen and (min-width: 601px) {
   .p-works__gallery {
-    justify-content: space-between;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 601px) and (min-width: 1024px) {
+  .p-works__gallery {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 .p-works__more {
@@ -572,40 +569,42 @@ Serviceのカード
 /*=============================
 Worksのカード
 =============================*/
-.p-worksCard {
-  width: 100%;
-  aspect-ratio: 5/4;
-  position: relative;
-}
-@media screen and (min-width: 601px) {
-  .p-worksCard {
-    width: calc(calc(100% - 40px)/2);
-  }
-}
-@media screen and (min-width: 601px) and (min-width: 1024px) {
-  .p-worksCard {
-    width: calc(calc(100% - 80px)/3);
-  }
-}
-.p-worksCard__tags {
-  font-size: 0.875rem;
-  position: absolute;
-  top: 0.75rem;
-  left: 1.125rem;
-}
-.p-worksCard__tags p {
+.p-worksCard__text__tag {
   font-size: 0.875rem;
 }
-.p-worksCard__tags p::before {
-  width: 0.75rem;
-  height: 0.75rem;
-  top: 0.1em;
-  left: -0.5em;
+.p-worksCard__text h3 {
+  font-size: 1rem;
 }
-.p-worksCard > p img {
+.p-worksCard img {
   border-radius: 4px;
 }
 
+/* スマートフォン（デフォルト）: ディレイなし */
+.p-worksCard.c-fadeIn {
+  transition-delay: 0s;
+}
+
+/* タブレット: 奇数・偶数でディレイ */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .p-works__gallery .p-worksCard.c-fadeIn:nth-child(odd) {
+    transition-delay: 0.2s;
+  }
+  .p-works__gallery .p-worksCard.c-fadeIn:nth-child(even) {
+    transition-delay: 0.4s;
+  }
+}
+/* PC: 3列ごとにディレイ */
+@media (min-width: 1024px) {
+  .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+1) {
+    transition-delay: 0.2s;
+  }
+  .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+2) {
+    transition-delay: 0.4s;
+  }
+  .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+0) {
+    transition-delay: 0.6s;
+  }
+}
 /*=============================
 フロントページ　Aboutセクション
 =============================*/
@@ -758,6 +757,70 @@ Contactフォーム
 }
 
 /*=============================
+Contactフォーム
+=============================*/
+@media screen and (min-width: 601px) {
+  .wpcf7-form {
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}
+.wpcf7-form p:not(:last-of-type) {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+.wpcf7-form p:not(:last-of-type) .wpcf7-form-control-wrap {
+  display: block;
+  margin-top: 0.25rem;
+}
+.wpcf7-form p:not(:last-of-type) input,
+.wpcf7-form p:not(:last-of-type) textarea {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  padding: 0.4375rem 1.25rem;
+}
+.wpcf7-form p:not(:last-of-type) input[name=policy] {
+  width: auto;
+}
+.wpcf7-form p label span.required {
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+  padding: 0 0.75rem;
+  background: #FAFD87;
+  border-radius: 6px;
+}
+.wpcf7-form .privacyPolicy {
+  margin-bottom: 2rem;
+}
+.wpcf7-form .privacyPolicy a {
+  margin-top: 0.25rem;
+  margin-left: 1em;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+  text-decoration-thickness: 1px;
+}
+.wpcf7-form p:last-of-type input {
+  display: block;
+  margin: 0 auto;
+  background: #FAFD87;
+  border-radius: 6px;
+  padding: 0.5rem 2.5rem;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output,
+.wpcf7 form.sent .wpcf7-response-output {
+  padding: 0.5em 1em;
+  border: none;
+  background-color: #FAFD87;
+  border-radius: 6px;
+}
+
+/*=============================
 footer
 =============================*/
 .p-footer {
@@ -885,7 +948,7 @@ Works（下層ページ）詳細
 @media screen and (min-width: 601px) {
   .p-worksDetail table th {
     width: auto;
-    min-width: 9em;
+    min-width: 12em;
     max-width: 50%; /* 最大幅を50%に制限 */
     white-space: normal; /* 折り返しを許可 */
     word-break: break-word; /* 必要に応じて折り返す */
@@ -973,16 +1036,6 @@ body
 /*=============================
 フォントファミリー ・フォントウェイト
   =============================*/
-.c-font--tsukuarg200 {
-  font-family: "fot-tsukuardgothic-std", sans-serif;
-  font-weight: 200;
-}
-
-.c-font--tsukuarg300 {
-  font-family: "fot-tsukuardgothic-std", sans-serif;
-  font-weight: 300;
-}
-
 .c-font--nunito200 {
   font-family: "Nunito";
   font-weight: 200;
@@ -997,7 +1050,7 @@ body
 各セクション汎用wrap
 =============================*/
 .c-wrap {
-  padding: 32vw 5.3333333333vw;
+  padding: 24vw 5.3333333333vw;
 }
 @media screen and (min-width: 601px) {
   .c-wrap {
@@ -1085,15 +1138,15 @@ body
 フェードインアニメーション
 =============================*/
 .c-fadeIn {
-  opacity: 0; /* 初期値は透明にしておく */
-  transition: 0.75s; /* 動くスピードを0.5秒に指定 */
-  position: relative; /* 相対位置の設定 */
-  top: 50px; /* 事前に下に50pxずらしておく */
+  opacity: 0;
+  transition: 1s;
+  position: relative;
+  top: 75px;
 }
 
 .c-fadeIn--active {
-  opacity: 1; /* 透明度を元に戻す */
-  top: 0; /* ずらしていた位置を戻すことで上に上がっているようにみえる */
+  opacity: 1;
+  top: 0;
 }
 
 /*=============================

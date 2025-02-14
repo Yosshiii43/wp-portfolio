@@ -1,4 +1,5 @@
 ////ローディングアニメーション////
+/*
 document.addEventListener("DOMContentLoaded", function () {
 	// localStorageに"visited"フラグがあるかを確認
 	const isVisited = localStorage.getItem("visited");
@@ -11,10 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
 	  setTimeout(() => {
 		document.querySelector(".p-loadingOverlay").style.display = "none";
 		localStorage.setItem("visited", "true");
-	  }, 3000); // アニメーションの表示時間を設定（例: 2秒）
+	  }, 2000); // アニメーションの表示時間を設定（例: 2秒）
 	}
   });
-  
+*/
+
 ////ハンバーガーメニュー////
 document.querySelector( '.js-hamburger' ).addEventListener(
 	'click',
@@ -25,39 +27,66 @@ document.querySelector( '.js-hamburger' ).addEventListener(
 	}
 );
 
+
 ////スムーススクロール////
-jQuery(function($){
-	var headerHeight = $('header').outerHeight(); // ヘッダーの高さ取得
-	var urlHash = location.hash; // ハッシュ値があればページ内スクロール
-	if(urlHash) { // 外部リンクからのクリック時
-	  $('body,html').stop().scrollTop(0); // スクロールを0に戻す
-	  setTimeout(function(){ // ロード時の処理を待ち、時間差でスクロール実行
-		var target = $(urlHash);
-		var position = target.offset().top - headerHeight;
-		$('body,html').stop().animate({scrollTop:position}, 500); // スクロール速度ミリ秒
-	  }, 100);
-	}
-	$('a[href^="#"]').click(function(){ // 通常のクリック時
-	  var href= $(this).attr("href"); // ページ内リンク先を取得
-	  var target = $(href);
-	  var position = target.offset().top - headerHeight;
-	  $('body,html').stop().animate({scrollTop:position}, 500); // スクロール速度ミリ秒
+jQuery(function () {
+  jQuery('a[href*="#"]').click(function (e) {
+    const targetHash = this.hash; // クリックしたリンクのハッシュ (例: #about)
+    if (!targetHash) return; // ハッシュがない場合は処理しない
 
-	// SP用のメニューを閉じる処理
-	document.querySelector('.js-hamburger').classList.remove('is-open');
-	document.querySelector('.p-header__menu').classList.remove('is-open');
-	document.querySelector('body').classList.remove('is-open');
+    const currentPath = window.location.pathname; // 現在のページのパス
+    const homePath = "/"; // トップページのパス（WordPressなら "/"）
 
-	  return false; // #付与なし、付与したい場合は、true
-	});
+    // 現在のページがトップページかどうかを判定
+    const isTopPage = (currentPath === homePath || currentPath === homePath + "index.php");
+
+    if (isTopPage) {
+      // **トップページの場合** → そのページ内でスムーススクロール
+      e.preventDefault();
+      smoothScroll(targetHash);
+
+			// SP用のメニューを閉じる処理
+			document.querySelector('.js-hamburger').classList.remove('is-open');
+			document.querySelector('.p-header__menu').classList.remove('is-open');
+			document.querySelector('body').classList.remove('is-open');
+
+    } else {
+      // **下層ページの場合** → トップページに遷移し、その後スムーススクロール
+      e.preventDefault();
+      sessionStorage.setItem('scrollTo', targetHash); // どこへスクロールするかを保存
+      window.location.href = window.location.origin + "/"; // トップページへ遷移
+    }
   });
+
+  // **トップページがロードされたときに、スムーススクロールを実行**
+  jQuery(document).ready(function () {
+    const targetHash = sessionStorage.getItem('scrollTo'); // 保存されたスクロール先を取得
+    if (targetHash) {
+      sessionStorage.removeItem('scrollTo'); // 取得後は削除
+      smoothScroll(targetHash);
+    }
+  });
+
+  // **スムーススクロールの関数**
+  function smoothScroll(targetHash) {
+    const target = jQuery(targetHash);
+    if (target.length) {
+      const headerHeight = jQuery("header").outerHeight();
+      const position = target.offset().top - headerHeight;
+      jQuery("html, body").animate({ scrollTop: position }, 600, "swing");
+
+      // URLのハッシュを更新
+      history.pushState(null, '', targetHash);
+    }
+  }
+});
 
 
 ////テキストのランダムアニメーション////
 var Obj = {
 	loop: false,
 	minDisplayTime: 2000,// アニメーションの間隔時間
-	initialDelay: 800, // アニメーション開始までの遅延時間
+	initialDelay: 200, // アニメーション開始までの遅延時間
 	autoStart: true,
 	in: {
 		effect: 'fadeInUp',//animate.css の中にある採用したい動きのクラス名
@@ -105,8 +134,42 @@ jQuery(window).on('scroll load', function(){        /* ページロード時、�
 	});
   });
 
+///トップページWorksフィルタリング
+document.addEventListener("DOMContentLoaded", function() {
+	const worksCards = document.querySelectorAll(".p-worksCard");
 
-////Worksページスライダー(slick)////
+	// ボタンの取得
+	const btnAll = document.getElementById("js-worksAll");
+	const btnDesign = document.getElementById("js-worksDesign");
+	const btnCoding = document.getElementById("js-worksCoding");
+	
+	// すべてのボタンを配列にする
+	const buttons = [btnAll, btnDesign, btnCoding];
+
+	// フィルタリング関数
+	function filterWorks(filter, activeButton) {
+			worksCards.forEach(card => {
+					const tags = card.getAttribute("data-tag").split(",");
+
+					if (filter === "all" || tags.includes(filter)) {
+							card.style.display = "block"; // 表示
+					} else {
+							card.style.display = "none"; // 非表示
+					}
+			});
+
+			// すべてのボタンから .c-title--circle を削除し、選択されたボタンだけに追加
+			buttons.forEach(button => button.classList.remove("c-title--circle"));
+			activeButton.classList.add("c-title--circle");
+	}
+
+	// 各ボタンにクリックイベントを設定
+	btnAll.addEventListener("click", () => filterWorks("all", btnAll));
+	btnDesign.addEventListener("click", () => filterWorks("design", btnDesign));
+	btnCoding.addEventListener("click", () => filterWorks("coding", btnCoding));
+});
+
+////制作実績ページスライダー(slick)////
 jQuery('.js-slick01').slick({
 	dots: true,
 	infinite: true,

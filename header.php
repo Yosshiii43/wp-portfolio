@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class( 'c-body' ); ?> >
     <?php wp_body_open(); ?>
+    <!--
     <div class="p-loadingOverlay">
         <div class="p-loader"></div>
     </div>
+    -->
     <header class="l-header p-header" id="header">
         <p class="p-header__title">
             <a href="<?php echo esc_url( home_url() ); ?> ">
@@ -24,11 +27,11 @@
                 <span>menuボタン</span>
             </button>
             <ul class="p-gmenu c-font--nunito200">
-                <li class="p-gmenu__item"><a href="#service">Service</a></li>
-                <li class="p-gmenu__item"><a href="#works">Works</a></li>
-                <li class="p-gmenu__item"><a href="#about">About</a></li>
-                <li class="p-gmenu__item"><a href="#flow">Flow</a></li>
-                <li class="p-gmenu__item"><a href="#contact">Contact</a></li>
+                <li class="p-gmenu__item"><a href="<?php echo esc_url( home_url('/#service') ); ?>">Service</a></li>
+                <li class="p-gmenu__item"><a href="<?php echo esc_url( home_url('/#works') ); ?>">Works</a></li>
+                <li class="p-gmenu__item"><a href="<?php echo esc_url( home_url('/#about') ); ?>">About</a></li>
+                <li class="p-gmenu__item"><a href="<?php echo esc_url( home_url('/#flow') ); ?>">Flow</a></li>
+                <li class="p-gmenu__item"><a href="<?php echo esc_url( home_url('/#contact') ); ?>">Contact</a></li>
             </ul>
         </div>
     </header>
