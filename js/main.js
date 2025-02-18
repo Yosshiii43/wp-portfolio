@@ -122,6 +122,7 @@ jQuery(window).on('load', function () {
 });//ここまで画面が読み込まれたらすぐに動かしたい場合の記述
 
 
+
 ////要素の下からのフェードイン////
 jQuery(window).on('scroll load', function(){        /* ページロード時、またはスクロールされた時*/
 	var scroll = jQuery(this).scrollTop();            /* 現在のスクロール量を測定 */
@@ -132,7 +133,7 @@ jQuery(window).on('scroll load', function(){        /* ページロード時、�
 		jQuery(this).addClass('c-fadeIn--active');              /* 「active」のクラスを付与 */
 	  }
 	});
-  });
+});
 
 ///トップページWorksフィルタリング
 document.addEventListener("DOMContentLoaded", function() {
@@ -169,6 +170,49 @@ document.addEventListener("DOMContentLoaded", function() {
 	btnCoding.addEventListener("click", () => filterWorks("coding", btnCoding));
 });
 
+
+
+////フロントページWorksもっと見る機能（フェードインあり）
+jQuery(document).ready(function($) {
+  var postCount = 9; // 初期表示件数
+
+  $('#works__btn').on('click', function() {
+      // 次の3件を表示
+      $('.p-worksCard.hidden').slice(0, 3).each(function(index) {
+          // 表示する要素にc-fadeInクラスを追加、c-fadeIn--activeクラスを削除
+          $(this)
+              .removeClass('hidden')
+              .removeClass('c-fadeIn--active')  // この行を追加
+              .addClass('c-fadeIn js-fadeIn');
+          
+          // メディアクエリに応じたtransition-delayを設定
+          var delay = 0;
+          var windowWidth = $(window).width();
+
+              // どのデバイスでも3枚の時差の付け方同じにする
+              switch(index % 3) {
+                  case 0: delay = 0.2; break;
+                  case 1: delay = 0.4; break;
+                  case 2: delay = 0.6; break;
+              }
+          
+          // 遅延を設定
+          $(this).css('transition-delay', delay + 's');
+      });
+
+      // スクロールイベントを手動で発火させて、フェードインを有効化
+      $(window).trigger('scroll');
+
+      // すべての記事が表示されたらボタンを非表示にする
+      if ($('.p-worksCard.hidden').length === 0) {
+          $('#works__btn').hide();
+      }
+  });
+});
+
+
+
+
 ////制作実績ページスライダー(slick)////
 jQuery('.js-slick01').slick({
 	dots: true,
@@ -178,17 +222,3 @@ jQuery('.js-slick01').slick({
 	cssEase: 'linear'
 });
 
-////フロントページWorksもっと見る機能
-jQuery(document).ready(function($) {
-	var postCount = 9; // 初期表示件数
-
-	$('#works__btn').on('click', function() {
-			postCount += 3; // クリックごとに3件増加
-			$('.p-worksCard.hidden').slice(0, 3).removeClass('hidden'); // 次の3件を表示
-
-			// すべての記事が表示されたらボタンを非表示にする
-			if ($('.p-worksCard.hidden').length === 0) {
-					$('#works__btn').hide();
-			}
-	});
-});
