@@ -565,6 +565,9 @@ Serviceのカード
   top: 1.875rem;
   left: calc(50% - 0.4375rem);
 }
+.p-works .hidden {
+  display: none;
+}
 
 /*=============================
 Worksのカード

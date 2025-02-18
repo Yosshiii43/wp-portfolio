@@ -177,3 +177,18 @@ jQuery('.js-slick01').slick({
 	fade: true,
 	cssEase: 'linear'
 });
+
+////フロントページWorksもっと見る機能
+jQuery(document).ready(function($) {
+	var postCount = 9; // 初期表示件数
+
+	$('#works__btn').on('click', function() {
+			postCount += 3; // クリックごとに3件増加
+			$('.p-worksCard.hidden').slice(0, 3).removeClass('hidden'); // 次の3件を表示
+
+			// すべての記事が表示されたらボタンを非表示にする
+			if ($('.p-worksCard.hidden').length === 0) {
+					$('#works__btn').hide();
+			}
+	});
+});
