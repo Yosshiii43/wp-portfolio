@@ -135,6 +135,7 @@ jQuery(window).on('scroll load', function(){        /* ページロード時、�
 	});
 });
 
+/*
 ///トップページWorksフィルタリング
 document.addEventListener("DOMContentLoaded", function() {
 	const worksCards = document.querySelectorAll(".p-worksCard");
@@ -169,80 +170,162 @@ document.addEventListener("DOMContentLoaded", function() {
 	btnDesign.addEventListener("click", () => filterWorks("design", btnDesign));
 	btnCoding.addEventListener("click", () => filterWorks("coding", btnCoding));
 });
+*/
 
 
-
-////フロントページWorksもっと見る機能（フェードインあり）
+////フロントページWorks
 jQuery(document).ready(function($) {
-  var postCount = 9; // 初期表示件数
+  // 現在のフィルタ状態を保持する変数
+  var currentFilter = 'js-worksAll';
 
-  $('#works__btn').on('click', function() {
-      // 次の3件を表示
-      $('.p-worksCard.hidden').slice(0, 3).each(function(index) {
-          // 表示する要素にc-fadeInクラスを追加、c-fadeIn--activeクラスを削除
-          $(this)
-              .removeClass('hidden')
-              .removeClass('c-fadeIn--active')  // この行を追加
-              .addClass('c-fadeIn js-fadeIn');
-          
-          // メディアクエリに応じたtransition-delayを設定
-          var delay = 0;
-          var windowWidth = $(window).width();
-
-              // どのデバイスでも3枚の時差の付け方同じにする
-              switch(index % 3) {
-                  case 0: delay = 0; break;
-                  case 1: delay = 0.2; break;
-                  case 2: delay = 0.4; break;
-              }
-          
-          // 遅延を設定
-          $(this).css('transition-delay', delay + 's');
-      });
-
-      // スクロールイベントを手動で発火させて、フェードインを有効化
-      $(window).trigger('scroll');
-
-      // すべての記事が表示されたらボタンを非表示にする
-      if ($('.p-worksCard.hidden').length === 0) {
-          $('#works__btn').hide();
-      }
-  });
   // フィルタリング機能
   $('.p-works__menu__item button').on('click', function() {
-    // クリックされたボタンのIDを取得
-    var filterId = $(this).attr('id');
+    // すべてのボタンから .c-title--circle と .active を削除
+    $('.p-works__menu__item button')
+      .removeClass('c-title--circle')
+      .removeClass('active');
 
-    // すべてのカードを一旦表示
-    $('.p-worksCard').hide();
+    // クリックされたボタンに .c-title--circle と .active を追加
+    $(this)
+      .addClass('c-title--circle')
+      .addClass('active');
+
+    // クリックされたボタンのIDを取得
+    currentFilter = $(this).attr('id');
+
+    // すべてのカードを非表示
+    $('.p-worksCard').hide().addClass('hidden');
 
     // フィルタリング処理
-    switch(filterId) {
+    switch(currentFilter) {
       case 'js-worksAll':
-        // すべてのカードを表示
-        $('.p-worksCard').show();
+        // すべてのカードを対象に（最初の9件のみ）
+        $('.p-worksCard').slice(0, 9).removeClass('hidden').show().each(function(index) {
+          var title = $(this).find('.shop-title').text().trim();
+          console.log('Title: ' + title + ', Case: ' + (index % 3));
+          
+          $(this)
+            .removeClass('c-fadeIn--active')
+            .addClass('c-fadeIn js-fadeIn');
+          
+          // 遅延アニメーション設定
+          var delay = 0;
+          switch(index % 3) {
+            case 0: delay = 0; break;
+            case 1: delay = 0.2; break;
+            case 2: delay = 0.4; break;
+          }
+          
+          $(this).css('transition-delay', delay + 's');
+        });
         break;
       case 'js-worksDesign':
-        // Designタグを持つカードのみ表示
-        $('.p-worksCard[data-tag*="Design"]').show();
+        // Designタグを持つカードに絞り、最初の9件のみ表示
+        $('.p-worksCard[data-tag*="Design"]').slice(0, 9).removeClass('hidden').show().each(function(index) {
+          var title = $(this).find('.shop-title').text().trim();
+          console.log('Title: ' + title + ', Case: ' + (index % 3));
+          
+          $(this)
+            .removeClass('c-fadeIn--active')
+            .addClass('c-fadeIn js-fadeIn');
+          
+          // 遅延アニメーション設定
+          var delay = 0;
+          switch(index % 3) {
+            case 0: delay = 0; break;
+            case 1: delay = 0.2; break;
+            case 2: delay = 0.4; break;
+          }
+          
+          $(this).css('transition-delay', delay + 's');
+        });
         break;
       case 'js-worksCoding':
-        // Codingタグを持つカードのみ表示
-        $('.p-worksCard[data-tag*="Coding"]').show();
+        // Codingタグを持つカードに絞り、最初の9件のみ表示
+        $('.p-worksCard[data-tag*="Coding"]').slice(0, 9).removeClass('hidden').show().each(function(index) {
+          var title = $(this).find('.shop-title').text().trim();
+          console.log('Title: ' + title + ', Case: ' + (index % 3));
+          
+          $(this)
+            .removeClass('c-fadeIn--active')
+            .addClass('c-fadeIn js-fadeIn');
+          
+          // 遅延アニメーション設定
+          var delay = 0;
+          switch(index % 3) {
+            case 0: delay = 0; break;
+            case 1: delay = 0.2; break;
+            case 2: delay = 0.4; break;
+          }
+          
+          $(this).css('transition-delay', delay + 's');
+        });
         break;
     }
 
-    // 初期状態（9件まで）に戻す
-    $('.p-worksCard').addClass('hidden');
-    $('.p-worksCard:lt(9)').removeClass('hidden');
-
     // 「もっと見る」ボタンの表示/非表示を制御
-    if ($('.p-worksCard:hidden').length > 0) {
+    var selector = currentFilter === 'js-worksAll' ? '.p-worksCard.hidden' : '.p-worksCard.hidden[data-tag*="' + currentFilter.replace('js-works', '') + '"]';
+    if ($(selector).length > 0) {
       $('#works__btn').show();
     } else {
       $('#works__btn').hide();
     }
+
+    // スクロールイベントを手動で発火
+    $(window).trigger('scroll');
   });
+
+  // 「もっと見る」ボタンの機能
+  $('#works__btn').on('click', function() {
+    // フィルタに応じて次の3件を表示
+    var selector = '.p-worksCard.hidden';
+    switch(currentFilter) {
+      case 'js-worksAll':
+        // すべてのカードから3件
+        selector = '.p-worksCard.hidden';
+        break;
+      case 'js-worksDesign':
+        // Designタグを持つカードから3件
+        selector = '.p-worksCard.hidden[data-tag*="Design"]';
+        break;
+      case 'js-worksCoding':
+        // Codingタグを持つカードから3件
+        selector = '.p-worksCard.hidden[data-tag*="Coding"]';
+        break;
+    }
+
+    // 現在表示中の可視カードの数を取得
+    var visibleCardsCount = $('.p-worksCard:not(.hidden)').length;
+
+    $(selector).slice(0, 3).each(function(index) {
+      $(this)
+        .removeClass('hidden')
+        .removeClass('c-fadeIn--active')
+        .addClass('c-fadeIn js-fadeIn')
+        .show();
+      
+      // 遅延アニメーション設定
+      var delay = 0;
+      switch(index % 3) {
+        case 0: delay = 0; break;
+        case 1: delay = 0.2; break;
+        case 2: delay = 0.4; break;
+      }
+      
+      $(this).css('transition-delay', delay + 's');
+    });
+
+    // スクロールイベントを手動で発火
+    $(window).trigger('scroll');
+
+    // すべての対象カードが表示されたらボタンを非表示
+    if ($(selector).length <= 3) {
+      $('#works__btn').hide();
+    }
+  });
+
+  // 初期状態で「All」ボタンをアクティブに
+  $('#js-worksAll').addClass('c-title--circle').addClass('active');
 });
 
 
