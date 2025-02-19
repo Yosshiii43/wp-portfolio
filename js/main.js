@@ -181,8 +181,8 @@ jQuery(document).ready(function($) {
   // 列数を取得する関数
   const getColumnCount = () => {
     const windowWidth = $(window).width();
-    if (windowWidth >= 1024) return 3;  // PC
-    if (windowWidth >= 768) return 2;   // タブレット
+    if (windowWidth >= 992) return 3;  // PC
+    if (windowWidth >= 557) return 2;   // タブレット
     return 1;  // スマートフォン
   };
 
