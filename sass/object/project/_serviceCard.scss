@@ -11,7 +11,6 @@ Serviceのカード
         width: fw.tab-vw( 280 );
         @include fw.mq("pc"){
             width: 30%;
-            //max-width: 280px;
         }
     }
     &__icon{
