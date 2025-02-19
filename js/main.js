@@ -191,9 +191,9 @@ jQuery(document).ready(function($) {
 
               // どのデバイスでも3枚の時差の付け方同じにする
               switch(index % 3) {
-                  case 0: delay = 0.2; break;
-                  case 1: delay = 0.4; break;
-                  case 2: delay = 0.6; break;
+                  case 0: delay = 0; break;
+                  case 1: delay = 0.2; break;
+                  case 2: delay = 0.4; break;
               }
           
           // 遅延を設定
@@ -208,8 +208,42 @@ jQuery(document).ready(function($) {
           $('#works__btn').hide();
       }
   });
-});
+  // フィルタリング機能
+  $('.p-works__menu__item button').on('click', function() {
+    // クリックされたボタンのIDを取得
+    var filterId = $(this).attr('id');
 
+    // すべてのカードを一旦表示
+    $('.p-worksCard').hide();
+
+    // フィルタリング処理
+    switch(filterId) {
+      case 'js-worksAll':
+        // すべてのカードを表示
+        $('.p-worksCard').show();
+        break;
+      case 'js-worksDesign':
+        // Designタグを持つカードのみ表示
+        $('.p-worksCard[data-tag*="Design"]').show();
+        break;
+      case 'js-worksCoding':
+        // Codingタグを持つカードのみ表示
+        $('.p-worksCard[data-tag*="Coding"]').show();
+        break;
+    }
+
+    // 初期状態（9件まで）に戻す
+    $('.p-worksCard').addClass('hidden');
+    $('.p-worksCard:lt(9)').removeClass('hidden');
+
+    // 「もっと見る」ボタンの表示/非表示を制御
+    if ($('.p-worksCard:hidden').length > 0) {
+      $('#works__btn').show();
+    } else {
+      $('#works__btn').hide();
+    }
+  });
+});
 
 
 

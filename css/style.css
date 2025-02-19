@@ -582,30 +582,27 @@ Worksのカード
   border-radius: 4px;
 }
 
-/* スマートフォン（デフォルト）: ディレイなし */
 .p-worksCard.c-fadeIn {
   transition-delay: 0s;
 }
 
-/* タブレット: 奇数・偶数でディレイ */
 @media (min-width: 768px) and (max-width: 1023px) {
   .p-works__gallery .p-worksCard.c-fadeIn:nth-child(odd) {
-    transition-delay: 0.2s;
+    transition-delay: 0s;
   }
   .p-works__gallery .p-worksCard.c-fadeIn:nth-child(even) {
-    transition-delay: 0.4s;
-  }
-}
-/* PC: 3列ごとにディレイ */
-@media (min-width: 1024px) {
-  .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+1) {
     transition-delay: 0.2s;
   }
+}
+@media (min-width: 1024px) {
+  .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+1) {
+    transition-delay: 0s;
+  }
   .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+2) {
-    transition-delay: 0.4s;
+    transition-delay: 0.2s;
   }
   .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+0) {
-    transition-delay: 0.6s;
+    transition-delay: 0.4s;
   }
 }
 /*=============================
