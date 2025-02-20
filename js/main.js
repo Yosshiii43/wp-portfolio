@@ -182,7 +182,7 @@ jQuery(document).ready(function($) {
   const getColumnCount = () => {
     const windowWidth = $(window).width();
     if (windowWidth >= 992) return 3;  // PC
-    if (windowWidth >= 557) return 2;   // タブレット
+    if (windowWidth >= 577) return 2;   // タブレット
     return 1;  // スマートフォン
   };
 
