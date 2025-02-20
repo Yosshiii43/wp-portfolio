@@ -177,6 +177,8 @@ document.addEventListener("DOMContentLoaded", function() {
 jQuery(document).ready(function($) {
   // 現在のフィルタ状態を保持する変数
   let currentFilter = 'js-worksAll';
+  // フィルタリング中かどうかを示すフラグ
+  let isFiltering = false;
 
   // 列数を取得する関数
   const getColumnCount = () => {
@@ -188,6 +190,9 @@ jQuery(document).ready(function($) {
 
   // フィルタリング機能
   $('.p-works__menu__item button').on('click', function() {
+    // フィルタリング中のフラグを立てる
+    isFiltering = true;
+
     // すべてのボタンから .c-title--circle と .active を削除
     $('.p-works__menu__item button')
       .removeClass('c-title--circle')
@@ -201,74 +206,85 @@ jQuery(document).ready(function($) {
     // クリックされたボタンのIDを取得
     currentFilter = $(this).attr('id');
 
-    // すべてのカードを非表示
-    $('.p-worksCard').hide().addClass('hidden');
+    // すべてのカードを一旦非表示
+    $('.p-worksCard').hide().addClass('hidden').css('opacity', 0);
 
     // 列数を取得
     const columnCount = getColumnCount();
 
     // フィルタリング処理
+    let $visibleCards;
     switch(currentFilter) {
       case 'js-worksAll':
-        $('.p-worksCard').slice(0, 9).removeClass('hidden').show().each(function(index) {
-          const title = $(this).find('.shop-title').text().trim();
-          console.log('Title: ' + title + ', Case: ' + (index % columnCount));
-          
-          $(this)
-            .removeClass('c-fadeIn--active')
-            .addClass('c-fadeIn js-fadeIn');
-          
-          // 遅延アニメーション設定（列数に応じて動的に計算）
-          const delay = (index % columnCount) * 0.2;
-          
-          $(this).css('transition-delay', delay + 's');
-        });
+        $visibleCards = $('.p-worksCard').slice(0, 9);
         break;
       case 'js-worksDesign':
-        $('.p-worksCard[data-tag*="Design"]').slice(0, 9).removeClass('hidden').show().each(function(index) {
-          const title = $(this).find('.shop-title').text().trim();
-          console.log('Title: ' + title + ', Case: ' + (index % columnCount));
-          
-          $(this)
-            .removeClass('c-fadeIn--active')
-            .addClass('c-fadeIn js-fadeIn');
-          
-          // 遅延アニメーション設定（列数に応じて動的に計算）
-          const delay = (index % columnCount) * 0.2;
-          
-          $(this).css('transition-delay', delay + 's');
-        });
+        $visibleCards = $('.p-worksCard[data-tag*="Design"]').slice(0, 9);
         break;
       case 'js-worksCoding':
-        $('.p-worksCard[data-tag*="Coding"]').slice(0, 9).removeClass('hidden').show().each(function(index) {
-          const title = $(this).find('.shop-title').text().trim();
-          console.log('Title: ' + title + ', Case: ' + (index % columnCount));
-          
-          $(this)
-            .removeClass('c-fadeIn--active')
-            .addClass('c-fadeIn js-fadeIn');
-          
-          // 遅延アニメーション設定（列数に応じて動的に計算）
-          const delay = (index % columnCount) * 0.2;
-          
-          $(this).css('transition-delay', delay + 's');
-        });
+        $visibleCards = $('.p-worksCard[data-tag*="Coding"]').slice(0, 9);
         break;
     }
 
+    // カードを表示し、アニメーションを適用
+    $visibleCards.each(function(index) {
+      const $card = $(this);
+      const windowScrollTop = $(window).scrollTop();
+      const windowHeight = $(window).height();
+      const cardOffsetTop = $card.offset().top;
+
+      // ビューポート内か判定
+      const isInViewport = 
+        cardOffsetTop >= windowScrollTop && 
+        cardOffsetTop < windowScrollTop + windowHeight;
+
+      $card
+        .removeClass('hidden')
+        .show();
+
+      if (isInViewport) {
+        // ビューポート内のカードはスムーズにopacity変更
+        $card.css({
+          'transition': 'opacity 0.5s ease-in-out',
+          'opacity': 1
+        });
+      } else {
+        // ビューポート外のカードは通常のフェードイン
+        $card
+          .removeClass('c-fadeIn--active')
+          .addClass('c-fadeIn js-fadeIn')
+          .css({
+            'opacity': '',
+            'visibility': '',
+            'position': ''
+          });
+
+        // 遅延アニメーション設定
+        const delay = (index % columnCount) * 0.2;
+        $card.css('transition-delay', delay + 's');
+      }
+    });
+
     // 「もっと見る」ボタンの表示/非表示を制御
-    const selector = currentFilter === 'js-worksAll' ? '.p-worksCard.hidden' : '.p-worksCard.hidden[data-tag*="' + currentFilter.replace('js-works', '') + '"]';
+    const selector = currentFilter === 'js-worksAll' 
+      ? '.p-worksCard.hidden' 
+      : `.p-worksCard.hidden[data-tag*="${currentFilter.replace('js-works', '')}"]`;
+    
     if ($(selector).length > 0) {
       $('#works__btn').show();
     } else {
       $('#works__btn').hide();
     }
 
-    // スクロールイベントを手動で発火
-    $(window).trigger('scroll');
+    // フィルタリング完了
+    setTimeout(() => {
+      isFiltering = false;
+      // スクロールイベントを手動で発火
+      $(window).trigger('scroll');
+    }, 300);
   });
 
-  // 「もっと見る」ボタンの機能
+  // 「もっと見る」ボタンの機能は以前と同じ
   $('#works__btn').on('click', function() {
     // フィルタに応じて次の3件を表示
     let selector = '.p-worksCard.hidden';
@@ -292,7 +308,12 @@ jQuery(document).ready(function($) {
         .removeClass('hidden')
         .removeClass('c-fadeIn--active')
         .addClass('c-fadeIn js-fadeIn')
-        .show();
+        .show()
+        .css({
+          'opacity': '',
+          'visibility': '',
+          'position': ''
+        });
       
       // 遅延アニメーション設定（列数に応じて動的に計算）
       const delay = (index % columnCount) * 0.2;
@@ -313,6 +334,27 @@ jQuery(document).ready(function($) {
   $(window).on('resize', function() {
     // 現在のフィルタを再適用
     $('#' + currentFilter).trigger('click');
+  });
+
+  // スクロールイベント
+  $(window).on('scroll', function() {
+    // フィルタリング中は何もしない
+    if (isFiltering) return;
+
+    // 画面の下から100pxの位置
+    const scrollTrigger = $(window).height() - 100;
+
+    // 各カードに対して処理
+    $('.p-worksCard:not(.c-fadeIn--active).js-fadeIn').each(function() {
+      const position = $(this).offset().top;
+      
+      // スクロール位置がカードの位置を超えたら
+      if ($(window).scrollTop() + scrollTrigger > position) {
+        $(this)
+          .addClass('c-fadeIn--active')
+          .removeClass('js-fadeIn');
+      }
+    });
   });
 
   // 初期状態で「All」ボタンをアクティブに
