@@ -1,22 +1,3 @@
-////ローディングアニメーション////
-/*
-document.addEventListener("DOMContentLoaded", function () {
-	// localStorageに"visited"フラグがあるかを確認
-	const isVisited = localStorage.getItem("visited");
-  
-	if (isVisited) {
-	  // 一度訪問済みの場合はローディングアニメーションを非表示
-	  document.querySelector(".p-loadingOverlay").style.display = "none";
-	} else {
-	  // 初回訪問の場合はローディングアニメーションを表示し、フラグを設定
-	  setTimeout(() => {
-		document.querySelector(".p-loadingOverlay").style.display = "none";
-		localStorage.setItem("visited", "true");
-	  }, 2000); // アニメーションの表示時間を設定（例: 2秒）
-	}
-  });
-*/
-
 ////ハンバーガーメニュー////
 document.querySelector( '.js-hamburger' ).addEventListener(
 	'click',
@@ -135,42 +116,6 @@ jQuery(window).on('scroll load', function(){        /* ページロード時、�
 	});
 });
 
-/*
-///トップページWorksフィルタリング
-document.addEventListener("DOMContentLoaded", function() {
-	const worksCards = document.querySelectorAll(".p-worksCard");
-
-	// ボタンの取得
-	const btnAll = document.getElementById("js-worksAll");
-	const btnDesign = document.getElementById("js-worksDesign");
-	const btnCoding = document.getElementById("js-worksCoding");
-	
-	// すべてのボタンを配列にする
-	const buttons = [btnAll, btnDesign, btnCoding];
-
-	// フィルタリング関数
-	function filterWorks(filter, activeButton) {
-			worksCards.forEach(card => {
-					const tags = card.getAttribute("data-tag").split(",");
-
-					if (filter === "all" || tags.includes(filter)) {
-							card.style.display = "block"; // 表示
-					} else {
-							card.style.display = "none"; // 非表示
-					}
-			});
-
-			// すべてのボタンから .c-title--circle を削除し、選択されたボタンだけに追加
-			buttons.forEach(button => button.classList.remove("c-title--circle"));
-			activeButton.classList.add("c-title--circle");
-	}
-
-	// 各ボタンにクリックイベントを設定
-	btnAll.addEventListener("click", () => filterWorks("all", btnAll));
-	btnDesign.addEventListener("click", () => filterWorks("design", btnDesign));
-	btnCoding.addEventListener("click", () => filterWorks("coding", btnCoding));
-});
-*/
 
 
 ////フロントページWorks
