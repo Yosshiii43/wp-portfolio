@@ -105,13 +105,13 @@ jQuery(window).on('load', function () {
 
 
 ////要素の下からのフェードイン////
-jQuery(window).on('scroll load', function(){        /* ページロード時、またはスクロールされた時*/
-	var scroll = jQuery(this).scrollTop();            /* 現在のスクロール量を測定 */
-	var windowHeight = jQuery(window).height();       /* ウィンドウの高さを測定 */
-	jQuery('.js-fadeIn').each(function(){                /* 「fadeIn」のクラスがついているものを1つずつ確認し・・・ */
-	  var cntPos = jQuery(this).offset().top;         /* 対象の要素の上からの距離を測定 */
-	  if(scroll > cntPos - windowHeight + windowHeight / 3){  /* 要素がある位置までスクロールされていたら */
-		jQuery(this).addClass('c-fadeIn--active');              /* 「active」のクラスを付与 */
+jQuery(window).on('scroll load', function(){        // ページロード時、またはスクロールされた時
+	var scroll = jQuery(this).scrollTop();            // 現在のスクロール量を測定 
+	var windowHeight = jQuery(window).height();       // ウィンドウの高さを測定 
+	jQuery('.js-fadeIn').each(function(){             // 「fadeIn」のクラスがついているものを1つずつ確認し・・・ 
+	  var cntPos = jQuery(this).offset().top;         // 対象の要素の上からの距離を測定 */
+	  if(scroll > cntPos - windowHeight + windowHeight / 3){  // 要素がある位置までスクロールされていたら 
+		jQuery(this).addClass('c-fadeIn--active');              // 「active」のクラスを付与 
 	  }
 	});
 });
@@ -119,10 +119,11 @@ jQuery(window).on('scroll load', function(){        /* ページロード時、�
 
 
 ////フロントページWorks
+////フロントページWorks
 jQuery(document).ready(function($) {
   // 現在のフィルタ状態を保持する変数
   let currentFilter = 'js-worksAll';
-  // フィルタリング中かどうかを示すフラグ
+  // フィルタリング中かどうかを示すフラグ（アニメーション中の重複処理や予期せぬ動作を防ぐ）
   let isFiltering = false;
 
   // 列数を取得する関数
@@ -135,7 +136,7 @@ jQuery(document).ready(function($) {
 
   // フィルタリング機能
   $('.p-works__menu__item button').on('click', function() {
-    // フィルタリング中のフラグを立てる
+    // フィルタリング中のフラグを立てる（この間は追加の処理を抑制）
     isFiltering = true;
 
     // すべてのボタンから .c-title--circle と .active を削除
@@ -161,27 +162,29 @@ jQuery(document).ready(function($) {
     let $visibleCards;
     switch(currentFilter) {
       case 'js-worksAll':
-        $visibleCards = $('.p-worksCard').slice(0, 9);
+        $visibleCards = $('.p-worksCard').slice(0, 9); // すべてのカードから最初の9枚を選択
         break;
       case 'js-worksDesign':
-        $visibleCards = $('.p-worksCard[data-tag*="Design"]').slice(0, 9);
+        $visibleCards = $('.p-worksCard[data-tag*="Design"]').slice(0, 9);// デザインタグを持つカードから最初の9枚を選択
         break;
       case 'js-worksCoding':
-        $visibleCards = $('.p-worksCard[data-tag*="Coding"]').slice(0, 9);
+        $visibleCards = $('.p-worksCard[data-tag*="Coding"]').slice(0, 9);// コーディングタグを持つカードから最初の9枚を選択
         break;
     }
 
-    // カードを表示し、アニメーションを適用
+    // カードを表示し、アニメーションを適用（選択されたカードに対して個別に処理）
     $visibleCards.each(function(index) {
       const $card = $(this);
-      const windowScrollTop = $(window).scrollTop();
-      const windowHeight = $(window).height();
-      const cardOffsetTop = $card.offset().top;
 
-      // ビューポート内か判定
+      // 現在のウィンドウ状態を取得
+      const windowScrollTop = $(window).scrollTop(); //現在のスクロール位置（ページ上部からどれだけスクロールしたか）
+      const windowHeight = $(window).height(); //ブラウザウィンドウの高さ
+      const cardOffsetTop = $card.offset().top; //カードの垂直方向の絶対位置（ページ上部からの距離）
+
+      // カードがビューポート内か判定
       const isInViewport = 
-        cardOffsetTop >= windowScrollTop && 
-        cardOffsetTop < windowScrollTop + windowHeight;
+        cardOffsetTop >= windowScrollTop && //カードの上端が画面の一番上よりも下にある
+        cardOffsetTop < windowScrollTop + windowHeight; //カードの上端が画面の一番下よりも上にある
 
       $card
         .removeClass('hidden')
@@ -194,7 +197,7 @@ jQuery(document).ready(function($) {
           'opacity': 1
         });
       } else {
-        // ビューポート外のカードは通常のフェードイン
+        // ビューポート外のカードは通常のフェードインアニメーション
         $card
           .removeClass('c-fadeIn--active')
           .addClass('c-fadeIn js-fadeIn')
@@ -211,28 +214,42 @@ jQuery(document).ready(function($) {
     });
 
     // 「もっと見る」ボタンの表示/非表示を制御
-    const selector = currentFilter === 'js-worksAll' 
-      ? '.p-worksCard.hidden' 
-      : `.p-worksCard.hidden[data-tag*="${currentFilter.replace('js-works', '')}"]`;
+    let selector = '';
+    switch(currentFilter) {
+      case 'js-worksAll':
+        selector = '.p-worksCard.hidden';
+        break;
+      case 'js-worksDesign':
+        selector = '.p-worksCard.hidden[data-tag*="Design"]';
+        break;
+      case 'js-worksCoding':
+        selector = '.p-worksCard.hidden[data-tag*="Coding"]';
+        break;
+    }
     
-    if ($(selector).length > 0) {
+    const $hiddenCards = $(selector);
+    
+    if ($hiddenCards.length > 0) {
+      // 非表示のカードが1つ以上あれば「もっと見る」ボタンを表示
       $('#works__btn').show();
     } else {
+      // 非表示のカードがなければ「もっと見る」ボタンを非表示
       $('#works__btn').hide();
     }
 
     // フィルタリング完了
     setTimeout(() => {
+      // フィルタリング中フラグをOFFに
       isFiltering = false;
       // スクロールイベントを手動で発火
       $(window).trigger('scroll');
     }, 300);
   });
 
-  // 「もっと見る」ボタンの機能は以前と同じ
+  // 「もっと見る」ボタン機能
   $('#works__btn').on('click', function() {
     // フィルタに応じて次の3件を表示
-    let selector = '.p-worksCard.hidden';
+    let selector = '';
     switch(currentFilter) {
       case 'js-worksAll':
         selector = '.p-worksCard.hidden';
@@ -248,7 +265,11 @@ jQuery(document).ready(function($) {
     // 現在の列数を取得
     const columnCount = getColumnCount();
 
-    $(selector).slice(0, 3).each(function(index) {
+    // 次の3件（または残りのすべて）を表示
+    const $hiddenCards = $(selector);
+    const cardsToShow = Math.min($hiddenCards.length, 3);
+
+    $hiddenCards.slice(0, cardsToShow).each(function(index) {
       $(this)
         .removeClass('hidden')
         .removeClass('c-fadeIn--active')
@@ -270,7 +291,7 @@ jQuery(document).ready(function($) {
     $(window).trigger('scroll');
 
     // すべての対象カードが表示されたらボタンを非表示
-    if ($(selector).length <= 3) {
+    if ($hiddenCards.length <= cardsToShow) {
       $('#works__btn').hide();
     }
   });
