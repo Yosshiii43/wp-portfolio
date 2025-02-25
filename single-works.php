@@ -63,6 +63,17 @@
                 <?php 
                     endif;
                     ?>
+                <?php 
+                    // リンク先ラベルとリンク先URLを取得
+                    $link_label2 = get_field("link_label2");
+                    $link_url2 = get_field("link_url2");
+                    // フィールドが空でない場合にのみ出力
+                    if (!empty($link_label2) && !empty($link_url2)) :
+                ?>
+                <p class="p-siteLink"><a href="<?php echo esc_url($link_url2); ?>" target=”_blank”><?php echo esc_html($link_label2); ?></a></p>
+                <?php 
+                    endif;
+                    ?>
             </div>
         <?php endif; ?><!--ACFが有効の場合-->
         </div><!--c-wrap-->

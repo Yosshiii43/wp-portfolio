@@ -27,7 +27,7 @@ Works（下層ページ）詳細
             padding-bottom: fw.rem( 10 );
             @include fw.mq("tab"){
                 width: auto; 
-                min-width: 12em;
+                min-width: 14em;
                 max-width: 50%; /* 最大幅を50%に制限 */
                 white-space: normal; /* 折り返しを許可 */
                 word-break: break-word; /* 必要に応じて折り返す */
@@ -35,7 +35,7 @@ Works（下層ページ）詳細
             }
         }
         td{
-            padding-bottom: fw.rem( 24 );
+            padding-bottom: 2em;
             @include fw.mq("tab"){
                 white-space: normal; /* 折り返しを許可 */
                 word-break: break-word; /* 長い内容があれば折り返す */
