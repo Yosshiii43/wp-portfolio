@@ -119,7 +119,6 @@ jQuery(window).on('scroll load', function(){        // ページロード時、�
 
 
 ////フロントページWorks
-////フロントページWorks
 jQuery(document).ready(function($) {
   // 現在のフィルタ状態を保持する変数
   let currentFilter = 'js-worksAll';
@@ -261,14 +260,14 @@ jQuery(document).ready(function($) {
         selector = '.p-worksCard.hidden[data-tag*="Coding"]';
         break;
     }
-
+  
     // 現在の列数を取得
     const columnCount = getColumnCount();
-
+  
     // 次の3件（または残りのすべて）を表示
     const $hiddenCards = $(selector);
     const cardsToShow = Math.min($hiddenCards.length, 3);
-
+  
     $hiddenCards.slice(0, cardsToShow).each(function(index) {
       $(this)
         .removeClass('hidden')
@@ -286,12 +285,12 @@ jQuery(document).ready(function($) {
       
       $(this).css('transition-delay', delay + 's');
     });
-
+  
     // スクロールイベントを手動で発火
     $(window).trigger('scroll');
-
+  
     // すべての対象カードが表示されたらボタンを非表示
-    if ($hiddenCards.length <= cardsToShow) {
+    if ($hiddenCards.length === cardsToShow) {
       $('#works__btn').hide();
     }
   });

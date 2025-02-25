@@ -10,7 +10,7 @@
     <?php
     $args = array(
         'post_type'      => 'works',
-        'posts_per_page' => 15,
+        'posts_per_page' => -1,  // すべての投稿を取得
         'meta_key'       => 'post_order',
     );
     $the_query = new WP_Query($args);
