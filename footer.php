@@ -4,7 +4,6 @@
                 <li class="p-footer__menu__item"><a href="#service">Service</a></li>
                 <li class="p-footer__menu__item"><a href="#works">Works</a></li>
                 <li class="p-footer__menu__item"><a href="#about">About</a></li>
-                <li class="p-footer__menu__item"><a href="#flow">Flow</a></li>
                 <li class="p-footer__menu__item"><a href="#contact">Contact</a></li>
             </ul>
             <p class="p-footer__copyright c-textSmall c-font--nunito200">&copy;2024 ️Yoshino Sumi</p>
