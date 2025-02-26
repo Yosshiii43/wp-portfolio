@@ -484,7 +484,7 @@ Serviceのカード
 .p-works__menu {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.875rem;
+  gap: 1rem;
   justify-content: center;
   margin-bottom: 2.5rem;
 }
@@ -500,6 +500,9 @@ Serviceのカード
   .p-works__menu__item {
     font-size: 1.25rem;
   }
+}
+.p-works__menu button {
+  padding: 3px 15px;
 }
 .p-works__menu button.c-title--circle::before {
   width: 20px;
@@ -533,7 +536,7 @@ Serviceのカード
 }
 .p-works__more::after {
   content: "";
-  background: url(../../../img/ico_arrow.png);
+  background: url("../img/ico_arrow.png");
   background-size: contain;
   background-repeat: no-repeat;
   width: 0.875rem;
@@ -541,6 +544,11 @@ Serviceのカード
   position: absolute;
   top: 1.875rem;
   left: calc(50% - 0.4375rem);
+}
+.p-works button:focus {
+  outline: 2px solid blue; /* または任意のデザイン */
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 .p-works .hidden {
   display: none;

@@ -9,7 +9,7 @@
     &__menu{
         display: flex;
         flex-wrap: wrap;
-        gap: fw.rem( 30 );
+        gap: 1rem;
         justify-content: center;
         margin-bottom: fw.rem( 40 );
         @include fw.mq(tab){
@@ -24,6 +24,10 @@
             }
         }
 
+        button{
+          padding: 3px 15px;
+        }
+
         button.c-title--circle::before{
             width: 20px;
             height: 20px;
@@ -34,6 +38,8 @@
         button:hover {
             opacity: 0.8; // 透明度を少し変更してホバー時の反応を強調
         }
+
+
     }
     &__gallery{
         display: grid;
@@ -54,7 +60,7 @@
         position: relative;
         &::after{
             content: "";
-            background: url(../../../img/ico_arrow.png);
+            background: url("../img/ico_arrow.png");
             background-size: contain;
             background-repeat: no-repeat;
             width: fw.rem( 14 );
@@ -63,6 +69,13 @@
             top: fw.rem( 30 );
             left: calc( 50% - math.div( fw.rem( 14 ) , 2));
         }
+    }
+
+    //フォーカスインジケーターの表示
+    button:focus {
+      outline: 2px solid blue; /* または任意のデザイン */
+      outline-offset: 2px;
+      border-radius: 2px;
     }
 
     .hidden {
