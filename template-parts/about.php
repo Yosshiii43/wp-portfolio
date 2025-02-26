@@ -1,6 +1,9 @@
 <section class="p-about c-bg--gray" id="about">
+
     <div class="c-wrap">
+
         <h2 class="c-title--frontH2 c-font--nunito200 c-fadeIn js-fadeIn">About</h2>
+
         <div class="c-inner">
             <div class="p-about__text c-fadeIn js-fadeIn">
                 <p class="c-matginBottom--1em">Yoshino</p>
@@ -16,5 +19,7 @@
                 <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/portrait_sit.png" alt="Yoshinoイラスト" width="1500px" height="1444px">
             </div>
         </div><!--"c-inner-->
+
     </div><!--c-wrap-->
+
 </section><!--p-about-->
