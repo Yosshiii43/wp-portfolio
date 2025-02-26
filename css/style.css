@@ -705,65 +705,18 @@ Worksのカード
 Contactフォーム
 =============================*/
 @media screen and (min-width: 577px) {
-  .p-contactForm {
+  .wpcf7-form {
     max-width: 440px;
     margin: 0 auto;
   }
 }
-.p-contactForm__item {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0.75rem;
-}
-.p-contactForm__item label {
-  position: relative;
-  margin-bottom: 0.25rem;
-}
-.p-contactForm__item input,
-.p-contactForm__item textarea {
-  background: #FFFFFF;
-  border: 1px solid #333333;
-  border-radius: 6px;
-  padding: 0.4375rem 1.25rem;
-}
-.p-contactForm__item:last-child {
-  margin-bottom: 2rem;
-}
-.p-contactForm__item--required label::after {
+.wpcf7-form p label.required::after {
   content: "必須";
   font-size: 0.875rem;
   margin-left: 0.5rem;
   padding: 0 0.75rem;
   background: #FAFD87;
   border-radius: 6px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.p-contactForm__privacyPolicy {
-  margin-bottom: 2rem;
-}
-.p-contactForm__privacyPolicy a {
-  text-decoration: underline;
-  text-underline-offset: 0.25rem;
-  text-decoration-thickness: 1px;
-}
-.p-contactForm__button input {
-  display: block;
-  margin: 0 auto;
-  background: #FAFD87;
-  border-radius: 6px;
-  padding: 0.5rem 2.5rem;
-}
-
-/*=============================
-Contactフォーム
-=============================*/
-@media screen and (min-width: 577px) {
-  .wpcf7-form {
-    max-width: 440px;
-    margin: 0 auto;
-  }
 }
 .wpcf7-form p:not(:last-of-type) {
   display: flex;
@@ -785,17 +738,10 @@ Contactフォーム
 .wpcf7-form p:not(:last-of-type) input[name=policy] {
   width: auto;
 }
-.wpcf7-form p label span.required {
-  font-size: 0.875rem;
-  margin-left: 0.5rem;
-  padding: 0 0.75rem;
-  background: #FAFD87;
-  border-radius: 6px;
-}
-.wpcf7-form .privacyPolicy {
+.wpcf7-form p:nth-last-of-type(2) {
   margin-bottom: 2rem;
 }
-.wpcf7-form .privacyPolicy a {
+.wpcf7-form p:nth-last-of-type(2) a {
   margin-top: 0.25rem;
   margin-left: 1em;
   text-decoration: underline;

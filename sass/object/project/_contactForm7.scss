@@ -6,61 +6,66 @@ Contactフォーム
 @use "sass:math";
 
 .wpcf7-form {
-    @include fw.mq("tab"){
-        max-width: 440px;
-        margin: 0 auto;
-    }
-    p:not(:last-of-type){
-        display: flex;
-        flex-direction: column;
-        margin-bottom: fw.rem( 12 );
-        .wpcf7-form-control-wrap{
-            display: block;
-            margin-top: fw.rem( 4 );
-        }
-        input,
-        textarea{
-            width: 100%;
-            background: fw.$color--white;
-            border: 1px solid fw.$color--black;
-            border-radius: 6px;
-            padding: fw.rem( 7 ) fw.rem( 20 );
-        }
-        input[name="policy"]{
-          width: auto;
-        }
-    }
+  @include fw.mq("tab"){
+    max-width: 440px;
+    margin: 0 auto;
+  }
 
-    p{
-      label{
-        span.required {
+  p{
+    label{
+      &.required::after{
+        content: "必須";
         font-size: fw.rem( 14 );
         margin-left: fw.rem( 8 );
         padding: 0 fw.rem( 12 );
         background: fw.$color--yellow;
         border-radius: 6px;
-        }
       }
     }
-    .privacyPolicy{
-        margin-bottom: fw.rem( 32 );
-        a{
-          margin-top: fw.rem( 4 );
-          margin-left: 1em;
-          text-decoration: underline;
-          text-underline-offset: fw.rem( 4 );
-          text-decoration-thickness: 1px;
-        }
+  }
+
+  p:not(:last-of-type){
+    display: flex;
+    flex-direction: column;
+    margin-bottom: fw.rem( 12 );
+    .wpcf7-form-control-wrap{
+      display: block;
+      margin-top: fw.rem( 4 );
     }
-    p:last-of-type{
-        input{
-            display: block;
-            margin: 0 auto;
-            background: fw.$color--yellow;
-            border-radius: 6px;
-            padding: fw.rem( 8 ) fw.rem( 40 );
-        }
+    input,
+    textarea{
+      width: 100%;
+      background: fw.$color--white;
+      border: 1px solid fw.$color--black;
+      border-radius: 6px;
+      padding: fw.rem( 7 ) fw.rem( 20 );
     }
+    input[name="policy"]{
+      width: auto;
+    }
+  }
+
+  p:nth-last-of-type(2){
+    margin-bottom: fw.rem( 32 );
+    a{
+      margin-top: fw.rem( 4 );
+      margin-left: 1em;
+      text-decoration: underline;
+      text-underline-offset: fw.rem( 4 );
+      text-decoration-thickness: 1px;
+    }
+  }
+
+  p:last-of-type{
+    input{
+      display: block;
+      margin: 0 auto;
+      background: fw.$color--yellow;
+      border-radius: 6px;
+      padding: fw.rem( 8 ) fw.rem( 40 );
+    }
+  }
+  
 }
 
 .wpcf7 form.invalid .wpcf7-response-output,
