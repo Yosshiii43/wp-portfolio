@@ -24,9 +24,7 @@
         <title>404 Not Found | Yoshino’s Portfolio Site</title>
     </head>
 <body class="page">
-    <div class="p-loadingOverlay">
-        <div class="p-loader"></div>
-    </div>
+  
     <header class="l-header p-header" id="header">
         <p class="p-header__title">
             <a href="#">

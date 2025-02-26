@@ -10,12 +10,9 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class( 'c-body' ); ?> >
+  
     <?php wp_body_open(); ?>
-    <!--
-    <div class="p-loadingOverlay">
-        <div class="p-loader"></div>
-    </div>
-    -->
+
     <header class="l-header p-header" id="header">
         <p class="p-header__title">
             <a href="<?php echo esc_url( home_url() ); ?> ">

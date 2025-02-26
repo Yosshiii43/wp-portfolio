@@ -1,4 +1,4 @@
-<section class="p-contact c-bg--gray" id="contact">
+<section class="p-contact" id="contact">
   <div class="c-wrap">
       <h2 class="c-title--frontH2 c-font--nunito200 c-fadeIn js-fadeIn">Contact</h2>
       <div class="c-fadeIn js-fadeIn">
