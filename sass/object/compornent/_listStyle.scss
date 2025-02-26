@@ -6,18 +6,18 @@
 @use "sass:math";
 
 .c-listStyle{
-    li{
-        position: relative;
-        padding-left: 1em;
-        &::before{
-            content: "";
-            position: absolute;
-            left: 0.4em;
-            top: 0.65em;
-            width: 2px;
-            height: 2px;
-            background: fw.$color--black;
-            border-radius: 50%;
-        }
+  li{
+    position: relative;
+    padding-left: 1em;
+    &::before{
+      content: "";
+      position: absolute;
+      left: 0.4em;
+      top: 0.65em;
+      width: 2px;
+      height: 2px;
+      background: fw.$color--black;
+      border-radius: 50%;
     }
+  }
 }

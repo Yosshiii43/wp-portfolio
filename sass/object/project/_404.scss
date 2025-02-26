@@ -5,10 +5,10 @@
 @use "../../foundation/forwords" as fw;
 
 .p-404{
-    &__text{
-        margin-bottom: fw.rem( 60 );
-    }
-    .p-siteLink{
-        justify-content: right;
-    }
+  &__text{
+    margin-bottom: fw.rem( 60 );
+  }
+  .p-siteLink{
+    justify-content: right;
+  }
 }

@@ -5,62 +5,62 @@
 @use "../../foundation/forwords" as fw;
 
 .c-title--frontH2{//左斜め上に黄色い丸をつける（テキストセンタリング）
-    font-size: fw.rem( 38 );
-    font-weight: 200;
-    text-align: center;
-    margin-bottom: fw.rem( 60 );    
-    &::before{
-        content: "";
-        display: inline-block;
-        width: fw.rem(24);//黄色のサークルの幅
-        height: fw.rem(24);//黄色のサークルの高さ
-        border-radius: 50%;
-        background: fw.$color--yellow;
-        margin-bottom: 0.3em;
-        margin-right: -0.3em;
-    }
+  font-size: fw.rem( 38 );
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: fw.rem( 60 );    
+  &::before{
+    content: "";
+    display: inline-block;
+    width: fw.rem(24);//黄色のサークルの幅
+    height: fw.rem(24);//黄色のサークルの高さ
+    border-radius: 50%;
+    background: fw.$color--yellow;
+    margin-bottom: 0.3em;
+    margin-right: -0.3em;
+  }
 }
 
 .c-title--circle{//左斜め上に黄色い丸をつける（テキスト左寄せ）
-    position: relative;
-    z-index: 1;
-    //marginは個別に指定
-    &::before{
-        content: "";
-        border-radius: 50%;
-        background: fw.$color--yellow;
-        position: absolute;
-        z-index: -1;
-        //width,height,top,leftは個別に指定
-    }
+  position: relative;
+  z-index: 1;
+  //marginは個別に指定
+  &::before{
+    content: "";
+    border-radius: 50%;
+    background: fw.$color--yellow;
+    position: absolute;
+    z-index: -1;
+    //width,height,top,leftは個別に指定
+  }
 }
 
 .c-title--circleNumber{//黄色の丸つき数字
-    font-size: 0.9em;
-    display: inline-block;
-    width: 1.2em;
-    height: 1.2em;
-    text-align: center;
-    line-height: 1.2em;
-    background: fw.$color--yellow;
-    border-radius: 50%;
-    margin-right: 0.5em;
+  font-size: 0.9em;
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  text-align: center;
+  line-height: 1.2em;
+  background: fw.$color--yellow;
+  border-radius: 50%;
+  margin-right: 0.5em;
 }
 
 .c-title--unorderCircle{//Works詳細ページの表のthで使用
-    font-weight: 300;
-    display: inline-block;
-    position: relative;
-    padding-left: fw.rem( 20 );
-    &::before{
-        content: "";
-        width: fw.rem(12);//黄色のサークルの幅
-        height: fw.rem(12);//黄色のサークルの高さ
-        border-radius: 50%;
-        background: fw.$color--yellow;
-        position: absolute;
-        top: 0;
-        transform: translateY( 50% );
-        left: 0;
-    }
+  font-weight: 300;
+  display: inline-block;
+  position: relative;
+  padding-left: fw.rem( 20 );
+  &::before{
+    content: "";
+    width: fw.rem(12);//黄色のサークルの幅
+    height: fw.rem(12);//黄色のサークルの高さ
+    border-radius: 50%;
+    background: fw.$color--yellow;
+    position: absolute;
+    top: 0;
+    transform: translateY( 50% );
+    left: 0;
+  }
 }
