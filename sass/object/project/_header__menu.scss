@@ -34,7 +34,7 @@
       background: inherit;
       flex-direction: row;
       transition: inherit;
-      gap: fw.rem( 10 );
+      gap: 5px;
     }
 
     &__item{
@@ -43,14 +43,13 @@
 
       a{
         display: block;
-        background: beige;
         width: 100%;
         padding-top: 10px;
         padding-bottom: 10px;
         text-align: center;
         @include fw.mq("tab"){
-          padding-left: 20px;
-          padding-right: 20px;
+          padding-left: 15px;
+          padding-right: 15px;
         }
       }
     }

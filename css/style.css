@@ -206,7 +206,7 @@ body.is-open {
     background: inherit;
     flex-direction: row;
     transition: inherit;
-    gap: 0.625rem;
+    gap: 5px;
   }
 }
 .p-header__menu .p-gmenu__item {
@@ -215,7 +215,6 @@ body.is-open {
 }
 .p-header__menu .p-gmenu__item a {
   display: block;
-  background: beige;
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -223,8 +222,8 @@ body.is-open {
 }
 @media screen and (min-width: 577px) {
   .p-header__menu .p-gmenu__item a {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 .p-header__menu.is-open .p-gmenu {
