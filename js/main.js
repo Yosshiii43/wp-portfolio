@@ -337,3 +337,59 @@ jQuery('.js-slick01').slick({
 	cssEase: 'linear'
 });
 
+
+///コンタクトフォーム7///
+//チェックボックスをキーボード操作でチェックする
+document.addEventListener('DOMContentLoaded', () => {
+  const checkboxes = document.querySelectorAll('.wpcf7-form input[type="checkbox"]');
+  
+  checkboxes.forEach(checkbox => {
+    // エンターキーでチェックボックスをトグル
+    checkbox.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault(); // デフォルトの動作を防止
+        checkbox.checked = !checkbox.checked; // チェック状態を切り替え
+      }
+    });
+
+    // スペースキーでもチェックボックスをトグル
+    checkbox.addEventListener('keyup', (e) => {
+      if (e.key === ' ') {
+        e.preventDefault(); // デフォルトの動作を防止
+        checkbox.checked = !checkbox.checked; // チェック状態を切り替え
+      }
+    });
+  });
+});
+
+
+
+////Contact Form 7内のタブナビゲーション
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('.wpcf7-form');
+  if (form) {
+    const focusableElements = form.querySelectorAll(
+      'input, textarea, select, button, [tabindex="0"]'
+    );
+    
+    form.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        const lastElement = focusableElements[focusableElements.length - 1];
+        const firstElement = focusableElements[0];
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+          lastElement.focus();
+          e.preventDefault();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          firstElement.focus();
+          e.preventDefault();
+        }
+      }
+    });
+
+    // タブインデックスを確実に設定
+    focusableElements.forEach(element => {
+      element.setAttribute('tabindex', '0');
+    });
+  }
+});

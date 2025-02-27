@@ -184,3 +184,23 @@ function disable_wpcf7_realtime_validation() {
     wp_enqueue_script('custom-wpcf7', get_template_directory_uri() . '/custom-wpcf7.js', array('jquery'), null, true);
 }
 add_action('wp_enqueue_scripts', 'disable_wpcf7_realtime_validation', 20);
+
+
+//コンタクトフォーム7のtabindex追加
+add_filter('wpcf7_form_elements', 'add_tabindex_to_form_elements');
+function add_tabindex_to_form_elements($form) {
+    $form = str_replace(
+        array(
+            '<input ', 
+            '<textarea ',
+            '<select '
+        ),
+        array(
+            '<input tabindex="0" ', 
+            '<textarea tabindex="0" ',
+            '<select tabindex="0" '
+        ),
+        $form
+    );
+    return $form;
+}

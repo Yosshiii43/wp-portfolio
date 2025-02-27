@@ -40,6 +40,16 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 /*=======================
 ヘッダー
 =======================*/
@@ -529,6 +539,9 @@ Serviceのカード
     grid-template-columns: repeat(3, 1fr);
   }
 }
+.p-works__gallery .p-works__item {
+  display: block;
+}
 .p-works__more {
   display: block;
   margin: 0 auto;
@@ -545,8 +558,9 @@ Serviceのカード
   top: 1.875rem;
   left: calc(50% - 0.4375rem);
 }
-.p-works button:focus {
-  outline: 2px solid blue; /* または任意のデザイン */
+.p-works button:focus-visible,
+.p-works a:focus-visible {
+  outline: 2px solid #3498db !important;
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -695,6 +709,9 @@ Contactフォーム
     margin: 0 auto;
   }
 }
+.wpcf7-form p {
+  /* すべての入力フィールドとボタンに対するフォーカススタイル */
+}
 .wpcf7-form p label.required::after {
   content: "必須";
   font-size: 0.875rem;
@@ -702,6 +719,13 @@ Contactフォーム
   padding: 0 0.75rem;
   background: #FAFD87;
   border-radius: 6px;
+}
+.wpcf7-form p input:focus,
+.wpcf7-form p textarea:focus,
+.wpcf7-form p select:focus,
+.wpcf7-form p .wpcf7-submit:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
 }
 .wpcf7-form p:not(:last-of-type) {
   display: flex;

@@ -22,6 +22,14 @@ Contactフォーム
         border-radius: 6px;
       }
     }
+    /* すべての入力フィールドとボタンに対するフォーカススタイル */
+    input:focus,
+    textarea:focus,
+    select:focus,
+    .wpcf7-submit:focus {
+      outline: 2px solid fw.$color--blue;
+      outline-offset: 2px;
+    }
   }
 
   p:not(:last-of-type){

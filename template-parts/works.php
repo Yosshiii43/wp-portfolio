@@ -33,7 +33,7 @@
             $tag_data = $tags ? implode(',', $tags) : '';
           ?>
           <div class="p-worksCard js-tagDsign c-fadeIn js-fadeIn <?php if($post_count > 9) echo 'hidden'; ?>" data-tag="<?php echo esc_attr($tag_data); ?>">
-            <a href="<?php the_permalink(); ?>">
+            <a href="<?php the_permalink(); ?>" tabindex="0" class="p-works__item">
               <?php
                 $worksImage = get_field('slider_img1');
                 if( !empty( $worksImage ) ):

@@ -38,9 +38,8 @@
         button:hover {
             opacity: 0.8; // 透明度を少し変更してホバー時の反応を強調
         }
-
-
     }
+
     &__gallery{
         display: grid;
         gap:3rem;
@@ -53,7 +52,11 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+        .p-works__item{
+          display: block; //フォーカスインジケーターの表示のために必要
+        }
     }
+
     &__more{
         display: block;
         margin: 0 auto;
@@ -72,8 +75,9 @@
     }
 
     //フォーカスインジケーターの表示
-    button:focus {
-      outline: 2px solid blue; /* または任意のデザイン */
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid fw.$color--blue !important;
       outline-offset: 2px;
       border-radius: 2px;
     }
