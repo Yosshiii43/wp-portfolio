@@ -102,6 +102,15 @@ textarea:focus-visible {
   justify-content: space-between;
   align-items: center;
   border-top: 8px solid #FAFD87;
+  /*
+  h1{
+      width: 116px;
+      height: auto;
+      img{
+          width: 100%;
+      }
+  }
+      */
 }
 @media screen and (min-width: 577px) {
   .p-header {
@@ -114,12 +123,8 @@ textarea:focus-visible {
     padding: 16px 40px 12px;
   }
 }
-.p-header h1 {
-  width: 116px;
-  height: auto;
-}
-.p-header h1 img {
-  width: 100%;
+.p-header__title a {
+  display: block;
 }
 
 /*============================

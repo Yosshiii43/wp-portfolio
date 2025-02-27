@@ -19,6 +19,12 @@
             padding: 16px 40px 12px;
         }
     }
+    &__title{
+      a{
+        display: block;
+      }
+    }
+    /*
     h1{
         width: 116px;
         height: auto;
@@ -26,4 +32,5 @@
             width: 100%;
         }
     }
+        */
 }

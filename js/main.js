@@ -377,12 +377,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const lastElement = focusableElements[focusableElements.length - 1];
         const firstElement = focusableElements[0];
 
+        // フォーム内でのタブ移動
         if (e.shiftKey && document.activeElement === firstElement) {
           lastElement.focus();
           e.preventDefault();
         } else if (!e.shiftKey && document.activeElement === lastElement) {
-          firstElement.focus();
-          e.preventDefault();
+          // デフォルトの動作を許可（フォーム外へ移動）
+          return;
         }
       }
     });

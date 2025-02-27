@@ -4,9 +4,9 @@
       <h2 class="c-title--frontH2 c-font--nunito200 c-fadeIn js-fadeIn">Works</h2>
 
       <ul class="p-works__menu c-fadeIn js-fadeIn">
-        <li class="p-works__menu__item"><button class="c-title--circle" id="js-worksAll">All</button></li>
-        <li class="p-works__menu__item"><button id="js-worksDesign">Design</button></li>
-        <li class="p-works__menu__item"><button id="js-worksCoding">Coding</button></li>
+        <li class="p-works__menu__item"><button class="c-title--circle" id="js-worksAll" tabindex="0">All</button></li>
+        <li class="p-works__menu__item"><button id="js-worksDesign" tabindex="0">Design</button></li>
+        <li class="p-works__menu__item"><button id="js-worksCoding" tabindex="0">Coding</button></li>
       </ul>
 
     <?php
@@ -56,7 +56,7 @@
 
       <?php if ($the_query->post_count > 9): ?>
         <div class="tc mt20">
-          <button class="p-works__more" id="works__btn">もっと見る</button>
+          <button class="p-works__more" id="works__btn" tabindex="0">もっと見る</button>
         </div>
       <?php endif; ?>
 
