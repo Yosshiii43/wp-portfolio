@@ -264,9 +264,9 @@ jQuery(document).ready(function($) {
     // 現在の列数を取得
     const columnCount = getColumnCount();
   
-    // 次の3件（または残りのすべて）を表示
+    // 次の6件（または残りのすべて）を表示
     const $hiddenCards = $(selector);
-    const cardsToShow = Math.min($hiddenCards.length, 3);
+    const cardsToShow = Math.min($hiddenCards.length, 6);
   
     $hiddenCards.slice(0, cardsToShow).each(function(index) {
       $(this)
