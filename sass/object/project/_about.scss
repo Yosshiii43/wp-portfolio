@@ -18,7 +18,7 @@
 
     .p-about__text{
       @include fw.mq("pc"){
-        flex-basis: 47.8%;
+        flex-basis: 54%;
       }
       p:first-child{
         font-size: fw.rem( 24 );
@@ -31,7 +31,7 @@
       @include fw.mq("tab"){
         width: fw.tab-vw( 260 );
         @include fw.mq("pc"){
-          flex-basis: 34.8%;
+          flex-basis: 36%;
           margin: inherit;
         }
       }

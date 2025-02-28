@@ -626,7 +626,7 @@ Worksのカード
 }
 @media screen and (min-width: 992px) {
   .p-about .c-wrap .c-inner .p-about__text {
-    flex-basis: 47.8%;
+    flex-basis: 54%;
   }
 }
 .p-about .c-wrap .c-inner .p-about__text p:first-child {
@@ -643,7 +643,7 @@ Worksのカード
 }
 @media screen and (min-width: 577px) and (min-width: 992px) {
   .p-about .c-wrap .c-inner .p-about__img {
-    flex-basis: 34.8%;
+    flex-basis: 36%;
     margin: inherit;
   }
 }
