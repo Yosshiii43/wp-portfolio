@@ -103,53 +103,6 @@ function portfolio_add_files(){
 }
 add_action( 'wp_enqueue_scripts', 'portfolio_add_files');
 
-/*
-function enqueue_custom_fonts() {
-    // Adobe Fontsの読み込み
-    wp_enqueue_script(
-        'portfolio-adobe-fonts',
-        'https://use.typekit.net/hff0ssr.js',
-        array(),
-        null,
-        false
-    );
-
-    // Adobeフォントの設定
-    wp_add_inline_script(
-        'portfolio-adobe-fonts',
-        '(function(d) {
-            var config = {
-              kitId: "hff0ssr",
-
-              scriptTimeout: 3000,
-              async: true
-            },
-            h = d.documentElement,
-            t = setTimeout(function() {
-              h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
-            }, config.scriptTimeout),
-            tk = d.createElement("script"),
-            f = false,
-            s = d.getElementsByTagName("script")[0],
-            a;
-            h.className += " wf-loading";
-            tk.src = "https://use.typekit.net/" + config.kitId + ".js";
-            tk.async = true;
-            tk.onload = tk.onreadystatechange = function() {
-              a = this.readyState;
-              if (f || a && a != "complete" && a != "loaded") return;
-              f = true;
-              clearTimeout(t);
-              try {
-                Typekit.load(config);
-              } catch (e) {}
-            };
-            s.parentNode.insertBefore(tk, s);
-        })(document);'
-    );
-}
-add_action('wp_enqueue_scripts', 'enqueue_custom_fonts');
-*/
 
 // 制作実績投稿タイプのスラッグメタボックスを非表示にする
 function hide_slug_meta_box() {

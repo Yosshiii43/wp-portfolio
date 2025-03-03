@@ -717,7 +717,7 @@ Contactフォーム
 .wpcf7-form p {
   /* すべての入力フィールドとボタンに対するフォーカススタイル */
 }
-.wpcf7-form p label.required::after {
+.wpcf7-form p label .required {
   content: "必須";
   font-size: 0.875rem;
   margin-left: 0.5rem;
@@ -1000,11 +1000,6 @@ body
 .c-font--nunito200 {
   font-family: "Nunito";
   font-weight: 200;
-}
-
-.c-font--nunito300 {
-  font-family: "Nunito";
-  font-weight: 300;
 }
 
 /*=============================

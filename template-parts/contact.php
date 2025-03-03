@@ -11,7 +11,7 @@
         <p>　万が一、返信が届かない場合は、お手数ですが迷惑メールフォルダもご確認くださいますよう、お願い申し上げます。</p>
       </div>
 
-      <?php echo do_shortcode('[contact-form-7 id="4dde3df" title="お問い合わせフォーム"]'); ?>
+      <?php echo do_shortcode('[contact-form-7 id="d0fea0c" title="お問い合わせフォーム"]'); ?>
 
     </div>
 

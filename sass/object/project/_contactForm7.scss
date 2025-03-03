@@ -13,7 +13,7 @@ Contactフォーム
 
   p{
     label{
-      &.required::after{
+      & .required{
         content: "必須";
         font-size: fw.rem( 14 );
         margin-left: fw.rem( 8 );
@@ -22,6 +22,7 @@ Contactフォーム
         border-radius: 6px;
       }
     }
+
     /* すべての入力フィールドとボタンに対するフォーカススタイル */
     input:focus,
     textarea:focus,
