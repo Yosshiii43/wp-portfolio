@@ -53,13 +53,35 @@ function portfolio_add_files(){
         true
     );
 
+    // Google Fontsのpreconnectを追加
+    wp_enqueue_style(
+      'google-fonts-preconnect-googleapis',
+      'https://fonts.googleapis.com', 
+      array(), 
+      null
+    );
+    wp_enqueue_style(
+      'google-fonts-preconnect-gstatic',
+      'https://fonts.gstatic.com', 
+      array(), 
+      null
+    );
+
     // Google FontsからNunito読み込み
     wp_enqueue_style(
         'portfolio-nunito',
-        'https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap',
+        'https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap',
         array(),
         null
     );
+
+        // Google FontsからZenMaruGothic読み込み
+        wp_enqueue_style(
+          'portfolio-zenmarugothic',
+          'https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300&display=swap',
+          array(),
+          null
+      );
 
     // リセットCSS読み込み
     wp_enqueue_style(
