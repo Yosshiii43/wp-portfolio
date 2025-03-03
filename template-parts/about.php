@@ -4,8 +4,8 @@
 
       <h2 class="c-title--frontH2 c-font--nunito200 c-fadeIn js-fadeIn">About</h2>
 
-      <div class="c-inner">
-        <div class="p-about__text c-fadeIn js-fadeIn">
+      <div class="c-inner c-fadeIn js-fadeIn">
+        <div class="p-about__text">
           <p class="c-matginBottom--1em">Yoshino Sumi</p>
           <p class="c-matginBottom--1em">愛知県在住</p>
           <p class="c-matginBottom--1em">Webデザイナー / コーダー</p>
@@ -20,7 +20,7 @@
 
           <p>※クライアントの都合により、制作実績として公開できない案件もございます。詳細はお問い合わせください。</p>
         </div>
-        <div class="p-about__img c-fadeIn js-fadeIn">
+        <div class="p-about__img">
           <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/portrait_sit.png" alt="Yoshinoイラスト" width="1500px" height="1444px">
         </div>
       </div><!--"c-inner-->
