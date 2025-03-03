@@ -133,16 +133,17 @@ function hide_slug_meta_box() {
 add_action('add_meta_boxes', 'hide_slug_meta_box');
 
 
-///タイトル出力(後で使用)////
+////タイトル出力////
 function portfolio_title( $title ){
     if(is_front_page() || is_home()){//トップページなら
-        $title = get_bloginfo('name','display');
+        $title = get_bloginfo('name','display'). ' | ' .get_bloginfo('description','display');
     } elseif(is_singular()){//シングルページなら
         $title = single_post_title('', false). ' | ' .get_bloginfo('name','display');
     }
     return $title;
 }
 add_filter('pre_get_document_title','portfolio_title');
+
 //タイトル出力区切り線変更
 function portfolio_title_separator($separator) {
     $separator = '|';
