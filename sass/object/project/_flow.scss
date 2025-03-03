@@ -21,16 +21,19 @@
         margin: 0 auto;
       }
     }
+
     h3{
       font-size: fw.rem( 19 );
       @include fw.mq("pc"){
         width: 12em;
       }
     }
+    
     &__text{
       flex:1;//残りの幅で伸縮
     }
   }
+
   &__arrow{
     width: fw.rem( 20 );
     height: auto;

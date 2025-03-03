@@ -102,15 +102,6 @@ textarea:focus-visible {
   justify-content: space-between;
   align-items: center;
   border-top: 8px solid #FAFD87;
-  /*
-  h1{
-      width: 116px;
-      height: auto;
-      img{
-          width: 100%;
-      }
-  }
-      */
 }
 @media screen and (min-width: 577px) {
   .p-header {
@@ -1138,7 +1129,7 @@ footer
 }
 
 /*============================
-小見出し（c-title）
+小見出し（c-lowerTitle）
 ============================*/
 .c-lowerTitle {
   font-size: 1.5rem;
