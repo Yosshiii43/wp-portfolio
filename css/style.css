@@ -322,7 +322,9 @@ body.is-open {
   }
 }
 
-.p-mainVisual__title__bottom span.word1 .char1, .p-mainVisual__title__bottom span.word1 .char2, .p-mainVisual__title__bottom span.word1 .char3 {
+.p-mainVisual__title__bottom span.word1 .char1,
+.p-mainVisual__title__bottom span.word1 .char2,
+.p-mainVisual__title__bottom span.word1 .char3 {
   font-weight: 200;
 }
 .p-mainVisual__title__bottom span.word2 .char1 {
@@ -940,14 +942,16 @@ Works（下層ページ）詳細
 .p-privacy__head, .p-privacy__item {
   margin-bottom: 2.5rem;
 }
-.p-privacy__item > * {
-  margin-bottom: 1.25rem;
+.p-privacy__item > p,
+.p-privacy__item > ul {
+  margin-left: 1rem;
 }
 .p-privacy__item__secondary {
   padding-left: 1rem;
 }
-.p-privacy__item__secondary > * {
-  margin-bottom: 0.5rem;
+.p-privacy__item__secondary p,
+.p-privacy__item__secondary ul {
+  margin-left: 1rem;
 }
 .p-privacy__foot {
   text-align: right;

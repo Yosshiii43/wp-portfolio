@@ -10,17 +10,21 @@
     &__item{
         margin-bottom: fw.rem( 40 );
     }
+
     &__item{
-        > *{
-        margin-bottom: fw.rem( 20 );
-        }
+      > p,
+      >ul{
+        margin-left: fw.rem( 16 );
+      }
         &__secondary{
             padding-left: fw.rem( 16 );
-            > *{
-                margin-bottom: fw.rem( 8 );
+            p,
+            ul{
+              margin-left: fw.rem( 16 );
             }
         }
     }
+    
     &__foot{
         text-align: right;
     }
