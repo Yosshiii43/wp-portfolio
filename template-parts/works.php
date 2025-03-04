@@ -1,14 +1,15 @@
 <section class="p-works" id="works">
 
   <div class="c-wrap">
-      <h2 class="c-title--frontH2 c-font--nunito200 c-fadeIn js-fadeIn">Works</h2>
-
-      <ul class="p-works__menu c-fadeIn js-fadeIn">
-        <li class="p-works__menu__item"><button class="c-title--circle" id="js-worksAll" tabindex="0">All</button></li>
-        <li class="p-works__menu__item"><button id="js-worksDesign" tabindex="0">Design</button></li>
-        <li class="p-works__menu__item"><button id="js-worksCoding" tabindex="0">Coding</button></li>
-      </ul>
-
+    <div class=" c-fadeIn js-fadeIn">
+        <h2 class="c-title--frontH2 c-font--nunito200">Works</h2>
+        <ul class="p-works__menu">
+          <li class="p-works__menu__item"><button class="c-title--circle" id="js-worksAll" tabindex="0">All</button></li>
+          <li class="p-works__menu__item"><button id="js-worksDesign" tabindex="0">Design</button></li>
+          <li class="p-works__menu__item"><button id="js-worksCoding" tabindex="0">Coding</button></li>
+        </ul>
+    </div>
+    
     <?php
       $args = array(
         'post_type'      => 'works',
