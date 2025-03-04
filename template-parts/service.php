@@ -53,7 +53,7 @@
         </section>
 
         <section class="p-serviceCard c-fadeIn js-fadeIn">
-            <p class="p-serviceCard__icon c-fadeIn js-fadeIn">
+            <p class="p-serviceCard__icon">
               <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/Ico_responsive.png" alt="レスポンシブデザイン対応のイラスト" width="500px" height="500px">
             </p>
             <h4>レスポンシブデザイン対応</h4>
@@ -65,7 +65,7 @@
               <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico_wordpress.png" alt="WordPress構築のイラスト" width="500px" height="500px">
             </p>
             <h4>WordPress構築</h4>
-            <p class="p-serviceCard__caption">WordPressを用いたウェブサイト構築で、管理のしやすさと柔軟性を両立したサイトを提供します。
+            <p class="p-serviceCard__caption">WordPressを用いたウェブサイト構築で、管理のしやすさと柔軟性を両立したサイトを提供します。</p>
         </section>
 
       </div><!-- p-service__content__gallery -->

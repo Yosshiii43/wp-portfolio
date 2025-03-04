@@ -6,25 +6,21 @@ Serviceのカード
 @use "sass:math";
 
 .p-serviceCard{
-    width: fw.sp-vw( 280 );
+    width: fw.rem( 320 );
     @include fw.mq("tab"){
-        width: fw.tab-vw( 280 );
+        width: calc( 50% - math.div( 40px , 2));
+        max-width: fw.rem( 360 );
         @include fw.mq("pc"){
             width: 30%;
         }
     }
     &__icon{
-        width: fw.sp-vw( 120 );
+        width: fw.rem( 120 );
         background: fw.$color--white;
         border-radius: 50%;
         margin: 0 auto fw.sp-vw( 12 );
-        @include fw.mq("tab"){
-            width: fw.tab-vw( 120 );
-            @include fw.mq("pc"){
-                width: fw.pc-vw( 120 );
-            }
-        }
     }
+    
     h4{
         font-size: fw.rem( 19 );
         text-align: center;

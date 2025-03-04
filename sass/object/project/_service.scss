@@ -4,36 +4,34 @@
 =============================*/
 @use "../../foundation/forwords" as fw;
 .p-service{
-    .p-service__content__title{
+  &__content{
+    &:first-of-type{
+      margin-bottom: fw.rem( 60 );
+    }
+
+    &__title{
         font-size: fw.rem( 24 );
         display: flex;
         align-items: center;
         justify-content: center;
         margin-bottom: fw.rem( 40 );
+        gap: fw.rem( 16 );
+
         &::before,
         &::after{
             border-top: 1px solid;
             content: "";
             width: fw.rem( 40 );
         }
-        &::before{
-            margin-right: 1em;
-        }
-        &::after{
-            margin-left: 1em;
-        }
-    }    
-    &__content{
-        &__gallery{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-        }
     }
-    .p-service__content:first-of-type{
-        margin-bottom: fw.rem( 60 );
+
+    &__gallery{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
     }
+  }
 }
 
 //横並びのカードのディレイ設定
@@ -43,7 +41,7 @@
 }
 
 /* タブレット: 奇数・偶数でディレイ */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 577px) and (max-width: 991px) {
     .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(1) {
         transition-delay: .2s;
     }
@@ -53,7 +51,7 @@
 }
 
 /* PC: 3列ごとにディレイ */
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
     .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(3n+1) {
         transition-delay: .2s;
     }
