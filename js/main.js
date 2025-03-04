@@ -110,7 +110,7 @@ jQuery(window).on('scroll load', function(){        // ページロード時、�
 	var windowHeight = jQuery(window).height();       // ウィンドウの高さを測定 
 	jQuery('.js-fadeIn').each(function(){             // 「fadeIn」のクラスがついているものを1つずつ確認し・・・ 
 	  var cntPos = jQuery(this).offset().top;         // 対象の要素の上からの距離を測定 */
-	  if(scroll > cntPos - windowHeight + windowHeight / 3){  // 要素がある位置までスクロールされていたら 
+	  if(scroll > cntPos - windowHeight + windowHeight / 3){  // 要素が画面の1/3くらいの位置までスクロールされていたら 
 		jQuery(this).addClass('c-fadeIn--active');              // 「active」のクラスを付与 
 	  }
 	});

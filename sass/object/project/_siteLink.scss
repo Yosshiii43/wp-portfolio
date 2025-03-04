@@ -5,16 +5,17 @@
 @use "sass:math";
 
 .p-siteLink{
-    margin-top: 1em;
-    display: flex;
-    justify-content: right;
-    ::after{
-        content: "";
-        display: inline-block;
-        width: 36px;
-        height: 6px;
-        margin-right: fw.rem( 4 );
-        background: url(../img/siteLinkArrow.png);
-        background-size: contain;
-    }
+  margin-top: 1em;
+  display: flex;
+  justify-content: right;
+
+  ::after{
+    content: "";
+    display: inline-block;
+    width: 36px;
+    height: 6px;
+    margin-right: fw.rem( 4 );
+    background: url(../img/siteLinkArrow.png);
+    background-size: contain;
+  }
 }

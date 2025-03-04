@@ -10,55 +10,45 @@
     }
 
     &__title{
-        font-size: fw.rem( 24 );
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: fw.rem( 40 );
-        gap: fw.rem( 16 );
+      font-size: fw.rem( 24 );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: fw.rem( 40 );
+      gap: fw.rem( 16 );
 
-        &::before,
-        &::after{
-            border-top: 1px solid;
-            content: "";
-            width: fw.rem( 40 );
-        }
+      &::before,
+      &::after{
+        border-top: 1px solid;
+        content: "";
+        width: fw.rem( 40 );
+      }
     }
 
     &__gallery{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
     }
   }
 }
 
 //横並びのカードのディレイ設定
-/* スマートフォン（デフォルト）: ディレイなし */
-.p-serviceCard .c-fadeIn {
-    transition-delay: 0s;
-}
 
-/* タブレット: 奇数・偶数でディレイ */
-@media (min-width: 577px) and (max-width: 991px) {
-    .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(1) {
-        transition-delay: .2s;
-    }
-    .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(2) {
-        transition-delay: .4s;
-    }
+/* タブレット: 2列ごとにディレイ */
+@include fw.mq("tab"){
+  .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(2) {
+    transition-delay: .2s;
+  }
 }
 
 /* PC: 3列ごとにディレイ */
-@media (min-width: 992px) {
-    .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(3n+1) {
-        transition-delay: .2s;
-    }
-    .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(3n+2) {
-        transition-delay: .4s;
-    }
-    .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(3n+0) {
-        transition-delay: .6s;
-    }
+@include fw.mq("pc"){
+  .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(3n+2) {
+    transition-delay: .2s;
+  }
+  .p-service__content__gallery  .p-serviceCard.c-fadeIn:nth-child(3n+0) {
+    transition-delay: .4s;
+  }
 }

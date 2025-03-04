@@ -6,83 +6,84 @@
 @use "sass:math";
 
 .p-works{
-    &__menu{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
-        margin-bottom: fw.rem( 40 );
-        @include fw.mq(tab){
-            @include fw.mq("pc"){
-                gap: fw.rem( 40 ) fw.rem( 40 );
-            }
-        }
-        &__item{
-            font-size: fw.rem( 19 );
-            @include fw.mq(tab){
-                font-size: fw.rem( 20 );
-            }
-        }
-
-        button{
-          padding: 3px 15px;
-        }
-
-        button.c-title--circle::before{
-            width: 20px;
-            height: 20px;
-            margin-left: -12px;
-        }
-
-        // ホバー時のスタイル（必要なら追加）
-        button:hover {
-            opacity: 0.8; // 透明度を少し変更してホバー時の反応を強調
-        }
+  &__menu{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: fw.rem( 40 );
+    @include fw.mq(tab){
+      @include fw.mq("pc"){
+        gap: fw.rem( 40 );
+      }
     }
 
-    &__gallery{
-        display: grid;
-        gap:3rem;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 40px;
-        margin-bottom: fw.rem( 40 );
-        @include fw.mq("tab"){
-            grid-template-columns: repeat(2, 1fr);
-            @include fw.mq("pc"){
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        .p-works__item{
-          display: block; //フォーカスインジケーターの表示のために必要
-        }
+  &__item{
+    font-size: fw.rem( 19 );
+    @include fw.mq(tab){
+      font-size: fw.rem( 20 );
     }
+  }
 
-    &__more{
-        display: block;
-        margin: 0 auto;
-        position: relative;
-        &::after{
-            content: "";
-            background: url("../img/ico_arrow.png");
-            background-size: contain;
-            background-repeat: no-repeat;
-            width: fw.rem( 14 );
-            height: fw.rem( 14 );
-            position: absolute;
-            top: fw.rem( 30 );
-            left: calc( 50% - math.div( fw.rem( 14 ) , 2));
-        }
-    }
+  button{
+    padding: 3px 15px;
+  }
 
-    //フォーカスインジケーターの表示
-    button:focus-visible,
-    a:focus-visible {
-      outline: 2px solid fw.$color--blue !important;
-      outline-offset: 2px;
-      border-radius: 2px;
-    }
+  button.c-title--circle::before{
+    width: 20px;
+    height: 20px;
+    margin-left: -12px;
+  }
 
-    .hidden {
-        display: none;
+    // ホバー時のスタイル（必要なら追加）
+    button:hover {
+      opacity: 0.8; // 透明度を少し変更してホバー時の反応を強調
     }
+  }
+
+  &__gallery{
+    display: grid;
+    gap:3rem;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+    margin-bottom: fw.rem( 40 );
+    @include fw.mq("tab"){
+      grid-template-columns: repeat(2, 1fr);
+      @include fw.mq("pc"){
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .p-works__item{
+      display: block; //フォーカスインジケーターの表示のために必要
+    }
+  }
+
+  &__more{
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    &::after{
+      content: "";
+      background: url("../img/ico_arrow.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: fw.rem( 14 );
+      height: fw.rem( 14 );
+      position: absolute;
+      top: fw.rem( 30 );
+      left: calc( 50% - math.div( fw.rem( 14 ) , 2));
+    }
+  }
+
+  //フォーカスインジケーターの表示
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid fw.$color--blue !important;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .hidden {
+    display: none;
+  }
 }

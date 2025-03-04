@@ -417,30 +417,19 @@ body.is-open {
   gap: 40px;
 }
 
-/* スマートフォン（デフォルト）: ディレイなし */
-.p-serviceCard .c-fadeIn {
-  transition-delay: 0s;
-}
-
-/* タブレット: 奇数・偶数でディレイ */
-@media (min-width: 577px) and (max-width: 991px) {
-  .p-service__content__gallery .p-serviceCard.c-fadeIn:nth-child(1) {
-    transition-delay: 0.2s;
-  }
+/* タブレット: 2列ごとにディレイ */
+@media screen and (min-width: 577px) {
   .p-service__content__gallery .p-serviceCard.c-fadeIn:nth-child(2) {
-    transition-delay: 0.4s;
+    transition-delay: 0.2s;
   }
 }
 /* PC: 3列ごとにディレイ */
-@media (min-width: 992px) {
-  .p-service__content__gallery .p-serviceCard.c-fadeIn:nth-child(3n+1) {
+@media screen and (min-width: 992px) {
+  .p-service__content__gallery .p-serviceCard.c-fadeIn:nth-child(3n+2) {
     transition-delay: 0.2s;
   }
-  .p-service__content__gallery .p-serviceCard.c-fadeIn:nth-child(3n+2) {
-    transition-delay: 0.4s;
-  }
   .p-service__content__gallery .p-serviceCard.c-fadeIn:nth-child(3n+0) {
-    transition-delay: 0.6s;
+    transition-delay: 0.4s;
   }
 }
 /*=======================
@@ -484,7 +473,7 @@ Serviceのカード
 }
 @media screen and (min-width: 577px) and (min-width: 992px) {
   .p-works__menu {
-    gap: 2.5rem 2.5rem;
+    gap: 2.5rem;
   }
 }
 .p-works__menu__item {
@@ -569,7 +558,7 @@ Worksのカード
   transition-delay: 0s;
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 577px) {
   .p-works__gallery .p-worksCard.c-fadeIn:nth-child(odd) {
     transition-delay: 0s;
   }
@@ -577,7 +566,7 @@ Worksのカード
     transition-delay: 0.2s;
   }
 }
-@media (min-width: 1024px) {
+@media screen and (min-width: 992px) {
   .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+1) {
     transition-delay: 0s;
   }

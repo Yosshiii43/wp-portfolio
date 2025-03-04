@@ -6,44 +6,44 @@ Worksのカード
 @use "sass:math";
 
 .p-worksCard{
-    &__text{
-        &__tag{font-size: fw.rem(14);
-        }
-        h3{
-            font-size: fw.rem(16);
-        }
+  &__text{
+    &__tag{font-size: fw.rem(14);
     }
-    img{
-        border-radius: 4px;
+    h3{
+      font-size: fw.rem(16);
     }
+  }
+  img{
+    border-radius: 4px;
+  }
 }
 
 //横並びのカードのディレイ設定
 // スマートフォン（デフォルト）: ディレイなし 
 .p-worksCard.c-fadeIn {
-    transition-delay: 0s;
+  transition-delay: 0s;
 }
 
-// タブレット: 奇数・偶数でディレイ
-@media (min-width: 768px) and (max-width: 1023px) {
-    .p-works__gallery .p-worksCard.c-fadeIn:nth-child(odd) {
-        transition-delay: 0s;
-    }
-    .p-works__gallery .p-worksCard.c-fadeIn:nth-child(even) {
-        transition-delay: .2s;
-    }
+// タブレット: 2列ごとにディレイ
+@include fw.mq("tab"){
+  .p-works__gallery .p-worksCard.c-fadeIn:nth-child(odd) {
+    transition-delay: 0s;
+  }
+  .p-works__gallery .p-worksCard.c-fadeIn:nth-child(even) {
+    transition-delay: .2s;
+  }
 }
 
 // PC: 3列ごとにディレイ
-@media (min-width: 1024px) {
-    .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+1) {
-        transition-delay: 0s;
-    }
-    .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+2) {
-        transition-delay: .2s;
-    }
-    .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+0) {
-        transition-delay: .4s;
-    }
+@include fw.mq("pc"){
+  .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+1) {
+    transition-delay: 0s;
+  }
+  .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+2) {
+    transition-delay: .2s;
+  }
+  .p-works__gallery .p-worksCard.c-fadeIn:nth-child(3n+0) {
+    transition-delay: .4s;
+  }
 }
     
