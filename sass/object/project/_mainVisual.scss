@@ -16,6 +16,7 @@
             height: fw.pc-vw( 386 );
         }
     }
+
     > div:first-child{
         position: absolute;
         width: fw.sp-vw( 344 );
@@ -41,6 +42,7 @@
                 height: fw.pc-vw( 324 );
             }
         }
+
         .p-mainVisual__title{
             font-weight: 300;
             width: fw.sp-vw( 172 );
@@ -74,7 +76,9 @@
 //メインビジュアル内　「Webデザイン / コーディング」の欧文フォントを細く
 .p-mainVisual__title__bottom{
     span.word1{
-        .char1,.char2,.char3{
+        .char1,
+        .char2,
+        .char3{
             font-weight: 200;
         }
     }
