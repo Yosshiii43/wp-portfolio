@@ -152,14 +152,6 @@ function portfolio_title_separator($separator) {
 add_filter('document_title_separator', 'portfolio_title_separator');
 
 
-//コンタクトフォーム7　承諾確認をチェックするとバリデーションされるのを止める
-function disable_wpcf7_realtime_validation() {
-  wp_dequeue_script('contact-form-7');
-  wp_deregister_script('contact-form-7');
-  wp_enqueue_script('custom-wpcf7', get_template_directory_uri() . '/custom-wpcf7.js', array('jquery'), null, true);
-}
-add_action('wp_enqueue_scripts', 'disable_wpcf7_realtime_validation', 20);
-
 
 //コンタクトフォーム7のtabindex追加
 add_filter('wpcf7_form_elements', 'add_tabindex_to_form_elements');
