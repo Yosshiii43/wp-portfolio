@@ -16,6 +16,14 @@
     <div class="c-wrap" >
       <h1 class="c-title--circle c-lowerTitle"><?php the_title(); ?></h1>
       <?php the_content() ?>
+      <?php wp_link_pages( array(
+        'before' => '<div class="page-links">ページ:',
+        'after'  => '</div>',
+        'link_before' => '<span>',
+        'link_after'  => '</span>',
+        'next_or_number' => 'number'
+        ) ); 
+      ?>
     </div><!--c-wrap-->
 
   <?php endwhile; else :?>

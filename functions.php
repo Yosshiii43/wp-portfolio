@@ -1,8 +1,9 @@
 <?php
 function portfolio_theme_setup() {
   // テーマサポート
-  add_theme_support('title-tag');
-  add_theme_support('post-thumbnails');
+  add_theme_support( 'title-tag' );
+  add_theme_support( 'post-thumbnails' );
+  add_theme_support( 'automatic-feed-links' );
 }
 add_action('after_setup_theme', 'portfolio_theme_setup');
 

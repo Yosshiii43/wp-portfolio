@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/*=============================
+ページリンクス
+=============================*/
+@use "../../foundation/forwords" as fw;
+@use "sass:math";
+
+.page-links {
+  text-align: center;
+  margin-top: fw.rem( 40 );
+
+  > span {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background: fw.$color--gray;
+    border-radius: 3px;
+  }
+}

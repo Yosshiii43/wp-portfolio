@@ -942,6 +942,21 @@ Works（下層ページ）詳細
   justify-content: right;
 }
 
+/*=============================
+ページリンクス
+=============================*/
+.page-links {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+.page-links > span {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 5px;
+  background: #F7F6F6;
+  border-radius: 3px;
+}
+
 /*=======================
 body
 =======================*/
