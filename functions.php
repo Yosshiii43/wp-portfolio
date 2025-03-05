@@ -11,16 +11,16 @@ function portfolio_add_files(){
   // jQueryの読み込み(3.7.1を指定して読み込み)
   wp_enqueue_script(
     'portfolio-jquery-3.7.1',
-    'https://code.jquery.com/jquery-3.7.1.min.js',
+    get_template_directory_uri() . '/js/jquery-3.7.1.min.js',
     array(),
     null,
     true
   );
 
-  // textillate.jsの読み込み（ランダムレタリング）
+  // textillate.min.js(0.4.0)の読み込み（ランダムレタリング）
   wp_enqueue_script(
     'portfolio-textillate',
-    'https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js',
+    get_template_directory_uri() . '/js/jquery.textillate.min.js',
     array('portfolio-jquery-3.7.1'),
     null,
     true
@@ -91,10 +91,10 @@ function portfolio_add_files(){
     null
   );
 
-  // ランダムレタリング用animate.css読み込み
+  // animate.min.css(3.7.2)読み込み（ランダムレタリング）
   wp_enqueue_style(
     'portfolio-animate',
-    'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css',
+    get_template_directory_uri() . '/css/animate.min.css',
     array(),
     null       
   );
@@ -150,7 +150,6 @@ function portfolio_title_separator($separator) {
   return $separator;
 }
 add_filter('document_title_separator', 'portfolio_title_separator');
-
 
 
 //コンタクトフォーム7のtabindex追加
