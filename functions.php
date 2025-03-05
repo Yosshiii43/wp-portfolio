@@ -23,7 +23,7 @@ function portfolio_add_files(){
     'portfolio-textillate',
     get_template_directory_uri() . '/js/jquery.textillate.min.js',
     array('portfolio-jquery-3.7.1'),
-    null,
+    '0.4.0',
     true
   );
 
@@ -87,9 +87,9 @@ function portfolio_add_files(){
   // リセットCSS読み込み
   wp_enqueue_style(
     'portfolio-destyle',
-    'https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css',
+    get_template_directory_uri() . '/css/destyle.css',
     array(),
-    null
+    '1.0.15'
   );
 
   // animate.min.css(3.7.2)読み込み（ランダムレタリング）
@@ -97,7 +97,7 @@ function portfolio_add_files(){
     'portfolio-animate',
     get_template_directory_uri() . '/css/animate.min.css',
     array(),
-    null       
+    '3.7.2'    
   );
 
   // slick.css読み込み
