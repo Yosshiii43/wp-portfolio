@@ -12,9 +12,7 @@
 
   <header class="l-header p-header" id="header">
     <p class="p-header__title">
-      <a href="<?php echo esc_url( home_url() ); ?> " tabindex="0">
-        <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/header__title.png" alt="<?php bloginfo( 'name' ) ?>" width="116px" height="57px">
-      </a>
+      <?php the_custom_logo(); ?>
     </p>
     <div class="p-header__menu">
       <button class="p-hamburger js-hamburger" tabindex="0">

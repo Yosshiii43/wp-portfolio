@@ -117,6 +117,10 @@ textarea:focus-visible {
 .p-header__title a {
   display: block;
 }
+.p-header__title a img {
+  width: 116px;
+  height: 57px;
+}
 
 /*============================
 ヘッダーボタン（ハンバーガーボタン）
