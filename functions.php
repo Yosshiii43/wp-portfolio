@@ -17,8 +17,9 @@ function portfolio_theme_setup() {
     'height'      => 57,
     'flex-height' => true,
     'flex-width'  => true,
-    'header-text' => array( 'site-title', 'site-description' ),
+    'header-text' => array( 'site-title' ),
   ));
+  add_theme_support( 'custom-background' );
 }
 add_action('after_setup_theme', 'portfolio_theme_setup');
 

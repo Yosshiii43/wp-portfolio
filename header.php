@@ -12,7 +12,11 @@
 
   <header class="l-header p-header" id="header">
     <p class="p-header__title">
-      <?php the_custom_logo(); ?>
+      <?php 
+        if ( function_exists( 'the_custom_logo' ) ) {
+          the_custom_logo();
+        }
+      ?>
     </p>
     <div class="p-header__menu">
       <button class="p-hamburger js-hamburger" tabindex="0">

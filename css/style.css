@@ -78,7 +78,6 @@ textarea:focus-visible {
 メインカラム
 =======================*/
 .l-main {
-  background-color: #FFFFFF;
   padding-top: 83px;
 }
 @media screen and (min-width: 577px) {
@@ -117,9 +116,11 @@ textarea:focus-visible {
 .p-header__title a {
   display: block;
 }
-.p-header__title a img {
+.p-header__title a .custom-logo {
   width: 116px;
   height: 57px;
+  -o-object-fit: contain;
+     object-fit: contain; /* 必要に応じて調整 */
 }
 
 /*============================

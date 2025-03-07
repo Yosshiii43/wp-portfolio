@@ -22,6 +22,11 @@
     &__title{
       a{
         display: block;
+        .custom-logo {
+          width: 116px;
+          height: 57px;
+          object-fit: contain; /* 必要に応じて調整 */
+        }
       }
     }
 }
