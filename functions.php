@@ -5,6 +5,7 @@ function portfolio_theme_setup() {
   add_theme_support( 'post-thumbnails' );
   add_theme_support( 'automatic-feed-links' );
   add_theme_support( "wp-block-styles" ) ;
+  add_theme_support( 'responsive-embeds' );
   add_theme_support('html5',array(
     'search-form',
     'comment-form',
@@ -20,6 +21,7 @@ function portfolio_theme_setup() {
     'header-text' => array( 'site-title' ),
   ));
   add_theme_support( 'custom-background' );
+  add_theme_support( 'align-wide' );
 }
 add_action('after_setup_theme', 'portfolio_theme_setup');
 
