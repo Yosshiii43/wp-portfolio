@@ -6,26 +6,26 @@
 @use "sass:math";
 
 .p-privacy{
-    &__head,
-    &__item{
-        margin-bottom: fw.rem( 40 );
-    }
+  &__head,
+  &__item{
+    margin-bottom: fw.rem( 40 );
+  }
 
-    &__item{
-      > p,
-      >ul{
+  &__item{
+    p,
+    ul{
+      margin-left: fw.rem( 16 );
+    }
+    &__secondary{
+      padding-left: fw.rem( 16 );
+      p,
+      ul{
         margin-left: fw.rem( 16 );
       }
-        &__secondary{
-            padding-left: fw.rem( 16 );
-            p,
-            ul{
-              margin-left: fw.rem( 16 );
-            }
-        }
     }
-    
-    &__foot{
-        text-align: right;
-    }
+  }
+  
+  &__foot{
+    text-align: right;
+  }
 }

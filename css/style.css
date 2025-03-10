@@ -922,8 +922,8 @@ Works（下層ページ）詳細
 .p-privacy__head, .p-privacy__item {
   margin-bottom: 2.5rem;
 }
-.p-privacy__item > p,
-.p-privacy__item > ul {
+.p-privacy__item p,
+.p-privacy__item ul {
   margin-left: 1rem;
 }
 .p-privacy__item__secondary {
