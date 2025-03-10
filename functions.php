@@ -22,6 +22,8 @@ function portfolio_theme_setup() {
   ));
   add_theme_support( 'custom-background' );
   add_theme_support( 'align-wide' );
+  add_theme_support( 'editor-styles' );
+  add_editor_style( array( '/css/editor-style.css' ) );
 }
 add_action('after_setup_theme', 'portfolio_theme_setup');
 
@@ -189,3 +191,5 @@ function add_tabindex_to_form_elements($form) {
   );
   return $form;
 }
+
+//エディタースタイルCSSの読み込み
