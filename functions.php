@@ -225,4 +225,27 @@ add_action('wp_enqueue_scripts', 'enqueue_comment_reply_script');
     return '';
   }
 
+  // ダミーのpaginate_comments_links関数
+  function dummy_paginate_comments_links() {
+    return '';
+  }
 
+  // ダミーのthe_comments_navigation関数
+  function dummy_the_comments_navigation() {
+    return '';
+  }
+
+  // ダミーのthe_comments_pagination関数
+  function dummy_the_comments_pagination() {
+    return '';
+  }
+
+  // ダミーのnext_comments_link関数
+  function dummy_next_comments_link() {
+    return '';
+  }
+
+  // ダミーのprevious_comments_link関数
+  function dummy_previous_comments_link() {
+    return '';
+  }
