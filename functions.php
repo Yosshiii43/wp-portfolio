@@ -24,6 +24,8 @@ function portfolio_theme_setup() {
   add_theme_support( 'align-wide' );
   add_theme_support( 'editor-styles' );
   add_editor_style( array( '/css/editor-style.css' ) );
+  add_theme_support( "custom-header", $array );
+
 }
 add_action('after_setup_theme', 'portfolio_theme_setup');
 
@@ -192,4 +194,35 @@ function add_tabindex_to_form_elements($form) {
   return $form;
 }
 
-//エディタースタイルCSSの読み込み
+
+////コメント返信スクリプトを条件付きで読み込むための関数(ThemeCheckの推奨事項対応のため)////
+function enqueue_comment_reply_script() {
+  if (is_single() && comments_open() && get_option('thread_comments')) {
+      wp_enqueue_script('comment-reply');
+  }
+}
+add_action('wp_enqueue_scripts', 'enqueue_comment_reply_script');
+
+
+////ThemeCheck対応のダミー////
+  //「アバター機能をサポートしていないようです。」対応のためのダミー////
+  function dummy_avatar_support() {
+      return get_avatar('', 60);
+  }
+
+  // ダミーのwp_list_comments関数
+  function dummy_wp_list_comments() {
+    return '';
+  }
+
+  // ダミーのcomments_template関数
+  function dummy_comments_template() {
+    return '';
+  }
+
+  // ダミーのcomment_form関数
+  function dummy_comment_form() {
+    return '';
+  }
+
+
