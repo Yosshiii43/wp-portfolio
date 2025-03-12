@@ -1194,4 +1194,64 @@ nav-links
   top: 10px;
   right: 0;
 }
+
+/*=============================
+register_block_styleで作成のスタイル
+=============================*/
+.wp-block-button.is-style-custom-button a {
+  background: transparent;
+  background: #FAFD87;
+  color: #333333;
+}
+.wp-block-button.is-style-custom-button a:hover {
+  background: #F7F6F6;
+  color: #333333;
+}
+
+.wp-block-button.is-style-custom-outline-button a {
+  background: transparent;
+  background: #FFFFFF;
+  border: 2px solid #FAFD87;
+  color: #333333;
+}
+.wp-block-button.is-style-custom-outline-button a:hover {
+  background: #FFFFFF;
+  border: 2px solid #F7F6F6;
+  color: #333333;
+}
+
+/*=============================
+WordPressの推奨class
+=============================*/
+.wp-caption {
+  /* キャプション付き画像のスタイル */
+}
+
+.wp-caption-text {
+  /* キャプションテキストのスタイル */
+}
+
+.sticky {
+  /* 先頭固定投稿のスタイル */
+}
+
+.gallery-caption {
+  /* ギャラリーキャプションのスタイル */
+}
+
+.bypostauthor {
+  /* 投稿者のコメントのスタイル */
+}
+
+.alignright {
+  float: right;
+}
+
+.alignleft {
+  float: left;
+}
+
+.aligncenter {
+  text-align: center;
+}
 /*# sourceMappingURL=style.css.map */

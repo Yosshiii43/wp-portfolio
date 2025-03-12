@@ -1,0 +1,36 @@
+/*=============================
+WordPressの推奨class
+=============================*/
+@use "../../foundation/forwords" as fw;
+
+.wp-caption {
+  /* キャプション付き画像のスタイル */
+}
+
+.wp-caption-text {
+  /* キャプションテキストのスタイル */
+}
+
+.sticky {
+  /* 先頭固定投稿のスタイル */
+}
+
+.gallery-caption {
+  /* ギャラリーキャプションのスタイル */
+}
+
+.bypostauthor {
+  /* 投稿者のコメントのスタイル */
+}
+
+.alignright {
+  float: right;
+}
+
+.alignleft {
+  float: left;
+}
+
+.aligncenter {
+  text-align: center;
+}

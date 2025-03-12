@@ -1,0 +1,32 @@
+/*=============================
+register_block_styleで作成のスタイル
+=============================*/
+@use "../../foundation/forwords" as fw;
+
+// カスタムボタンスタイル
+.wp-block-button.is-style-custom-button {
+  a{
+  background: transparent;
+  background: fw.$color--yellow;
+  color: fw.$color--black;
+    &:hover {
+      background: fw.$color--gray;
+      color: fw.$color--black;
+    }
+  }
+}
+
+//カスタムアウトラインボタンスタイル
+.wp-block-button.is-style-custom-outline-button {
+  a{
+  background: transparent;
+  background: fw.$color--white;
+  border: 2px solid fw.$color--yellow;
+  color: fw.$color--black;
+    &:hover {
+      background: fw.$color--white;
+      border: 2px solid fw.$color--gray;
+      color: fw.$color--black;
+    }
+  }
+}

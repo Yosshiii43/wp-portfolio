@@ -283,3 +283,24 @@ add_action('wp_enqueue_scripts', 'enqueue_comment_reply_script');
   
   wp_reset_postdata();
 }
+
+
+////カスタムスタイルの登録////
+function theme_register_block_styles() {
+  // カスタムボタンスタイル
+  register_block_style(
+      'core/button',
+      [
+          'name'  => 'custom-button',
+          'label' => __('カスタムボタン', 'portfolio'),
+      ]
+  );
+  register_block_style(
+  'core/button',
+  [
+    'name'  => 'custom-outline-button',
+    'label' => __('カスタムアウトラインボタン', 'portfolio'),
+  ]
+  );
+}
+add_action('init', 'theme_register_block_styles');
