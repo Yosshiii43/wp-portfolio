@@ -25,8 +25,28 @@ function portfolio_theme_setup() {
   add_theme_support( 'editor-styles' );
   add_editor_style( array( '/css/editor-style.css' ) );
   add_theme_support( "custom-header", $array );
+  register_nav_menus( array(
+    'main_nav' => 'main-nav',
+     ));
 }
 add_action('after_setup_theme', 'portfolio_theme_setup');
+
+
+
+////メニュー出力関連////
+// カスタムリンクのURLを動的に生成する関数
+function get_home_url_with_section($section) {
+  return esc_url(home_url('/#' . $section));
+}
+//liタグにclass追加
+function add_menu_item_classes($classes, $item, $args) {
+  if ($args->theme_location == 'main_nav') {
+      $classes[] = 'p-gmenu__item';
+  }
+  return $classes;
+}
+add_filter('nav_menu_css_class', 'add_menu_item_classes', 10, 3);
+
 
 
 function portfolio_add_files(){

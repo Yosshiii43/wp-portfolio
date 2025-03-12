@@ -24,16 +24,16 @@ footer
       align-items: center;
     }
 
-    .p-footer__menu{
+    .p-footer__gmenu{
       display: flex;
       flex-direction: column;
-      gap: fw.rem( 20 ) 0;
-      font-size: fw.rem( 20 );
+      gap: fw.rem( 16 ) 0;
+      //font-size: fw.rem( 20 );
       @include fw.mq("tab"){
         flex-direction: row;
-        gap: 0 fw.rem( 32 );
+        gap: 0 fw.rem( 28 );
         @include fw.mq("pc"){
-          gap: 0 fw.rem( 40 );
+          gap: 0 fw.rem( 32 );
         }
       }
     }

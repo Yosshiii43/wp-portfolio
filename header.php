@@ -22,11 +22,14 @@
       <button class="p-hamburger js-hamburger" tabindex="0">
         <span>menuボタン</span>
       </button>
-      <ul class="p-gmenu c-font--nunito200">
-        <li class="p-gmenu__item"><a href="<?php echo esc_url( home_url('/#service') ); ?>" tabindex="0">Service</a></li>
-        <li class="p-gmenu__item"><a href="<?php echo esc_url( home_url('/#works') ); ?>" tabindex="0">Works</a></li>
-        <li class="p-gmenu__item"><a href="<?php echo esc_url( home_url('/#about') ); ?>" tabindex="0">About</a></li>
-        <li class="p-gmenu__item"><a href="<?php echo esc_url( home_url('/#contact') ); ?>" tabindex="0">Contact</a></li>
-      </ul>
+
+      <?php
+        wp_nav_menu([
+          'theme_location' => 'main_nav',
+          'menu_class'     => 'p-gmenu c-font--nunito200',
+          'container'      => false,
+          'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
+        ]);
+      ?>
     </div>
   </header>
