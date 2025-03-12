@@ -25,7 +25,6 @@ function portfolio_theme_setup() {
   add_theme_support( 'editor-styles' );
   add_editor_style( array( '/css/editor-style.css' ) );
   add_theme_support( "custom-header", $array );
-
 }
 add_action('after_setup_theme', 'portfolio_theme_setup');
 
@@ -304,3 +303,26 @@ function theme_register_block_styles() {
   );
 }
 add_action('init', 'theme_register_block_styles');
+
+// ブロックパターンの登録サンプル
+function theme_register_block_patterns() {
+  register_block_pattern(
+    'your-theme/hero-section',
+    [
+      'title'    => __('ヒーローセクション', 'portfolio'),
+      'content'  => '<!-- WP Block Pattern Code here -->
+        <div class="wp-block-group hero-section">
+          <h1>タイトル</h1>
+          <p>説明文</p>
+          <div class="wp-block-buttons">
+            <div class="wp-block-button">
+              <a href="#" class="wp-block-button__link">ボタン</a>
+            </div>
+          </div>
+        </div>
+      ',
+      'category' => 'layout',
+    ]
+);
+}
+add_action('init', 'theme_register_block_patterns');
