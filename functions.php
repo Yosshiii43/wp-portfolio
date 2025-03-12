@@ -230,22 +230,71 @@ add_action('wp_enqueue_scripts', 'enqueue_comment_reply_script');
     return '';
   }
 
-  // ダミーのthe_comments_navigation関数
-  function dummy_the_comments_navigation() {
+  // ダミーのthe_posts_pagination関数
+  function dummy_the_posts_pagination() {
     return '';
   }
 
-  // ダミーのthe_comments_pagination関数
-  function dummy_the_comments_pagination() {
-    return '';
+////Works詳細ページ用ページネーション////
+/*
+function custom_post_navigation() {
+  $args = array(
+      'prev_text' => '%title',
+      'next_text' => '%title',
+      'in_same_term' => false, // 同じタームの投稿のみ
+      'screen_reader_text' => __('Works navigation', 'portfolio'),
+      'class' => 'p-worksDetail__nav',
+  );
+  the_post_navigation($args);
+}
+  */
+  function custom_post_navigation() {
+    // 現在の投稿を取得
+    $current_post = get_post();
+    
+    // 全ての投稿を取得（カスタムフィールドの表示順で）
+    $args = array(
+        'post_type' => 'works',
+        'posts_per_page' => -1,
+        'meta_key' => 'display_order',
+        'orderby' => 'meta_value_num',
+        'order' => 'ASC'
+    );
+    
+    $query = new WP_Query($args);
+    
+    if ($query->have_posts()) {
+        $posts = $query->posts;
+        $current_index = -1;
+        
+        // 現在の投稿のインデックスを見つける
+        foreach ($posts as $index => $post) {
+            if ($post->ID === $current_post->ID) {
+                $current_index = $index;
+                break;
+            }
+        }
+        
+        // 前後の投稿を取得
+        $prev_post = ($current_index > 0) ? $posts[$current_index - 1] : null;
+        $next_post = ($current_index < count($posts) - 1) ? $posts[$current_index + 1] : null;        
+      // ナビゲーションを出力
+      echo '<ul class="c-navLinks">';
+      
+      if ($prev_post) {
+        echo '<li class="c-navLinks__prev">';
+        echo '<a href="' . get_permalink($prev_post->ID) . '">前の制作実績</a>';
+        echo '</li>';
+      }
+      
+      if ($next_post) {
+        echo '<li class="c-navLinks__next">';
+        echo '<a href="' . get_permalink($next_post->ID) . '">次の制作実績</a>';
+        echo '</li>';
+      }
+      
+      echo '</ul>';
   }
-
-  // ダミーのnext_comments_link関数
-  function dummy_next_comments_link() {
-    return '';
-  }
-
-  // ダミーのprevious_comments_link関数
-  function dummy_previous_comments_link() {
-    return '';
-  }
+  
+  wp_reset_postdata();
+}

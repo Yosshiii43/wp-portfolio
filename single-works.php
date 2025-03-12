@@ -81,6 +81,8 @@
         ?>
     </div><!-- p-worksDetail -->
 
+    <?php custom_post_navigation(); ?>
+
   <?php endif; ?><!--ACFが有効の場合-->
   
 

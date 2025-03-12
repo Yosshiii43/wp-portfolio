@@ -15,34 +15,37 @@ Works（下層ページ）詳細
       @include fw.mq("tab"){
         display: table-row;
       }
-    }
-
-    th,
-    td{
-      display: block;
-      @include fw.mq("tab"){
-        display: table-cell;
+      th,
+      td{
+        display: block;
+        @include fw.mq("tab"){
+          display: table-cell;
+        }
       }
-    }
-
-    th{
-      width: 100%;
-      padding-bottom: fw.rem( 10 );
-      @include fw.mq("tab"){
-        width: auto; 
-        min-width: 14em;
-        max-width: 50%; /* 最大幅を50%に制限 */
-        white-space: normal; /* 折り返しを許可 */
-        word-break: break-word; /* 必要に応じて折り返す */
-        padding-right: 20px;
+  
+      th{
+        width: 100%;
+        padding-bottom: fw.rem( 10 );
+        @include fw.mq("tab"){
+          width: auto; 
+          min-width: 14em;
+          max-width: 50%; /* 最大幅を50%に制限 */
+          white-space: normal; /* 折り返しを許可 */
+          word-break: break-word; /* 必要に応じて折り返す */
+          padding-right: 20px;
+        }
       }
-    }
-    
-    td{
-      padding-bottom: 2em;
-      @include fw.mq("tab"){
-        white-space: normal; /* 折り返しを許可 */
-        word-break: break-word; /* 長い内容があれば折り返す */
+      
+      td{
+        padding-bottom: fw.rem( 20 );
+        @include fw.mq("tab"){
+          white-space: normal; /* 折り返しを許可 */
+          word-break: break-word; /* 長い内容があれば折り返す */
+        }
+      }
+
+      &:last-child td{
+        padding-bottom: 0;
       }
     }
   }

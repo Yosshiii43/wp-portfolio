@@ -864,22 +864,22 @@ Works（下層ページ）詳細
     display: table-row;
   }
 }
-.p-worksDetail table th,
-.p-worksDetail table td {
+.p-worksDetail table tr th,
+.p-worksDetail table tr td {
   display: block;
 }
 @media screen and (min-width: 577px) {
-  .p-worksDetail table th,
-.p-worksDetail table td {
+  .p-worksDetail table tr th,
+.p-worksDetail table tr td {
     display: table-cell;
   }
 }
-.p-worksDetail table th {
+.p-worksDetail table tr th {
   width: 100%;
   padding-bottom: 0.625rem;
 }
 @media screen and (min-width: 577px) {
-  .p-worksDetail table th {
+  .p-worksDetail table tr th {
     width: auto;
     min-width: 14em;
     max-width: 50%; /* 最大幅を50%に制限 */
@@ -888,14 +888,17 @@ Works（下層ページ）詳細
     padding-right: 20px;
   }
 }
-.p-worksDetail table td {
-  padding-bottom: 2em;
+.p-worksDetail table tr td {
+  padding-bottom: 1.25rem;
 }
 @media screen and (min-width: 577px) {
-  .p-worksDetail table td {
+  .p-worksDetail table tr td {
     white-space: normal; /* 折り返しを許可 */
     word-break: break-word; /* 長い内容があれば折り返す */
   }
+}
+.p-worksDetail table tr:last-child td {
+  padding-bottom: 0;
 }
 
 /*=============================
@@ -1141,5 +1144,54 @@ footer
   height: 2rem;
   top: -0.3em;
   left: -0.7em;
+}
+
+/*=======================
+nav-links
+=======================*/
+.c-navLinks {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 3.75rem;
+}
+.c-navLinks__prev, .c-navLinks__next {
+  position: relative;
+}
+.c-navLinks__prev a {
+  padding-left: 0.9375rem;
+}
+.c-navLinks__prev a::before {
+  border-style: solid;
+  border-width: 0 1px 1px 0;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  border-color: #333333;
+  transform: rotate(135deg);
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+.c-navLinks__next a {
+  padding-right: 0.9375rem;
+}
+.c-navLinks__next a::after {
+  border-style: solid;
+  border-width: 0 1px 1px 0;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  border-color: #333333;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 10px;
+  right: 0;
 }
 /*# sourceMappingURL=style.css.map */
