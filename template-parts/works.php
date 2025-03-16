@@ -36,13 +36,19 @@
           <div class="p-worksCard js-tagDsign c-fadeIn js-fadeIn <?php if($post_count > 9) echo 'hidden'; ?>" data-tag="<?php echo esc_attr($tag_data); ?>">
             <a href="<?php the_permalink(); ?>" tabindex="0" class="p-works__item">
               <?php
-                $worksImage = get_field('slider_img1');
-                if( !empty( $worksImage ) ):
+                if (has_post_thumbnail()) {
+                  $thumbnail_id = get_post_thumbnail_id();
+                  $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+                  
+                  the_post_thumbnail('large', array(
+                      'alt' => !empty($alt_text) ? $alt_text : get_the_title(),
+                      'class' => 'p-worksCard__image'
+                  ));
+              } else {
+                  // アイキャッチ画像がない場合のデフォルト画像
+                  echo '<img src="' . esc_url(get_theme_file_uri('/img/works_noImage.jpg')) . '" alt="No Image" />';
+              }
               ?>
-                <p><img src="<?php echo esc_url($worksImage['url']); ?>" alt="<?php echo esc_html($worksImage['alt']); ?>" width="<?php echo esc_attr($worksImage['width']); ?>" height="<?php echo esc_attr($worksImage['height']); ?>"/></p>
-              <?php else: ?>
-                <p><img src="<?php echo esc_url( get_theme_file_uri() ); ?>/img/works_noImage.jpg" alt="No Image" /></p>
-              <?php endif; ?>
               <div class="p-worksCard__text">
                 <p class="p-worksCard__text__tag">
                   <?php if ($tags) { echo esc_html(implode(' / ', $tags)); } ?>
