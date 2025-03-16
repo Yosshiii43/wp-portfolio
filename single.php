@@ -15,7 +15,11 @@
     </div><!--p-lowerPageHeading-->
     <div class="c-wrap" >
       <h1 class="c-title--circle c-lowerTitle"><?php the_title(); ?></h1>
+      	
+      <?php the_tags('<div class="post-tags">', ', ', '</div>'); ?>
+
       <?php the_content() ?>
+      
       <?php wp_link_pages( array(
         'before' => '<div class="page-links">ページ:',
         'after'  => '</div>',

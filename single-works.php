@@ -16,7 +16,7 @@
 
   <div class="c-wrap" >
     <h1 class="c-title--circle c-lowerTitle"><?php the_title(); ?></h1>
-
+	
     <?php if (function_exists('get_field')): // ACFが有効の場合 ?>
 
     <div class="p-slider">
