@@ -26,7 +26,7 @@
       <?php
         wp_nav_menu([
           'theme_location' => 'main_nav',
-          'menu_class'     => 'p-gmenu c-font--nunito200',
+          'menu_class'     => 'p-gmenu c-font--nunito',
           'container'      => false,
           'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
         ]);

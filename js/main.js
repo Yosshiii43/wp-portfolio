@@ -64,7 +64,7 @@ jQuery(function () {
 
 
 ////テキストのランダムアニメーション////
-var Obj = {
+let Obj = {
 	loop: false,
 	minDisplayTime: 2000,// アニメーションの間隔時間
 	initialDelay: 200, // アニメーション開始までの遅延時間
@@ -87,9 +87,9 @@ function RandomInit() {
 }
 
 function RandomAnimeControl() {
-		var elemPos = jQuery(element[1]).offset().top - 50;
-		var scroll = jQuery(window).scrollTop();
-		var windowHeight = jQuery(window).height();
+		let elemPos = jQuery(element[1]).offset().top - 50;
+		let scroll = jQuery(window).scrollTop();
+		let windowHeight = jQuery(window).height();
 
 		if (scroll >= elemPos - windowHeight) {
 			jQuery(element[1]).textillate(Obj);
@@ -106,10 +106,10 @@ jQuery(window).on('load', function () {
 
 ////要素の下からのフェードイン////
 jQuery(window).on('scroll load', function(){        // ページロード時、またはスクロールされた時
-	var scroll = jQuery(this).scrollTop();            // 現在のスクロール量を測定 
-	var windowHeight = jQuery(window).height();       // ウィンドウの高さを測定 
+	let scroll = jQuery(this).scrollTop();            // 現在のスクロール量を測定 
+	let windowHeight = jQuery(window).height();       // ウィンドウの高さを測定 
 	jQuery('.js-fadeIn').each(function(){             // 「fadeIn」のクラスがついているものを1つずつ確認し・・・ 
-	  var cntPos = jQuery(this).offset().top;         // 対象の要素の上からの距離を測定
+	  let cntPos = jQuery(this).offset().top;         // 対象の要素の上からの距離を測定
 	  if(scroll > cntPos - windowHeight + windowHeight / 3){  // 要素が画面の1/3くらいの位置までスクロールされていたら 
 		jQuery(this).addClass('c-fadeIn--active');              // 「active」のクラスを付与 
 	  }

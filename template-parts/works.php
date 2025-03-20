@@ -2,7 +2,7 @@
 
   <div class="c-wrap">
     <div class=" c-fadeIn js-fadeIn">
-        <h2 class="c-title--frontH2 c-font--nunito200">Works</h2>
+        <h2 class="c-title--frontH2 c-font--nunito">Works</h2>
         <ul class="p-works__menu">
           <li class="p-works__menu__item"><button class="c-title--circle" id="js-worksAll" tabindex="0">All</button></li>
           <li class="p-works__menu__item"><button id="js-worksDesign" tabindex="0">Design</button></li>

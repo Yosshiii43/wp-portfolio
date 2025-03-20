@@ -10,7 +10,7 @@
 
   <div id="post-<?php the_ID(); ?>" class="p-lowerPageHeading c-bg--gray">
     <div>
-      <p class="c-font--nunito200">Works</p>
+      <p class="c-font--nunito">Works</p>
     </div>
   </div><!-- p-lowerPageHeading -->
 

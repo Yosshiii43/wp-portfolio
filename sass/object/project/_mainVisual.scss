@@ -53,7 +53,6 @@
         }
 
         .p-mainVisual__title{
-            font-weight: 300;
             width: 9em;
             @include fw.mq("tab"){
                 width: 100%;
@@ -78,22 +77,6 @@
                     font-size: fw.rem( 24 );
                 }
             }
-        }
-    }
-}
-
-//メインビジュアル内　「Webデザイン / コーディング」の欧文フォントを細く
-.p-mainVisual__title__bottom{
-    span.word1{
-        .char1,
-        .char2,
-        .char3{
-            font-weight: 200;
-        }
-    }
-    span.word2{
-        .char1{
-            font-weight: 200;
         }
     }
 }

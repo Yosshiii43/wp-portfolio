@@ -2,7 +2,7 @@
 
     <div class="c-wrap">
 
-      <h2 class="c-title--frontH2 c-font--nunito200 c-fadeIn js-fadeIn">About</h2>
+      <h2 class="c-title--frontH2 c-font--nunito c-fadeIn js-fadeIn">About</h2>
 
       <div class="c-inner c-fadeIn js-fadeIn">
         <div class="p-about__text">

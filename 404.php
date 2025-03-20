@@ -4,7 +4,7 @@
 
     <div class="p-lowerPageHeading c-bg--gray">
       <div>
-        <p class="c-font--nunito200"> 404 Not Found</p>
+        <p class="c-font--nunito"> 404 Not Found</p>
       </div>
     </div><!--p-lowerPageHeading-->
     

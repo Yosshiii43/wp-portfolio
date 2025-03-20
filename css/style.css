@@ -13,7 +13,7 @@ body {
   background: #FFFFFF;
   font-size: 1rem;
   font-family: "Zen Maru Gothic", serif;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   color: #333333;
   line-height: 1.5;
@@ -221,7 +221,7 @@ body.is-open {
   }
 }
 .p-header__menu .p-gmenu__item {
-  font-weight: 200;
+  font-weight: 300;
   width: 100%;
 }
 .p-header__menu .p-gmenu__item a {
@@ -305,7 +305,6 @@ body.is-open {
   }
 }
 .p-mainVisual .inner .p-mainVisual__title {
-  font-weight: 300;
   width: 9em;
 }
 @media screen and (min-width: 577px) {
@@ -340,15 +339,6 @@ body.is-open {
   }
 }
 
-.p-mainVisual__title__bottom span.word1 .char1,
-.p-mainVisual__title__bottom span.word1 .char2,
-.p-mainVisual__title__bottom span.word1 .char3 {
-  font-weight: 200;
-}
-.p-mainVisual__title__bottom span.word2 .char1 {
-  font-weight: 200;
-}
-
 /*=============================
 フロントページ　Conceptセクション
 =============================*/
@@ -359,11 +349,11 @@ body.is-open {
 }
 @media screen and (min-width: 577px) {
   .p-concept__title {
-    font-size: 2.25rem;
+    font-size: 2rem;
     margin-bottom: 3.125rem;
   }
 }
-@media screen and (min-width: 577px) and (min-width: 577px) {
+@media screen and (min-width: 577px) and (min-width: 992px) {
   .p-concept__title {
     margin-bottom: 3.75rem;
   }
@@ -1002,9 +992,9 @@ body
 /*=============================
 フォントファミリー ・フォントウェイト
   =============================*/
-.c-font--nunito200 {
+.c-font--nunito {
   font-family: "Nunito";
-  font-weight: 200;
+  font-weight: 300;
 }
 
 /*=============================
@@ -1078,7 +1068,6 @@ body
 }
 
 .c-title--unorderCircle {
-  font-weight: 300;
   display: inline-block;
   position: relative;
   padding-left: 1.25rem;
