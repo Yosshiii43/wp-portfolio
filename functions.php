@@ -112,7 +112,7 @@ function portfolio_add_files(){
   // Google FontsからNunito読み込み
   wp_enqueue_style(
     'portfolio-nunito',
-    'https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap',
+    'https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap',
     array(),
     null
   );
@@ -120,7 +120,7 @@ function portfolio_add_files(){
   // Google FontsからZenMaruGothic読み込み
   wp_enqueue_style(
     'portfolio-zenmarugothic',
-    'https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300&display=swap',
+    'https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400&display=swap',
     array(),
     null
   );
