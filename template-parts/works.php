@@ -14,7 +14,9 @@
       $args = array(
         'post_type'      => 'works',
         'posts_per_page' => -1,  // すべての投稿を取得
-        'meta_key'       => 'post_order',
+        'meta_key'       => 'display_order',
+        'orderby'        => 'meta_value_num', // 数値順に並べる
+        'order'          => 'ASC',  // 昇順（小さい数字が先）
       );
       $the_query = new WP_Query($args);
     ?>
