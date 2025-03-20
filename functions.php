@@ -24,7 +24,7 @@ function portfolio_theme_setup() {
   add_theme_support( 'align-wide' );
   add_theme_support( 'editor-styles' );
   add_editor_style( array( '/css/editor-style.css' ) );
-  add_theme_support( "custom-header", $array );
+  //add_theme_support( "custom-header", $array );
   register_nav_menus( array(
     'main_nav' => 'main-nav',
      ));

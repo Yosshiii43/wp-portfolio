@@ -295,6 +295,7 @@ body.is-open {
     left: 0;
     margin: auto;
     background: url(../img/mainVisual__img--pctab.png) no-repeat center right;
+    background-size: contain;
   }
 }
 @media screen and (min-width: 577px) and (min-width: 992px) {

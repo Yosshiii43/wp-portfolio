@@ -45,6 +45,7 @@
             left: 0;
             margin: auto;
             background: url(../img/mainVisual__img--pctab.png) no-repeat center right;
+            background-size: contain;
             @include fw.mq("pc"){
                 width: fw.pc-vw( 800 );
                 height: fw.pc-vw( 324 );
