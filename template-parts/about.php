@@ -18,7 +18,8 @@
 
           <p class="c-matginBottom--1em">日々の気分転換には、折りたたみ自転車BROMPTONに乗って、美味しいスイーツを探しに行くことが楽しみのひとつ。 リフレッシュすることで、新しいアイデアや発想が生まれることもあります。</p>
 
-          <p>※クライアントの都合により、制作実績として公開できない案件もございます。詳細はお問い合わせください。</p>
+          <p class="c-matginBottom--1em">※クライアントの都合により、制作実績として公開できない案件もございます。詳細はお問い合わせください。</p>
+          <p class="p-about__text__icon"><a href="https://github.com/Yosshiii43" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a></p>
         </div>
         <div class="p-about__img">
           <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/portrait_sit.png" alt="Yoshinoイラスト" width="1500px" height="1444px">
