@@ -36,80 +36,80 @@
     </div><!-- p-slider -->
 
     <div class="p-worksDetail">
-    <table>
-  <tbody>
-    <?php
-    // 「詳細」フィールドグループ内の詳細1〜詳細10のフィールドを取得
-    for ($i = 1; $i <= 10; $i++) {
-      // 各詳細項目と詳細内容のフィールド名
-      $detail = get_field("detail{$i}");
-      // フィールドがラベルも内容も空でない場合にのみ出力
-      if (!empty($detail['detail_label' . $i]) && !empty($detail['detail_content' . $i])) :
-        
-        // 改行で分割
-$lines = explode("\n", $detail['detail_content' . $i]);
+      <table>
+        <tbody>
+          <?php
+          // 「詳細」フィールドグループ内の詳細1〜詳細10のフィールドを取得
+          for ($i = 1; $i <= 10; $i++) {
+            // 各詳細項目と詳細内容のフィールド名取得
+            $detail = get_field("detail{$i}");
+            // フィールドがラベルも内容も空でない場合にのみ出力
+            if (!empty($detail['detail_label' . $i]) && !empty($detail['detail_content' . $i])) :
+              
+            // 改行で分割
+            $lines = explode("\n", $detail['detail_content' . $i]);
 
-// 各行の種類を判定する配列を作成
-$formatted_lines = [];
-foreach ($lines as $line) {
-    $trimmed_line = trim($line);
-    if ($trimmed_line === '') {
-        // 空行の場合も追加
-        $formatted_lines[] = ['type' => 'empty', 'content' => ''];
-    } elseif (!empty($trimmed_line)) {
-        if (strpos($trimmed_line, '・') === 0) {
-            $formatted_lines[] = ['type' => 'bulleted', 'content' => $trimmed_line];
-        } else {
-            $formatted_lines[] = ['type' => 'normal', 'content' => $trimmed_line];
-        }
-    }
-}
-?>
-<tr>
-  <th class="p-detail__title c-title--unorderCircle"><?php echo esc_html($detail['detail_label' . $i]); ?>：</th>
-  <td class="p-detail__text">
-    <?php 
-    // 元の順序を保持して出力
-    $current_ul = false;
-    foreach ($formatted_lines as $line) {
-        if ($line['type'] === 'bulleted') {
-            // 箇条書きリストの開始
-            if (!$current_ul) {
-                echo '<ul>';
-                $current_ul = true;
+            // 各行の種類を判定する配列を作成
+            $formatted_lines = [];
+            foreach ($lines as $line) {
+                $trimmed_line = trim($line);
+                if ($trimmed_line === '') {
+                    // 空行の場合も追加
+                    $formatted_lines[] = ['type' => 'empty', 'content' => ''];
+                } elseif (!empty($trimmed_line)) {
+                    if (strpos($trimmed_line, '・') === 0) {
+                        $formatted_lines[] = ['type' => 'bulleted', 'content' => $trimmed_line];
+                    } else {
+                        $formatted_lines[] = ['type' => 'normal', 'content' => $trimmed_line];
+                    }
+                }
             }
-            echo '<li>' . esc_html($line['content']) . '</li>';
-        } elseif ($line['type'] === 'empty') {
-            // 空行の場合
-            if ($current_ul) {
-                echo '</ul>';
+            ?>
+            <tr>
+              <th class="p-detail__title c-title--unorderCircle"><?php echo esc_html($detail['detail_label' . $i]); ?>：</th>
+              <td class="p-detail__text">
+                <?php 
+                // 元の順序を保持して出力
                 $current_ul = false;
-            }
-            echo '<br>'; // 空行を<br>タグで表現
-        } else {
-            // 箇条書きリストの終了
-            if ($current_ul) {
-                echo '</ul>';
-                $current_ul = false;
-            }
-            // 通常の行
-            echo nl2br(esc_html($line['content']) . "\n");
-        }
-    }
-    
-    // 最後にリストが開いたままの場合は閉じる
-    if ($current_ul) {
-        echo '</ul>';
-    }
-    ?>
-  </td>
-</tr>
-    <?php 
-      endif;
-    } 
-    ?>
-  </tbody>
-</table>
+                foreach ($formatted_lines as $line) {
+                  if ($line['type'] === 'bulleted') {
+                    // 箇条書きリストの開始
+                    if (!$current_ul) {
+                      echo '<ul>';
+                      $current_ul = true;
+                    }
+                    echo '<li>' . esc_html($line['content']) . '</li>';
+                  } elseif ($line['type'] === 'empty') {
+                    // 空行の場合
+                    if ($current_ul) {
+                      echo '</ul>';
+                      $current_ul = false;
+                    }
+                    echo '<br>'; // 空行を<br>タグで表現
+                  } else {
+                    // 箇条書きリストの終了
+                    if ($current_ul) {
+                      echo '</ul>';
+                      $current_ul = false;
+                    }
+                    // 通常の行
+                    echo nl2br(esc_html($line['content']) . "\n");
+                  }
+                }
+                
+                // 最後にリストが開いたままの場合は閉じる
+                if ($current_ul) {
+                  echo '</ul>';
+                }
+                ?>
+              </td>
+            </tr>
+          <?php 
+            endif;
+          } 
+          ?>
+        </tbody>
+      </table>
 
       <?php 
         // リンク先ラベルとリンク先URLを取得

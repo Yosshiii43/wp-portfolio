@@ -611,6 +611,7 @@ Worksのカード
 .p-about .c-wrap .c-inner .p-about__text__icon {
   font-size: 1.5rem;
   text-align: right;
+  margin-right: 1rem;
 }
 .p-about .c-wrap .c-inner .p-about__img {
   width: 58.6666666667vw;
