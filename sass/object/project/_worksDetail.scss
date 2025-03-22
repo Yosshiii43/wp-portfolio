@@ -15,15 +15,15 @@ Works（下層ページ）詳細
       @include fw.mq("tab"){
         display: table-row;
       }
-      th,
-      td{
+      .p-detail__title,
+      .p-detail__text{
         display: block;
         @include fw.mq("tab"){
           display: table-cell;
         }
       }
   
-      th{
+      .p-detail__title{
         width: 100%;
         padding-bottom: fw.rem( 10 );
         @include fw.mq("tab"){
@@ -36,11 +36,15 @@ Works（下層ページ）詳細
         }
       }
       
-      td{
+      .p-detail__text{
         padding-bottom: fw.rem( 20 );
         @include fw.mq("tab"){
           white-space: normal; /* 折り返しを許可 */
           word-break: break-word; /* 長い内容があれば折り返す */
+        }
+        li{
+          text-indent: -1em;
+          margin-left: 1em;
         }
       }
 

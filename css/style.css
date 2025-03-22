@@ -610,7 +610,7 @@ Worksのカード
 }
 .p-about .c-wrap .c-inner .p-about__text__icon {
   font-size: 1.5rem;
-  text-align: center;
+  text-align: right;
 }
 .p-about .c-wrap .c-inner .p-about__img {
   width: 58.6666666667vw;
@@ -870,22 +870,22 @@ Works（下層ページ）詳細
     display: table-row;
   }
 }
-.p-worksDetail table tr th,
-.p-worksDetail table tr td {
+.p-worksDetail table tr .p-detail__title,
+.p-worksDetail table tr .p-detail__text {
   display: block;
 }
 @media screen and (min-width: 577px) {
-  .p-worksDetail table tr th,
-.p-worksDetail table tr td {
+  .p-worksDetail table tr .p-detail__title,
+.p-worksDetail table tr .p-detail__text {
     display: table-cell;
   }
 }
-.p-worksDetail table tr th {
+.p-worksDetail table tr .p-detail__title {
   width: 100%;
   padding-bottom: 0.625rem;
 }
 @media screen and (min-width: 577px) {
-  .p-worksDetail table tr th {
+  .p-worksDetail table tr .p-detail__title {
     width: auto;
     min-width: 14em;
     max-width: 50%; /* 最大幅を50%に制限 */
@@ -894,14 +894,18 @@ Works（下層ページ）詳細
     padding-right: 20px;
   }
 }
-.p-worksDetail table tr td {
+.p-worksDetail table tr .p-detail__text {
   padding-bottom: 1.25rem;
 }
 @media screen and (min-width: 577px) {
-  .p-worksDetail table tr td {
+  .p-worksDetail table tr .p-detail__text {
     white-space: normal; /* 折り返しを許可 */
     word-break: break-word; /* 長い内容があれば折り返す */
   }
+}
+.p-worksDetail table tr .p-detail__text li {
+  text-indent: -1em;
+  margin-left: 1em;
 }
 .p-worksDetail table tr:last-child td {
   padding-bottom: 0;
