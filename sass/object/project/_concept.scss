@@ -61,4 +61,12 @@
     }
     
   }
+  &__text{
+    @include fw.mq("tab"){
+      margin: 0 fw.rem( 40 );
+      @include fw.mq("pc"){
+        margin: 0 fw.rem( 80 );
+      }
+    }
+  }
 }

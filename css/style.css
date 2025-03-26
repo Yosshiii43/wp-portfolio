@@ -398,6 +398,16 @@ body.is-open {
 .p-concept__title span:last-child::after {
   content: "形";
 }
+@media screen and (min-width: 577px) {
+  .p-concept__text {
+    margin: 0 2.5rem;
+  }
+}
+@media screen and (min-width: 577px) and (min-width: 992px) {
+  .p-concept__text {
+    margin: 0 5rem;
+  }
+}
 
 /*=============================
 フロントページ　Serviceセクション
