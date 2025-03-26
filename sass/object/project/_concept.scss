@@ -62,10 +62,16 @@
     
   }
   &__text{
+    p{
+      text-indent: 1em;
+      line-height: 2;
+    }
     @include fw.mq("tab"){
-      margin: 0 fw.rem( 40 );
+      padding: 0 fw.rem( 40 );
       @include fw.mq("pc"){
-        margin: 0 fw.rem( 80 );
+        padding: 0 fw.rem( 80 );
+        max-width: 920px;
+        margin: 0 auto;
       }
     }
   }
