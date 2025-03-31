@@ -974,10 +974,6 @@ Works（下層ページ）詳細
   width: auto;
   max-width: 100%;
   color: #3498db;
-  text-decoration: underline;
-  word-wrap: break-word; /* 古いブラウザ用 */
-  overflow-wrap: break-word; /* 標準的な方法 */
-  display: inline-block;
 }
 .p-privacy__foot {
   text-align: right;
@@ -1261,6 +1257,17 @@ register_block_styleで作成のスタイル
   background: #FFFFFF;
   border: 2px solid #F7F6F6;
   color: #333333;
+}
+
+/*=============================
+エントリー（管理画面からのコンテンツ読み込み）
+=============================*/
+.c-entry {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
 }
 
 /*=============================

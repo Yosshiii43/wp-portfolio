@@ -32,10 +32,6 @@
       width: auto;
       max-width: 100%;
       color: fw.$color--blue;
-      text-decoration: underline;
-      word-wrap: break-word; /* 古いブラウザ用 */
-      overflow-wrap: break-word; /* 標準的な方法 */
-      display: inline-block;
     }
   }
   

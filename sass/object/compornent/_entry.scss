@@ -1,0 +1,11 @@
+/*=============================
+エントリー（管理画面からのコンテンツ読み込み）
+=============================*/
+@use "../../foundation/forwords" as fw;
+
+.c-entry {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
