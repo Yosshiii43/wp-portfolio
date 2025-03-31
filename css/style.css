@@ -974,6 +974,7 @@ Works（下層ページ）詳細
   width: auto;
   max-width: 100%;
   color: #3498db;
+  text-decoration: underline;
 }
 .p-privacy__foot {
   text-align: right;
