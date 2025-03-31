@@ -970,6 +970,9 @@ Works（下層ページ）詳細
 .p-privacy__item__secondary ul {
   padding-left: 1rem;
 }
+.p-privacy__item__secondary ~ .p-privacy__item__secondary {
+  margin-top: 0.625rem;
+}
 .p-privacy__item a {
   width: auto;
   max-width: 100%;

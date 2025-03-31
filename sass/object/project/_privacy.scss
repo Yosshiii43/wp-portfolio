@@ -20,12 +20,17 @@
       width: 100%;
       padding-left: fw.rem(16);
     }
+
     &__secondary{
       padding-left: fw.rem( 16 );
       p,
       ul{
         padding-left: fw.rem(16);
       }
+    }
+
+    &__secondary ~ &__secondary{
+      margin-top: fw.rem( 10 );
     }
 
     a{
