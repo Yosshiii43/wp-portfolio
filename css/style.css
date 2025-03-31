@@ -949,19 +949,35 @@ Works（下層ページ）詳細
 /*=============================
 プライバシーポリシー
 =============================*/
+.p-privacy {
+  width: 100%;
+}
 .p-privacy__head, .p-privacy__item {
   margin-bottom: 2.5rem;
 }
+.p-privacy__item {
+  width: 100%;
+}
 .p-privacy__item p,
 .p-privacy__item ul {
-  margin-left: 1rem;
+  width: 100%;
+  padding-left: 1rem;
 }
 .p-privacy__item__secondary {
   padding-left: 1rem;
 }
 .p-privacy__item__secondary p,
 .p-privacy__item__secondary ul {
-  margin-left: 1rem;
+  padding-left: 1rem;
+}
+.p-privacy__item a {
+  width: auto;
+  max-width: 100%;
+  color: #3498db;
+  text-decoration: underline;
+  word-wrap: break-word; /* 古いブラウザ用 */
+  overflow-wrap: break-word; /* 標準的な方法 */
+  display: inline-block;
 }
 .p-privacy__foot {
   text-align: right;
@@ -1026,6 +1042,7 @@ body
 各セクション汎用wrap
 =============================*/
 .c-wrap {
+  max-width: 100%;
   padding: 24vw 5.3333333333vw;
 }
 @media screen and (min-width: 577px) {

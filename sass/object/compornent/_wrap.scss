@@ -5,6 +5,7 @@
 @use "../../foundation/forwords" as fw;
 
 .c-wrap{
+  max-width: 100%;
   padding: fw.sp-vw( 90 ) fw.sp-vw( 20 );
   @include fw.mq("tab"){
     padding: fw.tab-vw( 120 ) fw.tab-vw( 60 );
