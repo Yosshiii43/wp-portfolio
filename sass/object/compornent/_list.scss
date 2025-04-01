@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/*=============================
+リスト
+=============================*/
+@use "../../foundation/forwords" as fw;
+@use "sass:math";
+
+.c-list{
+  text-indent: -1em;
+  margin-left: 1em;
+}

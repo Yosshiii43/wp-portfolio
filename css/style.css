@@ -1156,21 +1156,11 @@ footer
 }
 
 /*=============================
-リストスタイル調整
+リスト
 =============================*/
-.c-listStyle li {
-  position: relative;
-  padding-left: 1em;
-}
-.c-listStyle li::before {
-  content: "";
-  position: absolute;
-  left: 0.4em;
-  top: 0.65em;
-  width: 2px;
-  height: 2px;
-  background: #333333;
-  border-radius: 50%;
+.c-list {
+  text-indent: -1em;
+  margin-left: 1em;
 }
 
 /*============================
