@@ -6,7 +6,7 @@
 
       <div class="c-inner c-fadeIn js-fadeIn">
         <div class="p-about__text">
-          <p class="c-matginBottom--1em">Yoshino Sumi</p>
+          <p class="c-matginBottom--1em">Yoshino</p>
           <p class="c-matginBottom--1em">愛知県在住</p>
           <p class="c-matginBottom--1em">Webデザイナー / コーダー</p>
           <p>スイーツが大好きで、かつて洋菓子店で長く働いていました。</p>
@@ -18,7 +18,7 @@
 
           <p class="c-matginBottom--1em">日々の気分転換には、折りたたみ自転車BROMPTONに乗って、美味しいスイーツを探しに行くことが楽しみのひとつ。 リフレッシュすることで、新しいアイデアや発想が生まれることもあります。</p>
 
-          <p class="c-matginBottom--1em">※クライアントの都合により、制作実績として公開できない案件もございます。詳細はお問い合わせください。</p>
+          <p class="c-matginBottom--1em c-list">※制作実績として公開できない案件もございます。詳細はお問い合わせください。</p>
           
           <p class="p-about__text__icon"><a href="https://github.com/Yosshiii43" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a></p>
         </div>
