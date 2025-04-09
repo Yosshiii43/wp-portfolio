@@ -4,7 +4,7 @@
     <div class="p-mainVisual c-bg--gray">
       <div class="inner">
         <div class="p-mainVisual__title">
-          <h1 class="p-mainVisual__title__top c-font--nunito randomAnime">Yoshino's Portfolio Site</h1>
+          <h1 class="p-mainVisual__title__top c-font--nunito randomAnime">Yoshino Sumi Portfolio</h1>
           <p class="p-mainVisual__title__bottom randomAnime">Webデザイン / コーディング</p>
         </div>
       </div>
