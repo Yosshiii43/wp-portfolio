@@ -64,7 +64,7 @@
   &__text{
     p{
       text-indent: 1em;
-      line-height: 2;
+      line-height: 3;
     }
     @include fw.mq("tab"){
       padding: 0 fw.rem( 40 );
