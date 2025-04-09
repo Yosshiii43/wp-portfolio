@@ -8,7 +8,7 @@
         'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
       ]);
     ?>
-    <p class="p-footer__copyright c-textSmall c-font--nunito">&copy;<?php echo esc_html(date('Y')); ?> ️Yoshino All Rights Reserved.</p>
+    <p class="p-footer__copyright c-textSmall c-font--nunito">&copy;<?php echo esc_html(date('Y')); ?> ️Yoshino Sumi All Rights Reserved.</p>
   </div>
 </footer>
   <?php wp_footer(); ?>
