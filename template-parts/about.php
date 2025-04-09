@@ -6,7 +6,7 @@
 
       <div class="c-inner c-fadeIn js-fadeIn">
         <div class="p-about__text">
-          <p class="c-matginBottom--1em">Yoshino</p>
+          <p class="c-matginBottom--1em">Yoshino Sumi</p>
           <p class="c-matginBottom--1em">愛知県在住</p>
           <p class="c-matginBottom--1em">Webデザイナー / コーダー</p>
           <p>スイーツが大好きで、かつて洋菓子店で長く働いていました。</p>
