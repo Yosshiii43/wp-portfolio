@@ -54,12 +54,12 @@
   padding-left: fw.rem( 20 );
   &::before{
     content: "";
-    width: fw.rem(12);//黄色のサークルの幅
-    height: fw.rem(12);//黄色のサークルの高さ
+    width: .75rem;//黄色のサークルの幅
+    height: .75rem;//黄色のサークルの高さ
     border-radius: 50%;
     background: fw.$color--yellow;
     position: absolute;
-    top: 0;
+    top: .25rem;
     transform: translateY( 50% );
     left: 0;
   }

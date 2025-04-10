@@ -1122,7 +1122,7 @@ body
   border-radius: 50%;
   background: #FAFD87;
   position: absolute;
-  top: 0;
+  top: 0.25rem;
   transform: translateY(50%);
   left: 0;
 }
