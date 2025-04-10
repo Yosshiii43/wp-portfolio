@@ -900,6 +900,7 @@ Works（下層ページ）詳細
 .p-worksDetail table tr .p-detail__title {
   width: 100%;
   padding-bottom: 0.625rem;
+  font-weight: 400;
 }
 @media screen and (min-width: 577px) {
   .p-worksDetail table tr .p-detail__title {
