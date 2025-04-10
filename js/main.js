@@ -261,12 +261,9 @@ jQuery(document).ready(function($) {
         break;
     }
   
-    // 現在の列数を取得
-    const columnCount = getColumnCount();
-  
-    // 次の6件（または残りのすべて）を表示
+    // 次の3件（または残りのすべて）を表示
     const $hiddenCards = $(selector);
-    const cardsToShow = Math.min($hiddenCards.length, 6);
+    const cardsToShow = Math.min($hiddenCards.length, 3);
   
     $hiddenCards.slice(0, cardsToShow).each(function(index) {
       $(this)
@@ -280,8 +277,8 @@ jQuery(document).ready(function($) {
           'position': ''
         });
       
-      // 遅延アニメーション設定（列数に応じて動的に計算）
-      const delay = (index % columnCount) * 0.2;
+      // 遅延アニメーション設定（追加の3枚を順に表示）
+      const delay = (index % 3) * 0.2;
       
       $(this).css('transition-delay', delay + 's');
     });
