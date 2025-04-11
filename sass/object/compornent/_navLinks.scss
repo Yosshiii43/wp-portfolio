@@ -18,7 +18,7 @@ nav-links
     &::before{
       @include fw.arrow(8, 1, fw.$color--black, left);
       position: absolute;
-      top: 10px;
+      top: 11.5px;
       left: 0;
     }
   }
@@ -29,7 +29,7 @@ nav-links
       &::after{
         @include fw.arrow(8, 1, fw.$color--black, right);
         position: absolute;
-        top: 10px;
+        top: 11.5px;
         right: 0;
       }
     }

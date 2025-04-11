@@ -1208,7 +1208,7 @@ nav-links
   border-color: #333333;
   transform: rotate(135deg);
   position: absolute;
-  top: 10px;
+  top: 11.5px;
   left: 0;
 }
 .c-navLinks__next a {
@@ -1225,7 +1225,7 @@ nav-links
   border-color: #333333;
   transform: rotate(-45deg);
   position: absolute;
-  top: 10px;
+  top: 11.5px;
   right: 0;
 }
 
