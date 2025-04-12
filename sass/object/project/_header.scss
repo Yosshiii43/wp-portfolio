@@ -23,8 +23,9 @@
       a{
         display: block;
         .custom-logo {
-          width: 116px;
+          width: auto;
           height: 57px;
+          aspect-ratio: auto;
           object-fit: contain; /* 必要に応じて調整 */
         }
       }

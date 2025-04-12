@@ -117,8 +117,9 @@ textarea:focus-visible {
   display: block;
 }
 .p-header__title a .custom-logo {
-  width: 116px;
+  width: auto;
   height: 57px;
+  aspect-ratio: auto;
   -o-object-fit: contain;
      object-fit: contain; /* 必要に応じて調整 */
 }
