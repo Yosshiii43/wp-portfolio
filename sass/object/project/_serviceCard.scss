@@ -5,26 +5,42 @@ Serviceのカード
 @use "../../foundation/forwords" as fw;
 @use "sass:math";
 
-.p-serviceCard{
-  width: fw.rem( 320 );
+.p-serviceCard {
+  width: 100%;
+  max-width: fw.rem(400);
   @include fw.mq("tab"){
-    width: calc( 50% - math.div( 40px , 2));
-    max-width: fw.rem( 360 );
-    @include fw.mq("pc"){
-      width: 30%;
-    }
+    width: fw.rem(680);
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: fw.rem( 40 );
   }
 
-  &__icon{
-    width: fw.rem( 120 );
+  &__icon {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: fw.rem( 160 );
+    height: auto;
     background: fw.$color--white;
     border-radius: 50%;
-    margin: 0 auto fw.sp-vw( 12 );
+    margin: 0 auto fw.rem( 24 );
+    padding: fw.rem( 20 );
+    @include fw.mq("tab") {
+      width: fw.rem( 220 );
+      margin: 0;
+      padding: fw.rem( 30 );
+    }
   }
-
-  h4{
-    font-size: fw.rem( 19 );
-    text-align: center;
-    margin-bottom: fw.rem( 10 );
+  &__text {
+    flex-grow: 0;
+    h4 {
+      font-size: fw.rem( 24 );
+    }
+    .p-serviceCard__copy {
+      font-size: fw.rem( 18 );
+      text-indent: -1em;
+      margin-left: 1em;
+      margin-bottom: fw.rem(16);
+    }
   }
 }
