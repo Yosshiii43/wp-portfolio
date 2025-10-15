@@ -63,44 +63,31 @@ jQuery(function () {
 });
 
 
-////テキストのランダムアニメーション////
-let Obj = {
-	loop: false,
-	minDisplayTime: 2000,// アニメーションの間隔時間
-	initialDelay: 200, // アニメーション開始までの遅延時間
-	autoStart: true,
-	in: {
-		effect: 'fadeInUp',//animate.css の中にある採用したい動きのクラス名
-		delayScale: 1,// 遅延時間の指数
-		delay: 100,// 文字ごとの遅延時間
-		sync: false,// アニメーションをすべての文字に同時適用するかどうか
-		shuffle: true,// 文字表示がランダムな順に表示されるかどうか
-	},
-	out: {// 終了時のアニメーション設定をしたい場合はここに追記
-	}
-}
-var element
-//初期設定
-function RandomInit() {
-	element= jQuery(".randomAnime");
-	jQuery(element[0]).textillate(Obj);
-}
+////テキストのじわっと出現////
+// blurTriggerにblurというクラス名を付ける定義
 
-function RandomAnimeControl() {
-		let elemPos = jQuery(element[1]).offset().top - 50;
-		let scroll = jQuery(window).scrollTop();
-		let windowHeight = jQuery(window).height();
-
-		if (scroll >= elemPos - windowHeight) {
-			jQuery(element[1]).textillate(Obj);
+function BlurTextAnimeControl() {
+	$('.j-blurTrigger').each(function(){ //blurTriggerというクラス名が
+		var elemPos = $(this).offset().top-50;//要素より、50px上の
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll >= elemPos - windowHeight){
+		$(this).addClass('c-blur');// 画面内に入ったらblurというクラス名を追記
+		}else{
+		$(this).removeClass('c-blur');// 画面外に出たらblurというクラス名を外す
 		}
+		});
 }
+
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+	BlurTextAnimeControl();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面をスクロールをしたら動かしたい場合の記述
 
 // 画面が読み込まれたらすぐに動かしたい場合の記述
-jQuery(window).on('load', function () {
-	RandomInit(); /*初期設定を読み込み*/
-	RandomAnimeControl();/*アニメーション用の関数を呼ぶ*/
-});//ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+	BlurTextAnimeControl();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
 
 
 
