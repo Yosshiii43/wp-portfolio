@@ -12,6 +12,7 @@
     justify-content: space-between;
     align-items: center;
     border-top: 8px solid fw.$color--yellow;
+    box-shadow: 0 2px 2px 0 fw.$color--gray;
     @include fw.mq( "tab" ){
         padding: 13px 40px 9px;
         border-width: 6px;
