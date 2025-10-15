@@ -1,17 +1,22 @@
 @use "sass:math";
+@use "sass:map";
 
-$breakpoints: (
-  "sp": "screen and (max-width: 576px)",
-  "tab": "screen and (min-width: 577px)",
-  "pc": "screen and (min-width: 992px)",
+/// メディアクエリ  (min‑width ベース = SPファースト)
+$breakpoint: (
+  sp: 'screen and (max-width: 767px)',
+  tab: 'screen and (min-width: 768px)',
+  pc: 'screen and (min-width: 1024px)'
 );
 
-// mixinを定義する（初期値はsp）
-@mixin mq($breakpoint: sp) {
-  @media #{map-get($breakpoints, $breakpoint)} {
-    @content;
+@mixin mq($bp) {
+  @media #{map-get($breakpoint, $bp)} {
+   @content;
   }
 }
+//使用例 
+//@include mq(tab) {
+//  background-color: #ffbebe;
+//}
 
 //画面幅に合わせてpxをvwに変換する
 
@@ -68,3 +73,22 @@ $root-size: 16; //htmlに設定してあるfont-size
   @else if ( $deg == "right" )  { transform: rotate(-45deg); }
   @else if ( $deg == "bottom" ) { transform: rotate(45deg);  }
 }
+
+
+///Min-Max-Value Interpolation
+@function rclamp($min, $max, $minViewport, $maxViewport) {
+  $vwScale: ($max - $min) / ($maxViewport - $minViewport);  // vw単位でのスケールを計算
+  $baseOffset: $min - $minViewport * $vwScale;  // 基準となる最小値からのオフセットを計算
+
+  $minRem: $min / 16;  // 最小値をremに変換
+  $maxRem: $max / 16;  // 最大値をremに変換
+  $baseOffsetRem: $baseOffset / 16;  // オフセットをremに変換
+  $vwScaleRem: $vwScale * 100;  // vwスケールを調整
+
+  @return clamp(#{$minRem}rem, #{$baseOffsetRem}rem + #{$vwScaleRem}vw, #{$maxRem}rem);
+}
+
+// 使用例
+//.example {
+//  font-size: rclamp(24, 64, 375, 1440);
+//}
