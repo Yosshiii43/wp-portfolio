@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/*=============================
+ブラー
+=============================*/
+@use "../../foundation/forwords" as fw;
+@use "sass:math";
+
+.c-blur{
+	animation-name:blurAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+}
+
+@keyframes blurAnime{
+  from {
+	filter: blur(6px);
+	transform: scale(1.01);
+	opacity: 0;
+  }
+
+  to {
+	filter: blur(0);
+	transform: scale(1);
+	opacity: 1;
+  }
+}
+ 
+.j-blurTrigger{
+    opacity: 0;
+}
