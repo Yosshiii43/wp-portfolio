@@ -10,72 +10,68 @@
     height: fw.sp-vw( 560 );
     background-size: cover;
     overflow-x: hidden;
-    height: calc(100svh - 83px);
+    height: calc(100svh - 83px );
     @include fw.mq( "tab" ){
-        height: fw.tab-vw( 308 );
+        height: fw.rem( 308 );
         @include fw.mq( "pc" ){
-            height: fw.pc-vw( 386 );
+            height: fw.rem( 386 );
         }
     }
 
     .inner{
-        position: absolute;
-        width: fw.sp-vw( 344 );
-        height: 460px;
-        top: calc(50% - 230px);
-        left: fw.sp-vw( 25 );
+      position: absolute;
+        width: fw.rclamp(310, 356, 320, 375);
+        height: fw.rclamp(465, 520, 320, 375);
+        max-width: 100%;
+        max-height: 100%;
+        padding-left: fw.rem(12);
+        top: (50%);
+        left: (50%);
+        transform: translateX(-50%) translateY(-50%);
+        padding-top: 8%;
+        margin-inline: auto;
         background: url(../img/mainVisual__img--sp.png) no-repeat center right;
         background-size: contain;
         display: flex;
         align-items: center;
-        @media (max-width: 349px){
-          height: 390px;
-          top: calc(50% - 195px);
-        }
-        @media (min-width: 412px){
-          height: 520px;
-          top: calc(50% - 260px);
-        }   
         @include fw.mq("tab"){
-            width: fw.tab-vw( 628 );
-            height: fw.tab-vw( 260 );
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-            background: url(../img/mainVisual__img--pctab.png) no-repeat center right;
-            background-size: contain;
-            @include fw.mq("pc"){
-                width: fw.pc-vw( 800 );
-                height: fw.pc-vw( 324 );
-            }
+          width: fw.rem( 628 );
+          height: fw.rem( 260 );
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          transform: translateX(0) translateY(0);
+          padding-top: 0;
+          margin: auto;
+          background: url(../img/mainVisual__img--pctab.png) no-repeat center right;
+          background-size: contain;
+        }
+        @include fw.mq("pc"){
+          width: fw.rem( 720 );
+          height: fw.rem( 324 );
+          padding-left: fw.rclamp(40, 60, 1024, 1440);
         }
 
-        .p-mainVisual__title{
-            width: 9em;
+        .p-mainVisual__copy{
             @include fw.mq("tab"){
-                width: 100%;
+              width: 100%;
             }
             &__top{
-                font-size: fw.rem( 30 );
-                margin-bottom: fw.sp-vw( 60 );
-                @include fw.mq("tab"){
-                    font-size: fw.rem( 32 );
-                    margin-top: inherit;
-                    margin-bottom: fw.tab-vw( 16 );
-                    @include fw.mq("pc"){
-                        font-size: fw.rem( 36 );
-                    }
-                }
+              font-size: fw.rem( 24 );
+              margin-bottom: fw.rem( 40 );
+              @include fw.mq("tab"){
+                font-size: fw.rem( 26 );
+                margin-top: inherit;
+                margin-bottom: fw.rem( 20 );
+              }
             }
             &__bottom{
+              font-size: fw.rem( 18 );
+              @include fw.mq("tab"){
                 font-size: fw.rem( 22 );
-                width: 7em;
-                @include fw.mq("tab"){
-                    width: inherit;
-                    font-size: fw.rem( 24 );
-                }
+                width: inherit;
+              }
             }
         }
     }

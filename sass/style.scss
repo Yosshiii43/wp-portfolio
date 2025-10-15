@@ -48,6 +48,8 @@
     @use "object/compornent/navLinks";
     @use "object/compornent/custom-style";
     @use "object/compornent/entry";
+    @use "object/compornent/delay";
 
 //utility
     @use "object/utility/wordpress-classes";
+    @use "object/utility/none";

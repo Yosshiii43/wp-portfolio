@@ -1,0 +1,16 @@
+/*=============================
+タグ非適用
+=============================*/
+@use "../../foundation/forwords" as fw;
+
+.u-none--tab {
+  @include fw.mq("tab") {
+    display: none;
+  }
+}
+
+.u-none--pc {
+  @include fw.mq("pc") {
+    display: none;
+  }
+}
