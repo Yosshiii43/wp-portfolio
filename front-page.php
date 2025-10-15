@@ -16,8 +16,6 @@
 
     <?php get_template_part( 'template-parts/about' ); ?>
 
-    <?php get_template_part( 'template-parts/flow' ); ?>
-
     <?php get_template_part( 'template-parts/contact' ); ?>
 
   </main>
