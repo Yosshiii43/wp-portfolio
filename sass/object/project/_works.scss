@@ -45,10 +45,11 @@
     display: grid;
     gap:3rem;
     grid-template-columns: repeat(1, 1fr);
-    gap: 40px;
+    gap: fw.rem(60) ;
     margin-bottom: fw.rem( 40 );
     @include fw.mq("tab"){
       grid-template-columns: repeat(2, 1fr);
+      gap: fw.rem(60) fw.rem(40) ;
       @include fw.mq("pc"){
         grid-template-columns: repeat(3, 1fr);
       }
