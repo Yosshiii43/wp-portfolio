@@ -67,7 +67,7 @@ jQuery(function () {
 // blurTriggerにblurというクラス名を付ける定義
 
 function BlurTextAnimeControl() {
-	$('.j-blurTrigger').each(function(){ //blurTriggerというクラス名が
+	$('.js-blurTrigger').each(function(){ //blurTriggerというクラス名が
 		var elemPos = $(this).offset().top-50;//要素より、50px上の
 		var scroll = $(window).scrollTop();
 		var windowHeight = $(window).height();

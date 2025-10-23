@@ -54,8 +54,17 @@
         grid-template-columns: repeat(3, 1fr);
       }
     }
-    .p-works__item{
-      display: block; //フォーカスインジケーターの表示のために必要
+    .p-works__item {
+      //opacity: 0;
+      transition: opacity 0.5s ease-in;
+
+      &.animated {
+        opacity: 1;
+      }
+      
+      .p-works__link{
+        display: block; //フォーカスインジケーターの表示のために必要
+      }
     }
   }
 

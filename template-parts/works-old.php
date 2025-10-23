@@ -1,7 +1,7 @@
 <section class="p-works" id="works">
 
   <div class="c-wrap">
-    <div class="c-fadeIn js-fadeIn">
+    <div class=" c-fadeIn js-fadeIn">
         <h2 class="c-title--frontH2 c-font--nunito">Works</h2>
         <ul class="p-works__menu">
           <li class="p-works__menu__item"><button class="c-title--circle" id="js-worksAll" tabindex="0">All</button></li>
@@ -35,8 +35,8 @@
             $tag_classes = $tags ? implode(' ', $tags) : '';
             $tag_data = $tags ? implode(',', $tags) : '';
           ?>
-          <div class="p-works__item p-worksCard c-fadeIn js-fadeIn <?php if($post_count > 9) echo 'hidden'; ?>" data-tag="<?php echo esc_attr($tag_data); ?>">
-            <a href="<?php the_permalink(); ?>" tabindex="0" class="p-works__link">
+          <div class="p-worksCard js-tagDsign c-fadeIn js-fadeIn <?php if($post_count > 9) echo 'hidden'; ?>" data-tag="<?php echo esc_attr($tag_data); ?>">
+            <a href="<?php the_permalink(); ?>" tabindex="0" class="p-works__item">
               <?php
                 if (has_post_thumbnail()) {
                   $thumbnail_id = get_post_thumbnail_id();
