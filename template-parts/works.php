@@ -1,7 +1,7 @@
 <section class="p-works" id="works">
 
   <div class="c-wrap">
-    <div class="c-fadeIn js-fadeIn">
+    <div class="">
         <h2 class="c-title--frontH2 c-font--nunito">Works</h2>
         <ul class="p-works__menu">
           <li class="p-works__menu__item"><button class="c-title--circle" id="js-worksAll" tabindex="0">All</button></li>

@@ -2,7 +2,7 @@
 
   <div class="c-wrap">
 
-    <h2 class="c-title--frontH2 c-font--nunito c-fadeIn js-fadeIn">Contact</h2>
+    <h2 class="c-title--frontH2 c-font--nunito">Contact</h2>
 
     <div class="c-fadeIn js-fadeIn">
       <div class="p-contact__text">
