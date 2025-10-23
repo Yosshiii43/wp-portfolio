@@ -50,29 +50,12 @@ add_filter('nav_menu_css_class', 'add_menu_item_classes', 10, 3);
 
 
 function portfolio_add_files(){
+  
   // jQueryの読み込み(3.7.1を指定して読み込み)
   wp_enqueue_script(
     'portfolio-jquery-3.7.1',
     get_template_directory_uri() . '/js/jquery-3.7.1.min.js',
     array(),
-    null,
-    true
-  );
-
-  // textillate.min.js(0.4.0)の読み込み（ランダムレタリング）
-  wp_enqueue_script(
-    'portfolio-textillate',
-    get_template_directory_uri() . '/js/jquery.textillate.min.js',
-    array('portfolio-jquery-3.7.1'),
-    '0.4.0',
-    true
-  );
-
-  // lettering.jsの読み込み（ランダムレタリング）
-  wp_enqueue_script(
-    'portfolio-lettering',
-    get_template_directory_uri() . '/js/jquery.lettering.js',
-    array('portfolio-jquery-3.7.1'),
     null,
     true
   );
@@ -90,39 +73,9 @@ function portfolio_add_files(){
   wp_enqueue_script(
     'portfolio-main',
     get_template_directory_uri() . '/js/main.js',
-    array('portfolio-jquery-3.7.1', 'portfolio-textillate', 'portfolio-lettering', 'portfolio-slick'),
+    array('portfolio-jquery-3.7.1', 'portfolio-slick'),
     null,
     true
-  );
-
-  // Google Fontsのpreconnectを追加
-  wp_enqueue_style(
-    'google-fonts-preconnect-googleapis',
-    'https://fonts.googleapis.com', 
-    array(), 
-    null
-  );
-  wp_enqueue_style(
-    'google-fonts-preconnect-gstatic',
-    'https://fonts.gstatic.com', 
-    array(), 
-    null
-  );
-
-  // Google FontsからNunito読み込み
-  wp_enqueue_style(
-    'portfolio-nunito',
-    'https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap',
-    array(),
-    null
-  );
-
-  // Google FontsからZenMaruGothic読み込み
-  wp_enqueue_style(
-    'portfolio-zenmarugothic',
-    'https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400&display=swap',
-    array(),
-    null
   );
 
   // リセットCSS読み込み
@@ -131,14 +84,6 @@ function portfolio_add_files(){
     get_template_directory_uri() . '/css/destyle.css',
     array(),
     '1.0.15'
-  );
-
-  // animate.min.css(3.7.2)読み込み（ランダムレタリング）
-  wp_enqueue_style(
-    'portfolio-animate',
-    get_template_directory_uri() . '/css/animate.min.css',
-    array(),
-    '3.7.2'    
   );
 
   // slick.css読み込み
@@ -167,6 +112,14 @@ function portfolio_add_files(){
 }
 add_action( 'wp_enqueue_scripts', 'portfolio_add_files');
 
+//Google Fonts読み込み（クロスオリジン対応）
+function portfolio_add_google_fonts() {
+  echo "\n";
+  echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
+  echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+  echo '<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&family=Zen+Maru+Gothic:wght@300;400&display=swap" rel="stylesheet">' . "\n";
+}
+add_action('wp_head', 'portfolio_add_google_fonts');
 
 // 制作実績投稿タイプのスラッグメタボックスを非表示にする
 function hide_slug_meta_box() {
