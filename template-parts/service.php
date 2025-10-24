@@ -8,7 +8,7 @@
 
       <section class="p-serviceCard c-fadeIn js-fadeIn">
         <p class="p-serviceCard__icon">
-          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico_webdesign.png" alt="Webデザインのイラスト" width="500px" height="500px">
+          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico_webdesign.png" alt="" width="500px" height="500px">
         </p>
         <div class="p-serviceCard__text">
           <h4>Webデザイン</h4>
@@ -20,7 +20,7 @@
 
       <section class="p-serviceCard c-fadeIn js-fadeIn">
         <p class="p-serviceCard__icon">
-          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico_responsive.png" alt="Webデザインのイラスト" width="500px" height="500px">
+          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico_responsive.png" alt="" width="500px" height="500px">
         </p>
         <div class="p-serviceCard__text">
           <h4>コーディング</h4>
@@ -33,7 +33,7 @@
 
       <section class="p-serviceCard c-fadeIn js-fadeIn">
         <p class="p-serviceCard__icon">
-          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico_wordpress.png" alt="Webデザインのイラスト" width="500px" height="500px">
+          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/img/ico_wordpress.png" alt="" width="500px" height="500px">
         </p>
         <div class="p-serviceCard__text">
           <h4>WordPress構築</h4>
