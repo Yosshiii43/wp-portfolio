@@ -22,8 +22,8 @@
     ?>
 
     <?php if ($the_query->have_posts()): ?>
-
-      <div class="p-works__gallery">
+    <div class="js-moreList">
+      <ul class="p-works__gallery ">
         <?php 
           $post_count = 0;
           while($the_query->have_posts()) : 
@@ -35,7 +35,7 @@
             $tag_classes = $tags ? implode(' ', $tags) : '';
             $tag_data = $tags ? implode(',', $tags) : '';
           ?>
-          <div class="p-works__item p-worksCard c-fadeIn js-fadeIn <?php if($post_count > 9) echo 'hidden'; ?>" data-tag="<?php echo esc_attr($tag_data); ?>">
+          <li class="p-works__item p-worksCard js-galleryItem" data-tag="<?php echo esc_attr($tag_data); ?>">
             <a href="<?php the_permalink(); ?>" tabindex="0" class="p-works__link">
               <?php
                 if (has_post_thumbnail()) {
@@ -58,16 +58,12 @@
                 <h3 class="shop-title"><?php the_title(); ?></h3>
               </div>
             </a>
-          </div><!-- p-worksCard -->
+            </li><!-- p-worksCard -->
         <?php endwhile; ?>
+                
+      </ul><!-- p-works__gallery -->
 
-      </div><!-- p-works__gallery -->
-
-      <?php if ($the_query->post_count > 9): ?>
-        <div class="tc mt20">
-          <button class="p-works__more" id="works__btn" tabindex="0">もっと見る</button>
-        </div>
-      <?php endif; ?>
+      <button class="p-works__more js-moreBtn" id="works__btn" tabindex="0">もっと見る</button>
 
     <?php else: ?>
       <p>掲載情報がありません。</p>
@@ -75,6 +71,7 @@
 
     <?php wp_reset_postdata(); ?>
 
+    </div><!--js-moreList-->
   </div><!--c-wrap-->
 
 </section><!--p-Works-->

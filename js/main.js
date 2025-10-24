@@ -104,212 +104,116 @@ jQuery(window).on('scroll load', function(){        // ページロード時、�
 });
 
 
+//// フロントページWorks
+jQuery(function($) {
+  const $items = $('.js-galleryItem');
+  const $moreBtn = $('.js-moreBtn');
+  const itemsPerPage = 9; // 初期表示件数
+  const addCount = 3;     // もっと見るで追加する件数
+  let currentCount = itemsPerPage;
+  let filteredItems = $items; // 現在表示中のフィルタ対象
 
-////フロントページWorks
-jQuery(document).ready(function($) {
-  // 現在のフィルタ状態を保持する変数
-  let currentFilter = 'js-worksAll';
-  // フィルタリング中かどうかを示すフラグ（アニメーション中の重複処理や予期せぬ動作を防ぐ）
-  let isFiltering = false;
+  // --- 初期状態 ---
+  $items.addClass('is-hidden');
+  filteredItems.slice(0, itemsPerPage).removeClass('is-hidden');
+  toggleMoreBtn();
 
-  // 列数を取得する関数
-  const getColumnCount = () => {
-    const windowWidth = $(window).width();
-    if (windowWidth >= 992) return 3;  // PC
-    if (windowWidth >= 577) return 2;   // タブレット
-    return 1;  // スマートフォン
-  };
+  // --- もっと見る ---
+  $moreBtn.on('click', function() {
+    const hiddenItems = filteredItems.filter('.is-hidden');
+    const $newItems = hiddenItems.slice(0, addCount);
 
-  // フィルタリング機能
-  $('.p-works__menu__item button').on('click', function() {
-    // フィルタリング中のフラグを立てる（この間は追加の処理を抑制）
-    isFiltering = true;
+    // 新しい要素を表示
+    $newItems.removeClass('is-hidden');
 
-    // すべてのボタンから .c-title--circle と .active を削除
-    $('.p-works__menu__item button')
-      .removeClass('c-title--circle')
-      .removeClass('active');
+    // is-visible を外す
+    $newItems.removeClass('is-hidden is-visible');
+    // 新しく出た要素にだけ順次ディレイを設定（0.2秒ずつ）
+    $newItems.each(function(i) {
+      const delay = i * 0.2;
+      $(this).css('transition-delay', `${delay}s`);
 
-    // クリックされたボタンに .c-title--circle と .active を追加
-    $(this)
-      .addClass('c-title--circle')
-      .addClass('active');
+      // すでに画面内なら即アニメ開始
+      const rect = this.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        $(this).addClass('is-visible');
+      }
 
-    // クリックされたボタンのIDを取得
-    currentFilter = $(this).attr('id');
+      observer.observe(this);
+    });
 
-    // すべてのカードを一旦非表示
-    $('.p-worksCard').hide().addClass('hidden').css('opacity', 0);
+    currentCount += addCount;
+    toggleMoreBtn();
+  });
 
-    // 列数を取得
-    const columnCount = getColumnCount();
+  // --- タグ切り替え（ここをフェード対応） ---
+  $('.p-works__menu button').on('click', function() {
+    const tag = $(this).attr('id').replace('js-works', '').toLowerCase();
 
-    // フィルタリング処理
-    let $visibleCards;
-    switch(currentFilter) {
-      case 'js-worksAll':
-        $visibleCards = $('.p-worksCard').slice(0, 9); // すべてのカードから最初の9枚を選択
-        break;
-      case 'js-worksDesign':
-        $visibleCards = $('.p-worksCard[data-tag*="Design"]').slice(0, 9);// デザインタグを持つカードから最初の9枚を選択
-        break;
-      case 'js-worksCoding':
-        $visibleCards = $('.p-worksCard[data-tag*="Coding"]').slice(0, 9);// コーディングタグを持つカードから最初の9枚を選択
-        break;
-    }
+    // ボタン見た目切り替え
+    $('.p-works__menu button').removeClass('c-title--circle');
+    $(this).addClass('c-title--circle');
 
-    // カードを表示し、アニメーションを適用（選択されたカードに対して個別に処理）
-    $visibleCards.each(function(index) {
-      const $card = $(this);
-
-      // 現在のウィンドウ状態を取得
-      const windowScrollTop = $(window).scrollTop(); //現在のスクロール位置（ページ上部からどれだけスクロールしたか）
-      const windowHeight = $(window).height(); //ブラウザウィンドウの高さ
-      const cardOffsetTop = $card.offset().top; //カードの垂直方向の絶対位置（ページ上部からの距離）
-
-      // カードがビューポート内か判定
-      const isInViewport = 
-        cardOffsetTop >= windowScrollTop && //カードの上端が画面の一番上よりも下にある
-        cardOffsetTop < windowScrollTop + windowHeight; //カードの上端が画面の一番下よりも上にある
-
-      $card
-        .removeClass('hidden')
-        .show();
-
-      if (isInViewport) {
-        // ビューポート内のカードはスムーズにopacity変更
-        $card.css({
-          'transition': 'opacity 0.5s ease-in-out',
-          'opacity': 1
-        });
+    // ギャラリーを一旦フェードアウトしてから切り替え
+    $('.p-works__gallery').fadeTo(200, 0, function() {
+      // 絞り込み
+      if (tag === 'all') {
+        filteredItems = $items;
       } else {
-        // ビューポート外のカードは通常のフェードインアニメーション
-        $card
-          .removeClass('c-fadeIn--active')
-          .addClass('c-fadeIn js-fadeIn')
-          .css({
-            'opacity': '',
-            'visibility': '',
-            'position': ''
-          });
-
-        // 遅延アニメーション設定
-        const delay = (index % columnCount) * 0.2;
-        $card.css('transition-delay', delay + 's');
-      }
-    });
-
-    // 「もっと見る」ボタンの表示/非表示を制御
-    let selector = '';
-    switch(currentFilter) {
-      case 'js-worksAll':
-        selector = '.p-worksCard.hidden';
-        break;
-      case 'js-worksDesign':
-        selector = '.p-worksCard.hidden[data-tag*="Design"]';
-        break;
-      case 'js-worksCoding':
-        selector = '.p-worksCard.hidden[data-tag*="Coding"]';
-        break;
-    }
-    
-    const $hiddenCards = $(selector);
-    
-    if ($hiddenCards.length > 0) {
-      // 非表示のカードが1つ以上あれば「もっと見る」ボタンを表示
-      $('#works__btn').show();
-    } else {
-      // 非表示のカードがなければ「もっと見る」ボタンを非表示
-      $('#works__btn').hide();
-    }
-
-    // フィルタリング完了
-    setTimeout(() => {
-      // フィルタリング中フラグをOFFに
-      isFiltering = false;
-      // スクロールイベントを手動で発火
-      $(window).trigger('scroll');
-    }, 300);
-  });
-
-  // 「もっと見る」ボタン機能
-  $('#works__btn').on('click', function() {
-    // フィルタに応じて次の3件を表示
-    let selector = '';
-    switch(currentFilter) {
-      case 'js-worksAll':
-        selector = '.p-worksCard.hidden';
-        break;
-      case 'js-worksDesign':
-        selector = '.p-worksCard.hidden[data-tag*="Design"]';
-        break;
-      case 'js-worksCoding':
-        selector = '.p-worksCard.hidden[data-tag*="Coding"]';
-        break;
-    }
-  
-    // 次の3件（または残りのすべて）を表示
-    const $hiddenCards = $(selector);
-    const cardsToShow = Math.min($hiddenCards.length, 3);
-  
-    $hiddenCards.slice(0, cardsToShow).each(function(index) {
-      $(this)
-        .removeClass('hidden')
-        .removeClass('c-fadeIn--active')
-        .addClass('c-fadeIn js-fadeIn')
-        .show()
-        .css({
-          'opacity': '',
-          'visibility': '',
-          'position': ''
+        filteredItems = $items.filter(function() {
+          const tags = $(this).data('tag');
+          return tags && tags.toLowerCase().includes(tag);
         });
-      
-      // 遅延アニメーション設定（追加の3枚を順に表示）
-      const delay = (index % 3) * 0.2;
-      
-      $(this).css('transition-delay', delay + 's');
+      }
+
+      // 一旦全て非表示
+      $items.addClass('is-hidden is-visible');
+      // 絞り込み後に最初の9件だけ表示
+      filteredItems.slice(0, itemsPerPage).removeClass('is-hidden');
+      currentCount = itemsPerPage;
+      toggleMoreBtn();
+
+      // 0.2秒間隔でフェードイン
+      filteredItems.slice(0, itemsPerPage).each(function(i) {
+        const delay = i * 0.2;
+        $(this).css('transition-delay', `${delay}s`);
+        setTimeout(() => $(this).addClass('is-visible'), delay * 1000);
+        observer.observe(this);
+      });
+
+      // ギャラリーを再フェードイン
+      $('.p-works__gallery').fadeTo(300, 1);
     });
-  
-    // スクロールイベントを手動で発火
-    $(window).trigger('scroll');
-  
-    // すべての対象カードが表示されたらボタンを非表示
-    if ($hiddenCards.length === cardsToShow) {
-      $('#works__btn').hide();
-    }
   });
 
-  // リサイズ時に再計算
-  $(window).on('resize', function() {
-    // 現在のフィルタを再適用
-    $('#' + currentFilter).trigger('click');
-  });
+  // --- ボタンのON/OFF ---
+  function toggleMoreBtn() {
+    const hiddenCount = filteredItems.filter('.is-hidden').length;
+    $moreBtn.toggle(hiddenCount > 0);
+  }
 
-  // スクロールイベント
-  $(window).on('scroll', function() {
-    // フィルタリング中は何もしない
-    if (isFiltering) return;
-
-    // 画面の下から100pxの位置
-    const scrollTrigger = $(window).height() - 100;
-
-    // 各カードに対して処理
-    $('.p-worksCard:not(.c-fadeIn--active).js-fadeIn').each(function() {
-      const position = $(this).offset().top;
-      
-      // スクロール位置がカードの位置を超えたら
-      if ($(window).scrollTop() + scrollTrigger > position) {
-        $(this)
-          .addClass('c-fadeIn--active')
-          .removeClass('js-fadeIn');
+  // --- Intersection Observerで順番フェード ---
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const $target = $(entry.target);
+        if (!$target.hasClass('is-visible')) {
+          $target.addClass('is-visible');
+          observer.unobserve(entry.target);
+        }
       }
     });
+  }, { threshold: 0.1 });
+
+  // 各アイテムに監視設定とディレイ付与
+  $items.each(function(i) {
+    const delay = i * 0.2;
+    $(this).css({
+      transitionDelay: `${delay}s`
+    });
+    observer.observe(this);
   });
-
-  // 初期状態で「All」ボタンをアクティブに
-  $('#js-worksAll').addClass('c-title--circle').addClass('active');
 });
-
 
 
 ////制作実績ページスライダー(slick)////

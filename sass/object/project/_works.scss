@@ -48,18 +48,22 @@
     gap: fw.rem(60) ;
     margin-bottom: fw.rem( 40 );
     @include fw.mq("tab"){
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: fw.rem(60) fw.rem(40) ;
-      @include fw.mq("pc"){
-        grid-template-columns: repeat(3, 1fr);
-      }
     }
-    .p-works__item {
-      //opacity: 0;
-      transition: opacity 0.5s ease-in;
 
-      &.animated {
+    .js-galleryItem{
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+
+      &.is-visible {
         opacity: 1;
+        transform: translateY(0);
+      }
+
+      &.is-hidden {
+        display: none;
       }
       
       .p-works__link{
